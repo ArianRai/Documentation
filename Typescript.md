@@ -5,6 +5,12 @@ A strongly typed programming language that builds on JavaScript, giving you bett
 [TypeScript](https://www.typescriptlang.org) adds additional syntax to JavaScript to support a tighter integration with your editor.
 
 [Variables, Objects, Arrays, Tuples and Enums](#variables,-objects,-arrays,-tuples,-and-enums)
+[Functions](#functions)
+[Type Alias](#type-alias)
+[Type assertions](#type-assertions)
+[Union Types](#union-types)
+[Intersection Types](#intersection-types)
+
 ---
 
 ## Variables, Objects, Arrays, Tuples and Enums
