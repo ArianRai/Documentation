@@ -19,31 +19,10 @@ let d: boolean = true
 
 const myArray: string[] = []
 const mixedArray: (string | number)[] = []
-```
 
-## Union Types
+//Tuples are like arrays with fixed size and types
 
-```typescript
-let unionType: number | string
-```
-
-Tuples are like arrays with fixed size and types
-
-```typescript
 const myTuple: [string, number, string] = ['a', 6, 'c']
-
-type CellValue = 'X' | 'O' | ''
-type GameBoard = [
-	[CellValue, CellValue, CellValue],
-	[CellValue, CellValue, CellValue],
-	[CellValue, CellValue, CellValue]
-]
-
-const gameBoard: GameBoard = [
-	['X', '', 'X'],
-	['O', 'O', ''],
-	['', '', 'X'],
-]
 ```
 
 ## Functions
@@ -164,4 +143,57 @@ let z = x as Three
 
 let v = <Two>'hello'
 let w = <string>'hello'
+```
+
+## Union Types
+
+```typescript
+let unionType: number | string
+```
+
+## Intersection Types
+
+```typescript
+type PersonInfo = {
+	name: string
+	age: number
+}
+
+type PersonId = `${string}-${string}-${string}-${string}-${string}`
+type PersonJobLevel = 'student' | 'junior' | 'senior'
+
+type PersonProperties = {
+	readonly id?: PersonId
+	isActive?: boolean
+	jobLevel?: PersonJobLevel
+}
+
+type Person = PersonInfo & PersonProperties
+
+function createPerson(input: PersonInfo): Person {
+	const { name, age } = input
+	return { name, age, isActive: true }
+}
+
+const thor2 = createPerson({ name: 'Anthony', age: 45 })
+```
+
+## Using Tuples
+
+You can restrict a matrix using tuples with types per positions
+
+```typescript
+type CellValue = 'X' | 'O' | ''
+
+type GameBoard = [
+	[CellValue, CellValue, CellValue],
+	[CellValue, CellValue, CellValue],
+	[CellValue, CellValue, CellValue]
+]
+
+const gameBoard: GameBoard = [
+	['X', '', 'X'],
+	['O', 'O', ''],
+	['', '', 'X'],
+]
 ```
