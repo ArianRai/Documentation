@@ -20,8 +20,6 @@ function sayHi(name: string): void {
 }
 ```
 
----
-
 #### Typing objects as parameters
 
 ```typescript
@@ -36,8 +34,6 @@ function personInfo(person: { name: string; age: number }): number {
 	return age
 }
 ```
-
----
 
 #### Callbacks
 
