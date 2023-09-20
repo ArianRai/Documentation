@@ -6,12 +6,12 @@ A strongly typed programming language that builds on JavaScript, giving you bett
 
 ---
 
-## Variables, Objects, Arrays and Tuples
+## Variables, Objects, Arrays, Tuples and Enums
 
 TS infers the type if you don't specify it
 
 ```typescript
-let a = 'hello' //string
+let a = 'hello' // string
 
 let b: string = 'hello'
 let c: number = 5
@@ -20,9 +20,45 @@ let d: boolean = true
 const myArray: string[] = []
 const mixedArray: (string | number)[] = []
 
-//Tuples are like arrays with fixed size and types
+// Tuples are like arrays with fixed size and types
 
 const myTuple: [string, number, string] = ['a', 6, 'c']
+
+enum ERROR_TYPES {
+	NOT_FOUND = 'not found',
+	UNAUTHORIZED = 'unauthorized',
+	FORBIDDEN = 'forbidden',
+}
+```
+
+#### Any and Never
+
+If you don't specify nor initialize a variable, typescript assign `any` as type meanning anything can be assigned
+
+```typescript
+let b // any
+```
+
+In functions that don't have return, the return type is `never`
+
+```typescript
+const createError = (errMsg: string): never => {
+	throw new Error(errMsg)
+}
+```
+
+In other cases you have a part of a function that can't be reached by any type, in this case the type is `never`
+
+```typescript
+function fn(x: number | string) {
+	if (typeof x === 'string') {
+		x.toUpperCase()
+	} else if (typeof x === 'number') {
+		x.toFixed(2)
+	} else {
+		typeof x // never
+	}
+}
 ```
 
 ## Functions
@@ -94,7 +130,7 @@ type B = string | number
 type C = 'hello'
 ```
 
-You can have _optional properties_ on object types so is not mandatory to pass them at declaration and _readonly_ properties so it can´t be changed once declared
+You can have `optional properties` on object types so is not mandatory to pass them at declaration and `readonly` properties so it can´t be changed once declared
 
 ```typescript
 type Person = {
