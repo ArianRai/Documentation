@@ -18,47 +18,32 @@ let c: number = 5
 let d: boolean = true
 
 const myArray: string[] = []
+const mixedArray: (string | number)[] = []
+```
+
+## Union Types
+
+```typescript
+let unionType: number | string
 ```
 
 Tuples are like arrays with fixed size and types
 
 ```typescript
 const myTuple: [string, number, string] = ['a', 6, 'c']
-```
 
-## Type Alias
+type CellValue = 'X' | 'O' | ''
+type GameBoard = [
+	[CellValue, CellValue, CellValue],
+	[CellValue, CellValue, CellValue],
+	[CellValue, CellValue, CellValue]
+]
 
-```typescript
-type A = string
-type B = string | number
-type C = 'hello'
-```
-
-You can have _optional properties_ on object types so is not mandatory to pass them at declaration
-
-```typescript
-type Person = {
-	name: string
-	age: number
-	email?: string //? Optional property
-}
-```
-
-#### Type assertions
-
-You can specify more or less specific types
-
-```typescript
-type One = string
-type Two = string | number
-type Three = 'hello'
-
-let x: One = 'hello'
-let y = x as Two
-let z = x as Three
-
-let v = <Two>'hello'
-let w = <string>'hello'
+const gameBoard: GameBoard = [
+	['X', '', 'X'],
+	['O', 'O', ''],
+	['', '', 'X'],
+]
 ```
 
 ## Functions
@@ -120,4 +105,63 @@ const sayHi = (name: string) => {
 }
 
 sayHiFromFunction(sayHi)
+```
+
+## Type Alias
+
+```typescript
+type A = string
+type B = string | number
+type C = 'hello'
+```
+
+You can have _optional properties_ on object types so is not mandatory to pass them at declaration
+
+```typescript
+type Person = {
+	name: string
+	age: number
+	email?: string //? Optional property
+}
+
+const person: Person = {
+	name: 'Anthony'
+	age: 34
+}
+```
+
+Using a function to create the object of a specific type.
+You need to pass to the function the mandatory properties of the type as arguments. You can optionaly add the optional properties
+
+```typescript
+// Passing all the arguments individually
+function ceatePerson(name: string, age: number): Person {
+	return { name, age }
+}
+const person = createPerson('Anthony', 45)
+
+// Passing an object of the required type
+function ceatePerson(person: Person): Person {
+	const { name, age } = hero
+	return { name, age, email: 'ant@msn.com' }
+}
+
+const person = createPerson({ name: 'Anthony', age: 45 })
+```
+
+## Type assertions
+
+You can specify more or less specific types
+
+```typescript
+type One = string
+type Two = string | number
+type Three = 'hello'
+
+let x: One = 'hello'
+let y = x as Two
+let z = x as Three
+
+let v = <Two>'hello'
+let w = <string>'hello'
 ```
