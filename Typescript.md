@@ -8,20 +8,21 @@ A strongly typed programming language that builds on JavaScript, giving you bett
 
 ### Index
 
--   [Primitives](#primitives)
+-   [Basics](#basics)
+-   [Objects](#objects)
 -   [Arrays](#arrays)
 -   [Tuples and Enums](#tuples-and-enums)
--   [Any and Never](#any-and-never)
--   [Type Alias](#type-alias)
--   [Type assertions](#type-assertions)
--   [Union Types](#union-types)
--   [Intersection Types](#intersection-types)
--   [Indexed Access Types](#indexed-access-types)
+-   [Unions](#unions)
+-   [Intersections](#intersections)
 -   [Functions](#functions)
+-   [Any, void and never](#any-void-and-never)
+-   [Type Alias](#type-alias)
+-   [Interfaces](#interfaces)
+-   [Advanced Types](#advanced-types)
 
 ---
 
-## Primitives
+## Basics
 
 TS infers the type if you don't specify it
 
@@ -31,6 +32,23 @@ let a = 'hello' // string
 let b: string = 'hello'
 let c: number = 5
 let d: boolean = true
+```
+
+## Objects
+
+You can have `optional properties` on object types so is not mandatory to pass them at declaration and `readonly` properties so it can´t be changed once declared
+
+```typescript
+type Person = {
+	name: string
+	age: number
+	email?: string //? Optional property
+}
+
+const person: Person = {
+	name: 'Anthony'
+	age: 34
+}
 ```
 
 ## Arrays
@@ -58,6 +76,106 @@ enum ERROR_TYPES {
 }
 ```
 
+## Unions
+
+Describes a type which is one of many options, for example a list of known strings.
+
+```typescript
+type Size = 'small' | 'medium' | 'large'
+```
+
+## Intersections
+
+A way to merge/extend types
+
+```typescript
+type Location = { x: number } & { y: number }
+
+// { x: number, y: number }
+```
+
+## Functions
+
+Typescript sometimes can infer the type of the parameters and return pf the function, but most of the time you should type those by yourself
+
+Typing single parameters and the return
+
+```typescript
+function sayName(name: string): string {
+	return name
+}
+```
+
+#### Arrow Functions
+
+Type parameters and return at declaration
+
+```typescript
+const add = (a: number, b: number): number => {
+	return a + b
+}
+```
+
+Type function before declaration
+
+```typescript
+const substract: (a: number, b: number) => number = (a, b) => {
+	return a - b
+}
+```
+
+#### Callbacks
+
+```typescript
+const sayHiFromFunction = (fn: (name: string) => void) => {
+	fn('Anthony')
+}
+
+const sayHi = (name: string) => {
+	console.log(`Hola ${name}`)
+}
+
+sayHiFromFunction(sayHi)
+```
+
+## Any, void and never
+
+If you don't specify nor initialize a variable, typescript assign `any` as type meanning anything can be assigned
+
+```typescript
+let b // any
+```
+
+This function receives a string and does not return anything, so void
+
+```typescript
+function sayHi(name: string): void {
+	console.log(`Hello ${name}`)
+}
+```
+
+In functions that don't have return, the return type is `never`
+
+```typescript
+const createError = (errMsg: string): never => {
+	throw new Error(errMsg)
+}
+```
+
+In other cases you have a part of a function that can't be reached by any type, in this case the type is `never`
+
+```typescript
+function fn(x: number | string) {
+	if (typeof x === 'string') {
+		x.toUpperCase()
+	} else if (typeof x === 'number') {
+		x.toFixed(2)
+	} else {
+		typeof x // never
+	}
+}
+```
+
 ## Type Alias
 
 We’ve been using object types and union types by writing them directly in type annotations. This is convenient, but it’s common to want to use the same type more than once and refer to it by a single name.
@@ -68,6 +186,11 @@ A type alias is exactly that - a name for any type.
 type A = string
 type B = string | number
 type C = 'hello'
+
+type Person = {
+	name: string
+	age: number
+}
 ```
 
 ## Interfaces
@@ -109,153 +232,9 @@ type Bear = Animal & {
 }
 ```
 
-## Union
+## Advanced types
 
-Describes a type which is one of many options, for example a list of known strings.
-
-```typescript
-type Size = 'small' | 'medium' | 'large'
-```
-
-## Intersection
-
-A way to merge/extend types
-
-```typescript
-type Location = { x: number } & { y: number }
-
-// { x: number, y: number }
-```
-
-## Object Literals
-
-You can have `optional properties` on object types so is not mandatory to pass them at declaration and `readonly` properties so it can´t be changed once declared
-
-```typescript
-type Person = {
-	name: string
-	age: number
-	email?: string //? Optional property
-}
-
-const person: Person = {
-	name: 'Anthony'
-	age: 34
-}
-```
-
-Using a function to create the object of a specific type.
-You need to pass to the function only the mandatory properties of the type as arguments. You can optionaly add the optional properties
-
-```typescript
-// Passing all the arguments individually
-function ceatePerson(name: string, age: number): Person {
-	return { name, age }
-}
-const person = createPerson('Anthony', 45)
-
-// Passing an object of the required type
-function ceatePerson(person: Person): Person {
-	const { name, age } = person
-	return { name, age, email: 'ant@msn.com' }
-}
-
-const person = createPerson({ name: 'Anthony', age: 45 })
-```
-
-## Functions
-
-Typescript sometimes can infer the type of the parameters and return pf the function, but most of the time you should type those by yourself
-
-#### Typing single parameters and the return
-
-This function receives a string and does not return anything, so void
-
-```typescript
-function sayHi(name: string): void {
-	console.log(`Hello ${name}`)
-}
-```
-
-#### Arrow Functions
-
-Type parameters and return at declaration
-
-```typescript
-const add = (a: number, b: number): number => {
-	return a + b
-}
-```
-
-Type function before declaration
-
-```typescript
-const substract: (a: number, b: number) => number = (a, b) => {
-	return a - b
-}
-```
-
-#### Callbacks
-
-```typescript
-const sayHiFromFunction = (fn: (name: string) => void) => {
-	fn('Anthony')
-}
-
-const sayHi = (name: string) => {
-	console.log(`Hola ${name}`)
-}
-
-sayHiFromFunction(sayHi)
-```
-
-## Any and Never
-
-If you don't specify nor initialize a variable, typescript assign `any` as type meanning anything can be assigned
-
-```typescript
-let b // any
-```
-
-In functions that don't have return, the return type is `never`
-
-```typescript
-const createError = (errMsg: string): never => {
-	throw new Error(errMsg)
-}
-```
-
-In other cases you have a part of a function that can't be reached by any type, in this case the type is `never`
-
-```typescript
-function fn(x: number | string) {
-	if (typeof x === 'string') {
-		x.toUpperCase()
-	} else if (typeof x === 'number') {
-		x.toFixed(2)
-	} else {
-		typeof x // never
-	}
-}
-```
-
-## Indexed Access Types
-
-We can use an indexed access type to look up a specific subset of another type
-
-```typescript
-type Person = {
-	name: string
-	address: {
-		city: string
-		planet: string
-	}
-}
-
-type Address: Person['address']
-```
-
-## Type assertions
+### Type assertions
 
 You can specify more or less specific types
 
@@ -270,6 +249,22 @@ let z = x as Three
 
 let v = <Two>'hello'
 let w = <string>'hello'
+```
+
+### Indexed Access Types
+
+We can use an indexed access type to look up a specific subset of another type
+
+```typescript
+type Person = {
+	name: string
+	address: {
+		city: string
+		planet: string
+	}
+}
+
+type Address: Person['address']
 ```
 
 ### Types from values
@@ -287,6 +282,8 @@ type Address = typeof address
 
 ### Type from function return
 
+Re-use the return value from a function as a type.
+
 ```typescript
 function createAddress() {
 	return {
@@ -298,7 +295,7 @@ function createAddress() {
 type Address2 = ReturnType<typeof createAddress>
 ```
 
-## Using Tuples
+<!-- ## Using Tuples
 
 You can define a restricted matrix using tuples with fixed types per positions and values
 
@@ -316,4 +313,4 @@ const gameBoard: GameBoard = [
 	['O', 'O', ''],
 	['', '', 'X'],
 ]
-```
+``` -->
