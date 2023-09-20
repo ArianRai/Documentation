@@ -154,13 +154,13 @@ let unionType: number | string
 ## Intersection Types
 
 ```typescript
+type PersonId = `${string}-${string}-${string}-${string}-${string}`
+type PersonJobLevel = 'student' | 'junior' | 'senior'
+
 type PersonInfo = {
 	name: string
 	age: number
 }
-
-type PersonId = `${string}-${string}-${string}-${string}-${string}`
-type PersonJobLevel = 'student' | 'junior' | 'senior'
 
 type PersonProperties = {
 	readonly id?: PersonId
@@ -180,7 +180,7 @@ const thor2 = createPerson({ name: 'Anthony', age: 45 })
 
 ## Using Tuples
 
-You can restrict a matrix using tuples with types per positions
+You can define a restricted matrix using tuples with fixed types per positions and values
 
 ```typescript
 type CellValue = 'X' | 'O' | ''
