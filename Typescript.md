@@ -33,6 +33,100 @@ let c: number = 5
 let d: boolean = true
 ```
 
+## Arrays
+
+```typescript
+const myArray: string[] = []
+const mixedArray: (string | number)[] = []
+```
+
+## Tuples and Enums
+
+A tuple is a special-cased array with known types at specific indexes.
+
+```typescript
+const myTuple: [string, number, string] = ['a', 6, 'c']
+```
+
+Enums:
+
+```typescript
+enum ERROR_TYPES {
+	NOT_FOUND = 'not found',
+	UNAUTHORIZED = 'unauthorized',
+	FORBIDDEN = 'forbidden',
+}
+```
+
+## Type Alias
+
+We’ve been using object types and union types by writing them directly in type annotations. This is convenient, but it’s common to want to use the same type more than once and refer to it by a single name.
+
+A type alias is exactly that - a name for any type.
+
+```typescript
+type A = string
+type B = string | number
+type C = 'hello'
+```
+
+## Interfaces
+
+An interface declaration is another way to name an object type
+
+```typescript
+interface Point {
+	x: number
+	y: number
+}
+```
+
+### Differences Between Type Aliases and Interfaces
+
+Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an interface are available in type, the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable.
+
+#### Extending an interface using `extends`
+
+```typescript
+interface Animal {
+	name: string
+}
+
+interface Bear extends Animal {
+	honey: boolean
+}
+```
+
+#### Extending a type using `intersections`
+
+```typescript
+type Animal = {
+	name: string
+}
+
+type Bear = Animal & {
+	honey: boolean
+}
+```
+
+## Union
+
+Describes a type which is one of many options, for example a list of known strings.
+
+```typescript
+type Size = 'small' | 'medium' | 'large'
+```
+
+## Intersection
+
+A way to merge/extend types
+
+```typescript
+type Location = { x: number } & { y: number }
+
+// { x: number, y: number }
+```
+
 ## Object Literals
 
 You can have `optional properties` on object types so is not mandatory to pass them at declaration and `readonly` properties so it can´t be changed once declared
@@ -67,31 +161,6 @@ function ceatePerson(person: Person): Person {
 }
 
 const person = createPerson({ name: 'Anthony', age: 45 })
-```
-
-## Arrays
-
-```typescript
-const myArray: string[] = []
-const mixedArray: (string | number)[] = []
-```
-
-## Tuples and Enums
-
-A tuple is a special-cased array with known types at specific indexes.
-
-```typescript
-const myTuple: [string, number, string] = ['a', 6, 'c']
-```
-
-Enums:
-
-```typescript
-enum ERROR_TYPES {
-	NOT_FOUND = 'not found',
-	UNAUTHORIZED = 'unauthorized',
-	FORBIDDEN = 'forbidden',
-}
 ```
 
 ## Functions
@@ -167,75 +236,6 @@ function fn(x: number | string) {
 	} else {
 		typeof x // never
 	}
-}
-```
-
-## Union
-
-Describes a type which is one of many options, for example a list of known strings.
-
-```typescript
-type Size = 'small' | 'medium' | 'large'
-```
-
-## Intersection
-
-A way to merge/extend types
-
-```typescript
-type Location = { x: number } & { y: number }
-
-// { x: number, y: number }
-```
-
-## Type Alias
-
-We’ve been using object types and union types by writing them directly in type annotations. This is convenient, but it’s common to want to use the same type more than once and refer to it by a single name.
-
-A type alias is exactly that - a name for any type.
-
-```typescript
-type A = string
-type B = string | number
-type C = 'hello'
-```
-
-## Interfaces
-
-An interface declaration is another way to name an object type
-
-```typescript
-interface Point {
-	x: number
-	y: number
-}
-```
-
-### Differences Between Type Aliases and Interfaces
-
-Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an interface are available in type, the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable.
-
-#### Extending an interface using `extends`
-
-```typescript
-interface Animal {
-	name: string
-}
-
-interface Bear extends Animal {
-	honey: boolean
-}
-```
-
-#### Extending a type using `intersections`
-
-```typescript
-type Animal = {
-	name: string
-}
-
-type Bear = Animal & {
-	honey: boolean
 }
 ```
 
