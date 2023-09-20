@@ -30,7 +30,7 @@ function personInfo({ name, age }: { name: string; age: number }): number {
 
 ```typescript
 function personInfo(person: { name: string; age: number }): number {
-	const { name, age } = persona
+	const { name, age } = person
 	return age
 }
 ```
