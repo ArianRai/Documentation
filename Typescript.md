@@ -6,6 +6,61 @@ A strongly typed programming language that builds on JavaScript, giving you bett
 
 ---
 
+## Variables, Objects, Arrays and Tuples
+
+TS infers the type if you don't specify it
+
+```typescript
+let a = 'hello' //string
+
+let b: string = 'hello'
+let c: number = 5
+let d: boolean = true
+
+const myArray: string[] = []
+```
+
+Tuples are like arrays with fixed size and types
+
+```typescript
+const myTuple: [string, number, string] = ['a', 6, 'c']
+```
+
+## Type Alias
+
+```typescript
+type A = string
+type B = string | number
+type C = 'hello'
+```
+
+You can have _optional properties_ on object types so is not mandatory to pass them at declaration
+
+```typescript
+type Person = {
+	name: string
+	age: number
+	email?: string //? Optional property
+}
+```
+
+#### Type assertions
+
+You can specify more or less specific types
+
+```typescript
+type One = string
+type Two = string | number
+type Three = 'hello'
+
+let x: One = 'hello'
+let y = x as Two
+let z = x as Three
+
+let v = <Two>'hello'
+let w = <string>'hello'
+```
+
 ## Functions
 
 Typescript sometimes can infer the type of the parameters and return pf the function, but most of the time you should type those by yourself
