@@ -157,7 +157,7 @@ const person = createPerson('Anthony', 45)
 
 // Passing an object of the required type
 function ceatePerson(person: Person): Person {
-	const { name, age } = hero
+	const { name, age } = person
 	return { name, age, email: 'ant@msn.com' }
 }
 
