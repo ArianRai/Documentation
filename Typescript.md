@@ -1,6 +1,7 @@
 # TypeScript CheatSheet
 
 [Official TypeScript Documentation](https://www.typescriptlang.org/docs/)
+
 ---
 
 ### Index
