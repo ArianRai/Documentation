@@ -75,6 +75,24 @@ function sayHi(name: string): void {
 }
 ```
 
+#### Arrow Functions
+
+Type parameters and return at declaration
+
+```typescript
+const add = (a: number, b: number): number => {
+	return a + b
+}
+```
+
+Type function before declaration
+
+```typescript
+const substract: (a: number, b: number) => number = (a, b) => {
+	return a - b
+}
+```
+
 #### Typing objects as parameters
 
 ```typescript
