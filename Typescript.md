@@ -2,6 +2,8 @@
 
 [Official TypeScript Documentation](https://www.typescriptlang.org/docs/)
 
+[TypeScript Roadmap](https://roadmap.sh/typescript)
+
 ---
 
 ### Index
