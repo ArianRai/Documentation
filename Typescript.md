@@ -94,7 +94,7 @@ type B = string | number
 type C = 'hello'
 ```
 
-You can have _optional properties_ on object types so is not mandatory to pass them at declaration
+You can have _optional properties_ on object types so is not mandatory to pass them at declaration and _readonly_ properties so it can´t be changed once declared
 
 ```typescript
 type Person = {
