@@ -1,4 +1,4 @@
-# TypeScript CheatSheet
+# TypeScript Cheatsheet
 
 [Official TypeScript Documentation](https://www.typescriptlang.org/docs/)
 
@@ -249,6 +249,12 @@ let z = x as Three
 
 let v = <Two>'hello'
 let w = <string>'hello'
+```
+
+Non-null assertion
+
+```typescript
+const img = document.getElementById('#img')! // Telling Ts this is not null
 ```
 
 ### Indexed Access Types
