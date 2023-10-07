@@ -138,7 +138,7 @@ const sayHi = (name: string) => {
 sayHiFromFunction(sayHi)
 ```
 
-## Any, void and never
+## Any, void and never types
 
 If you don't specify nor initialize a variable, typescript assign `any` as type meanning anything can be assigned
 
@@ -176,7 +176,7 @@ function fn(x: number | string) {
 }
 ```
 
-## Type Alias
+## Type Aliases
 
 We’ve been using object types and union types by writing them directly in type annotations. This is convenient, but it’s common to want to use the same type more than once and refer to it by a single name.
 
@@ -204,7 +204,7 @@ interface Point {
 }
 ```
 
-### Differences Between Type Aliases and Interfaces
+### Differences between Type Aliases and Interfaces
 
 Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an interface are available in type, the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable.
 
@@ -232,7 +232,7 @@ type Bear = Animal & {
 }
 ```
 
-## Advanced types
+## More about types
 
 ### Type assertions
 
