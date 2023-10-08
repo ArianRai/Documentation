@@ -301,7 +301,7 @@ function createAddress() {
 type Address2 = ReturnType<typeof createAddress>
 ```
 
-<!-- ## Using Tuples
+## Tuples Example
 
 You can define a restricted matrix using tuples with fixed types per positions and values
 Here is an example of a grid for a Tic Tac Toe Game
@@ -320,4 +320,4 @@ const gameBoard: GameBoard = [
 	['O', 'O', ''],
 	['', '', 'X'],
 ]
-``` -->
+```
