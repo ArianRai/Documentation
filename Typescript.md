@@ -76,6 +76,7 @@ enum ERROR_TYPES {
 }
 ```
 
+
 ## Unions
 
 Describes a type which is one of many options, for example a list of known strings.
