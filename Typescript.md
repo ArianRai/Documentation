@@ -18,7 +18,7 @@
 -   [Any, void and never](#any-void-and-never)
 -   [Type Alias](#type-alias)
 -   [Interfaces](#interfaces)
--   [Advanced Types](#advanced-types)
+-   [More About Types](#more-about-types)
 
 ---
 
