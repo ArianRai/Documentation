@@ -101,6 +101,36 @@ class UserShort {
 //Typescript will automatically generate the properties
 ```
 
+## Map
+
+Declaring a new Map
+
+```typescript
+type Name = string
+type Score = number
+
+const testScores: Map<Name, Score> = new Map()
+```
+
+Operations with `Maps`
+
+```typescript
+// insert new pair
+testScores.set('Alice', 96)
+testScores.set('Bob', 88)
+
+// remove pair based on key
+testScores.delete('Bob')
+
+// iterate over pairs
+for (const [name, score] of testScores) {
+	console.log(`${name} score is ${score}`)
+}
+
+// empty the map
+testScores.clear()
+```
+
 ## Unions
 
 Describes a type which is one of many options, for example a list of known strings.
