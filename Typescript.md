@@ -76,6 +76,30 @@ enum ERROR_TYPES {
 }
 ```
 
+## Classes
+
+```typescript
+class User {
+	private name: string
+	private surname: string
+	private age: number
+
+	constructor(name: string, surname: string, age: number) {
+		this.name = name
+		this.surname = surname
+		this.age = age
+	}
+}
+```
+
+In Typescript there is a shorthand to create and assign class properties from constructor params
+
+```typescript
+class UserShort {
+	constructor(private name: string, private surname: string, private age: number) {}
+}
+//Typescript will automatically generate the properties
+```
 
 ## Unions
 
@@ -102,6 +126,7 @@ Typescript sometimes can infer the type of the parameters and return pf the func
 Typing single parameters and the return
 
 ```typescript
+//function name(param: type, param: type): returnType {}
 function sayName(name: string): string {
 	return name
 }
