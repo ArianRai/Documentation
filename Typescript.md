@@ -30,7 +30,6 @@ TS infers the type if you don't specify it
 
 ```typescript
 let a = 'hello' // string
-
 let b: string = 'hello'
 let c: number = 5
 let d: boolean = true
@@ -134,6 +133,13 @@ Describes a type which is one of many options, for example a list of known strin
 
 ```typescript
 type Size = 'small' | 'medium' | 'large'
+
+type Title = string
+type PublishYear = number
+
+// Defining a type from type unions
+
+type Data = Title | PublishYear // string | number
 ```
 
 ## Intersections
