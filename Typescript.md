@@ -122,11 +122,6 @@ testScores.set('Bob', 88)
 // remove pair based on key
 testScores.delete('Bob')
 
-// iterate over pairs
-for (const [name, score] of testScores) {
-	console.log(`${name} score is ${score}`)
-}
-
 // empty the map
 testScores.clear()
 ```
