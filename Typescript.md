@@ -12,6 +12,8 @@
 -   [Objects](#objects)
 -   [Arrays](#arrays)
 -   [Tuples and Enums](#tuples-and-enums)
+-   [Classes](#classes)
+-   [Map](#map)
 -   [Unions](#unions)
 -   [Intersections](#intersections)
 -   [Functions](#functions)
@@ -112,7 +114,7 @@ type Score = number
 const testScores: Map<Name, Score> = new Map()
 ```
 
-Operations with `Maps`
+Operations with `Map`
 
 ```typescript
 // insert new pair
