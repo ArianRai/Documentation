@@ -17,7 +17,7 @@
 -   [Unions](#unions)
 -   [Intersections](#intersections)
 -   [Functions](#functions)
--   [Any, void and never](#any-void-and-never)
+-   [Any, void and never](#any-void-and-never-types)
 -   [Type Alias](#type-alias)
 -   [Interfaces](#interfaces)
 -   [More About Types](#more-about-types)
@@ -61,7 +61,7 @@ const mixedArray: (string | number)[] = []
 
 ## Tuples and Enums
 
-A tuple is a special-cased array with known types at specific indexes.
+A tuple type is another sort of Array type that knows exactly how many elements it contains, and exactly which types it contains at specific positions.
 
 ```typescript
 const myTuple: [string, number, string] = ['a', 6, 'c']
@@ -69,11 +69,21 @@ const myTuple: [string, number, string] = ['a', 6, 'c']
 
 Enums:
 
+There are numeric and string-based enums in TS.
+
 ```typescript
 enum ERROR_TYPES {
 	NOT_FOUND = 'not found',
 	UNAUTHORIZED = 'unauthorized',
 	FORBIDDEN = 'forbidden',
+}
+
+// Numeric enum members are auto-incremented from the initial value
+enum Direction {
+	Up = 1,
+	Down,
+	Left,
+	Right,
 }
 ```
 
@@ -97,7 +107,7 @@ In Typescript there is a shorthand to create and assign class properties from co
 
 ```typescript
 class UserShort {
-	constructor(private name: string, private surname: string, private age: number) {}
+	constructor(public name: string, private surname: string, protected age: number) {}
 }
 //Typescript will automatically generate the properties
 ```
