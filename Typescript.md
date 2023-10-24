@@ -375,7 +375,7 @@ type Address: Person['address']
 
 ### Type guards / Narrowing
 
-`typeof` operator : returns a string value representing the type of the variable.
+`typeof` : returns a string value representing the type of the variable.
 
 ```typescript
 const address = {
@@ -386,7 +386,7 @@ const address = {
 type Address = typeof address
 ```
 
-`instanceof` operator : checks if an object is an instance of a class.
+`instanceof` : checks if an object is an instance of a class.
 
 ```typescript
 class Bird {
