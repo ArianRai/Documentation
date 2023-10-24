@@ -15,7 +15,6 @@
 -   [Classes](#classes)
 -   [Map](#map)
 -   [Combining Types](#combining-types)
--   [Intersections](#intersections)
 -   [Functions](#functions)
 -   [Any, void and never](#any-void-and-never-types)
 -   [Type Aliases](#type-aliases)
@@ -67,8 +66,7 @@ A tuple type is another sort of Array type that knows exactly how many elements 
 const myTuple: [string, number, string] = ['a', 6, 'c']
 ```
 
-Enums:
-
+Enums are sets of named constants.
 There are numeric and string-based enums in TS.
 
 ```typescript
@@ -146,10 +144,10 @@ Describes a type which is one of many options, for example a list of known strin
 ```typescript
 type Size = 'small' | 'medium' | 'large'
 
+// Defining a type from union of types
+
 type Title = string
 type PublishYear = number
-
-// Defining a type from type unions
 
 type Data = Title | PublishYear // string | number
 ```
@@ -375,9 +373,9 @@ type Person = {
 type Address: Person['address']
 ```
 
-### Types from values
+### Type guards / Narrowing
 
-Re-use the type from an existing value via thetypeof operator.
+`typeof` operator : returns a string value representing the type of the variable.
 
 ```typescript
 const address = {
@@ -388,17 +386,18 @@ const address = {
 type Address = typeof address
 ```
 
-### Type from function return
-
-Re-use the return value from a function as a type.
+`instanceof` operator : checks if an object is an instance of a class.
 
 ```typescript
-function createAddress() {
-	return {
-		city: 'Madrid',
-		planet: 'Mars',
+class Bird {
+	fly() {
+		console.log('flying...')
 	}
 }
 
-type Address2 = ReturnType<typeof createAddress>
+const pet = new Bird()
+
+if (pet instanceof Bird) {
+	pet.fly()
+}
 ```
