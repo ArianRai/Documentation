@@ -18,7 +18,7 @@
 -   [Intersections](#intersections)
 -   [Functions](#functions)
 -   [Any, void and never](#any-void-and-never-types)
--   [Type Alias](#type-alias)
+-   [Type Aliases](#type-aliases)
 -   [Interfaces](#interfaces)
 -   [More About Types](#more-about-types)
 
@@ -114,7 +114,7 @@ class UserShort {
 
 ## Map
 
-Declaring a new Map
+Declaring a new `Map`
 
 ```typescript
 type Name = string
@@ -215,7 +215,7 @@ If you don't specify nor initialize a variable, typescript assign `any` as type 
 let b // any
 ```
 
-This function receives a string and does not return anything, so void
+This function receives a string and does not return anything, so `void`
 
 ```typescript
 function sayHi(name: string): void {
@@ -305,7 +305,15 @@ type Bear = Animal & {
 
 ### Type assertions
 
-You can specify more or less specific types
+`as const` : The expression has a specifyc type, and its value should be treated as readonly value
+
+```typescript
+const colors = ['red', 'blue', 'green'] as const
+
+// colors is now of type readonly ['red', 'blue', 'green']
+```
+
+`as [type]` : You can specify more or less specific types with assertions
 
 ```typescript
 type One = string
@@ -320,7 +328,15 @@ let v = <Two>'hello'
 let w = <string>'hello'
 ```
 
-Non-null assertion
+`as any` : Represents a value of any type
+
+If you want to allow more complex coercion you can use two assertions, first to `any` or `unknown`, then to the desired type
+
+```typescript
+const x = 'hello' as any as number
+```
+
+Non-null assertion `!`
 
 ```typescript
 const img = document.getElementById('#img')! // Telling Ts this is not null
