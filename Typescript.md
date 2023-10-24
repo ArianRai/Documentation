@@ -143,6 +143,8 @@ testScores.clear()
 Describes a type which is one of many options, for example a list of known strings.
 
 ```typescript
+// Defining a type from union of type literals
+
 type Size = 'small' | 'medium' | 'large'
 
 // Defining a type from union of types
@@ -185,7 +187,8 @@ Typescript sometimes can infer the type of the parameters and return pf the func
 Typing single parameters and the return
 
 ```typescript
-//function name(param: type, param: type): returnType {}
+function name(param: type, param: type): returnType {}
+
 function sayName(name: string): string {
 	return name
 }
@@ -207,20 +210,6 @@ Type function before declaration
 const substract: (a: number, b: number) => number = (a, b) => {
 	return a - b
 }
-```
-
-#### Callbacks
-
-```typescript
-const sayHiFromFunction = (fn: (name: string) => void) => {
-	fn('Anthony')
-}
-
-const sayHi = (name: string) => {
-	console.log(`Hola ${name}`)
-}
-
-sayHiFromFunction(sayHi)
 ```
 
 ## Any, void and never types
@@ -280,7 +269,7 @@ type Person = {
 
 ## Interfaces
 
-An interface declaration is another way to name an object type
+Interfaces provide a way to define a contract for a type, which includes a set of properties, methods, and events. It’s used to enforce a structure for an object, class, or function argument.
 
 ```typescript
 interface Point {
@@ -407,12 +396,47 @@ if (pet instanceof Bird) {
 
 ### Equality
 
+TypeScript also uses switch statements and equality checks like `===`, `!==`, `==`, and `!=` to narrow types.
+
 ```typescript
 function example(x: string | number, y: string | boolean) {
 	if (x === y) {
 		// We can now call any 'string' method on 'x' or 'y'.
 		x.toUpperCase()
 		y.toLowerCase()
+	}
+}
+```
+
+### Truthiness
+
+We can use any expression in conditionals like `&&`, `||`, `!`, or `if` statements.
+
+```typescript
+function printAll(strs: string | string[] | null) {
+	if (strs && typeof strs === 'object') {
+		// we get rid of an error because typeof null => 'object'
+		for (const s of strs) {
+			console.log(s)
+		}
+	} else if (typeof strs === 'string') {
+		console.log(strs)
+	}
+}
+```
+
+### Type Predicates
+
+Type predicates are functions that return a boolean value. They are used to narrow the type of a variable. Type predicates are used in type guards.
+
+```typescript
+function isString(value: unknown): value is string {
+	return typeof value === 'string'
+}
+
+function example(x: unknown) {
+	if (isString(x)) {
+		x.toUpperCase() // We can now call any 'string' method on 'x'.
 	}
 }
 ```
