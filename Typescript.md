@@ -20,6 +20,7 @@
 -   [Type Aliases](#type-aliases)
 -   [Interfaces](#interfaces)
 -   [More About Types](#more-about-types)
+-   [Type Guards / Narrowing](#type-guards--narrowing)
 
 ---
 
