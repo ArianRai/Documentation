@@ -292,7 +292,7 @@ interface Point {
 
 Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an interface are available in type, the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable.
 
-#### Extending an interface using `extends`
+#### Extending an interface using _extends_
 
 ```typescript
 interface Animal {
@@ -304,7 +304,7 @@ interface Bear extends Animal {
 }
 ```
 
-#### Extending a type using `intersections`
+#### Extending a type using _intersections_
 
 ```typescript
 type Animal = {
@@ -373,7 +373,9 @@ type Person = {
 type Address: Person['address']
 ```
 
-### Type guards / Narrowing
+## Type guards / Narrowing
+
+### _typeof_ and _instanceof_ operators
 
 `typeof` : returns a string value representing the type of the variable.
 
@@ -399,5 +401,17 @@ const pet = new Bird()
 
 if (pet instanceof Bird) {
 	pet.fly()
+}
+```
+
+### Equality
+
+```typescript
+function example(x: string | number, y: string | boolean) {
+	if (x === y) {
+		// We can now call any 'string' method on 'x' or 'y'.
+		x.toUpperCase()
+		y.toLowerCase()
+	}
 }
 ```
