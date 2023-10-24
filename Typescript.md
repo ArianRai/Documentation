@@ -14,7 +14,7 @@
 -   [Tuples and Enums](#tuples-and-enums)
 -   [Classes](#classes)
 -   [Map](#map)
--   [Unions](#unions)
+-   [Combining Types](#combining-types)
 -   [Intersections](#intersections)
 -   [Functions](#functions)
 -   [Any, void and never](#any-void-and-never-types)
@@ -137,7 +137,9 @@ testScores.delete('Bob')
 testScores.clear()
 ```
 
-## Unions
+## Combining Types
+
+### Unions
 
 Describes a type which is one of many options, for example a list of known strings.
 
@@ -152,7 +154,7 @@ type PublishYear = number
 type Data = Title | PublishYear // string | number
 ```
 
-## Intersections
+### Intersections
 
 A way to merge/extend types
 
@@ -160,6 +162,21 @@ A way to merge/extend types
 type Location = { x: number } & { y: number }
 
 // { x: number, y: number }
+```
+
+### keyof operator
+
+The keyof operator in TypeScript is used to get the union of keys from an object type.
+
+```typescript
+interface User {
+	name: string
+	age: number
+	location: string
+}
+
+type UserKeys = keyof User // "name" | "age" | "location"
+const key: UserKeys = 'name'
 ```
 
 ## Functions
