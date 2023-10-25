@@ -90,13 +90,11 @@ enum Direction {
 
 ```typescript
 class User {
-	private name: string
-	private surname: string
+	public name: string
 	private age: number
 
-	constructor(name: string, surname: string, age: number) {
+	constructor(name: string, age: number) {
 		this.name = name
-		this.surname = surname
 		this.age = age
 	}
 }
@@ -106,7 +104,7 @@ In Typescript there is a shorthand to create and assign class properties from co
 
 ```typescript
 class UserShort {
-	constructor(public name: string, private surname: string, protected age: number) {}
+	constructor(public name: string, private age: number) {}
 }
 //Typescript will automatically generate the properties
 ```
