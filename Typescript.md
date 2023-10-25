@@ -89,15 +89,19 @@ enum Direction {
 ## Classes
 
 ```typescript
-class User {
-	public name: string
-	private age: number
-
-	constructor(name: string, age: number) {
+class Animal {
+	name: string
+	constructor(name: string) {
 		this.name = name
-		this.age = age
+	}
+
+	makeSound(): void {
+		console.log(`${this.name} is making a sound`)
 	}
 }
+
+const dog = new Animal('Dog')
+dog.makeSound() // Output: Dog is making a sound
 ```
 
 In Typescript there is a shorthand to create and assign class properties from constructor params
