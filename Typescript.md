@@ -21,6 +21,7 @@
 -   [Interfaces](#interfaces)
 -   [More About Types](#more-about-types)
 -   [Type Guards / Narrowing](#type-guards--narrowing)
+-   [Generics](#genrics)
 
 ---
 
@@ -442,3 +443,5 @@ function example(x: unknown) {
 	}
 }
 ```
+
+## Generics
