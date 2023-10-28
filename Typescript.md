@@ -44,7 +44,7 @@ You can have `optional properties` on object types so is not mandatory to pass t
 type Person = {
 	name: string
 	age: number
-	email?: string //? Optional property
+	email?: string //? Optional property operator
 }
 
 const person: Person = {
