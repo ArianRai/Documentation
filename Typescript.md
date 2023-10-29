@@ -6,7 +6,7 @@
 
 ---
 
-### Index
+## Index
 
 -   [Basics](#basics)
 -   [Objects](#objects)
