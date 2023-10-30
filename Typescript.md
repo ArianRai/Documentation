@@ -62,7 +62,7 @@ const mixedArray: (string | number)[] = []
 
 ## Tuples and Enums
 
-A tuple type is another sort of Array type that knows exactly how many elements it contains, and exactly which types it contains at specific positions.
+A tuple is another sort of Array type that knows exactly how many elements it contains, and exactly which types it contains at specific positions.
 
 ```typescript
 const myTuple: [string, number, string] = ['a', 6, 'c']
