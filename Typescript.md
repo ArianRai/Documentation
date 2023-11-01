@@ -116,28 +116,7 @@ class UserShort {
 
 ## Maps
 
-Declaring a new `Map`
 
-```typescript
-type Name = string
-type Score = number
-
-const testScores: Map<Name, Score> = new Map()
-```
-
-Operations with `Map`
-
-```typescript
-// insert new pair
-testScores.set('Alice', 96)
-testScores.set('Bob', 88)
-
-// remove pair based on key
-testScores.delete('Bob')
-
-// empty the map
-testScores.clear()
-```
 
 ## Combining Types
 
