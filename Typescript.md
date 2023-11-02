@@ -6,7 +6,7 @@
 
 ---
 
-### Index
+## Index
 
 -   [Basics](#basics)
 -   [Objects](#objects)
@@ -44,7 +44,7 @@ You can have `optional properties` on object types so is not mandatory to pass t
 type Person = {
 	name: string
 	age: number
-	email?: string //? Optional property
+	email?: string //? Optional property operator
 }
 
 const person: Person = {
@@ -62,7 +62,7 @@ const mixedArray: (string | number)[] = []
 
 ## Tuples and Enums
 
-A tuple type is another sort of Array type that knows exactly how many elements it contains, and exactly which types it contains at specific positions.
+A tuple is another sort of Array type that knows exactly how many elements it contains, and exactly which types it contains at specific positions.
 
 ```typescript
 const myTuple: [string, number, string] = ['a', 6, 'c']
@@ -114,7 +114,7 @@ class UserShort {
 //Typescript will automatically generate the properties
 ```
 
-## Map
+## Maps
 
 Declaring a new `Map`
 
