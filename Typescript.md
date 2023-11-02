@@ -445,3 +445,13 @@ function example(x: unknown) {
 ```
 
 ## Generics
+
+Generics in TypeScript are a way to write code that can work with multiple data types, instead of being limited to a single data type.
+
+```typescript
+function identity<T>(arg: T): T {
+	return arg
+}
+
+let output = identity<string>('Hello')
+```
