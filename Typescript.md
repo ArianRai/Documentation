@@ -155,7 +155,7 @@ type Size = 'small' | 'medium' | 'large'
 type Title = string
 type PublishYear = number
 
-type Data = Title | PublishYear // string | number
+type Data = Title | PublishYear // string | number 
 ```
 
 ### Intersections
