@@ -18,7 +18,7 @@
 -   [Functions](#functions)
 -   [Any, void and never](#any-void-and-never-types)
 -   [Type Aliases](#type-aliases)
--   [Interfaces](#interfaces)
+-   [Interfaces](#interfaces
 -   [More About Types](#more-about-types)
 -   [Type Guards / Narrowing](#type-guards--narrowing)
 -   [Generics](#genrics)
