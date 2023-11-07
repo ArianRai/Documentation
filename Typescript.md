@@ -102,7 +102,7 @@ class Animal {
 }
 
 const dog = new Animal('Dog')
-dog.makeSound() // Output: Dog is making a sound
+dog.makeSound() // Output: Dog is making sounds
 ```
 
 In Typescript there is a shorthand to create and assign class properties from constructor params
@@ -155,7 +155,7 @@ type Size = 'small' | 'medium' | 'large'
 type Title = string
 type PublishYear = number
 
-type Data = Title | PublishYear // string | number
+type Data = Title | PublishYear // string | number 
 ```
 
 ### Intersections
@@ -418,7 +418,7 @@ We can use any expression in conditionals like `&&`, `||`, `!`, or `if` statemen
 ```typescript
 function printAll(strs: string | string[] | null) {
 	if (strs && typeof strs === 'object') {
-		// we get rid of an error because typeof null => 'object'
+		// checking if it's not null AND if it's an array, we get rid of an error because typeof null => 'object'
 		for (const s of strs) {
 			console.log(s)
 		}
