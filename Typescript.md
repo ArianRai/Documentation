@@ -418,7 +418,7 @@ We can use any expression in conditionals like `&&`, `||`, `!`, or `if` statemen
 ```typescript
 function printAll(strs: string | string[] | null) {
 	if (strs && typeof strs === 'object') {
-		// we get rid of an error because typeof null => 'object'
+		// checking if it's not null AND if it's an array, we get rid of an error because typeof null => 'object'
 		for (const s of strs) {
 			console.log(s)
 		}
