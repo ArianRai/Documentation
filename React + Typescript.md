@@ -1,1 +1,1 @@
-# GraphQL
+# React + Typescript
