@@ -217,7 +217,7 @@ const substract: (a: number, b: number) => number = (a, b) => {
 
 ## Any, void and never types
 
-If you don't specify nor initialize a variable, typescript assign `any` as type meanning anything can be assigned
+If you don't specify nor initialize a variable, typescript will assign `any` as type meanning anything can be assigned
 
 ```typescript
 let b // any
