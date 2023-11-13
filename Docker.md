@@ -3,8 +3,8 @@
 To run docker without sudo
 
 ```bash
-	sudo usermod -aG docker $USER
-	newgrp docker #Refresh the terminal
+sudo usermod -aG docker $USER
+newgrp docker #Refresh the terminal
 ```
 
 ## Images
@@ -12,6 +12,6 @@ To run docker without sudo
 List all images
 
 ```bash
-	sudo docker images
-	docker images
+sudo docker images
+docker images
 ```
