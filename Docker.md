@@ -7,6 +7,11 @@ To run docker without sudo
 	newgrp docker #Refresh the terminal
 ```
 
+## Images
+
+List all images
+
 ```bash
-	docker ps
+	sudo docker images
+	docker images
 ```
