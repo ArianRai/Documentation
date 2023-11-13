@@ -217,7 +217,7 @@ const substract: (a: number, b: number) => number = (a, b) => {
 
 ## Any, void and never types
 
-If you don't specify nor initialize a variable, typescript assign `any` as type meanning anything can be assigned
+If you don't specify nor initialize a variable, typescript will assign `any` as type meanning anything can be assigned
 
 ```typescript
 let b // any
@@ -255,7 +255,7 @@ function fn(x: number | string) {
 
 ## Type Aliases
 
-We’ve been using object types and union types by writing them directly in type annotations. This is convenient, but it’s common to want to use the same type more than once and refer to it by a single name.
+Instead of using object types and union types by writing them directly in type annotations, it’s common to use the same type more than once and refer to it by a single name.
 
 A type alias is exactly that - a name for any type.
 
