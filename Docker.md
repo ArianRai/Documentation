@@ -12,6 +12,21 @@ newgrp docker #Refresh the terminal
 List local images
 
 ```bash
-	sudo docker images
-	docker images
+docker images
+docker image ls
+```
+
+Building images
+
+```bash
+docker build -t <image_name>
+```
+
+## Docker-compose
+
+```bash
+docker-compose build # Create images
+docker-compose up -d # Run the images and create containers
+docker compose down # Stop the containers
+docker compose down --rmi all # Stop containers and remove all images
 ```
