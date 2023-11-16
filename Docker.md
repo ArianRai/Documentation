@@ -20,29 +20,29 @@ newgrp docker
 #### Search & Download
 
 ```bash
-docker search <image_name>
-docker pull <image_name>
+$ docker search <image_name>
+$ docker pull <image_name>
 ```
 
 #### Listing images
 
 ```bash
-docker images
-docker image ls
+$ docker images
+$ docker image ls
 ```
 
 #### Deleting images
 
 ```bash
-docker rmi <image_id>
-docker rmi $(docker images -q) # Delete all images (-q just gets only the ID)
-docker image prune # Delete unused images
+$ docker rmi <image_id>
+$ docker rmi $(docker images -q) # Delete all images (-q just gets only the ID)
+$ docker image prune # Delete unused images
 ```
 
 #### Building images
 
 ```bash
-docker build -t <image_name> . # Build from a Dockerfile in the current directory
+$ docker build -t <image_name> . # Build from a dockerfile in the current directory
 ```
 
 ## Containers
@@ -50,22 +50,22 @@ docker build -t <image_name> . # Build from a Dockerfile in the current director
 #### Listing containers
 
 ```bash
-docker ps # running containers
-docker ps -a # all
+$ docker ps # running containers
+$ docker ps -a # all
 ```
 
 #### Deleting containers
 
 ```bash
-docker rm <container_id>
-docker rm $(docker ps -aq) | docker prune # Delete all stopped containers
+$ docker rm <container_id>
+$ docker rm $(docker ps -aq) | docker prune # Delete all stopped containers
 ```
 
 #### Running containers
 
 ```bash
-docker run <image_name>
-docker run
+$ docker run <image_name>
+$ docker run
 	-d # Detach
 	--env | -e MY_VARIABLE=value # ENV variables
 	-i # Interactive
@@ -80,8 +80,8 @@ docker run
 ## Networks
 
 ```bash
-docker network create --driver bridge <network_name>
+$ docker network create --driver bridge <network_name>
 $ docker network ls
-docker network inspect <network_name>
-docker network connect | disconnect <network_name>
+$ docker network inspect <network_name>
+$ docker network connect | disconnect <network_name>
 ```
