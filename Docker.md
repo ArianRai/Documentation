@@ -11,8 +11,8 @@
 To run docker without sudo
 
 ```bash
-sudo usermod -aG docker $USER
-newgrp docker
+$ sudo usermod -aG docker $USER
+$ newgrp docker
 ```
 
 ## Images
@@ -84,4 +84,20 @@ $ docker network create --driver bridge <network_name>
 $ docker network ls
 $ docker network inspect <network_name>
 $ docker network connect | disconnect <network_name>
+```
+
+## Commands
+
+Execute a command in a running container
+
+```bash
+$ docker exec -it <container_id> bash
+```
+
+## Logs
+
+Show the logs of a container
+
+```bash
+$ docker logs <container_id>
 ```
