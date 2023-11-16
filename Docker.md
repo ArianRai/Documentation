@@ -113,11 +113,11 @@ Example of a Dockerfile
 >
 > **LABEL** author="Papi"
 >
+> **COPY** . ./app
+>
 > **WORKDIR** /app
 >
-> **RUN** npm install -g nodemon
->
-> **COPY** package\*.json ./
+> **RUN** npm install
 >
 > **ENV** PORT 80
 >
