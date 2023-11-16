@@ -9,17 +9,32 @@ newgrp docker #Refresh the terminal
 
 ## Images
 
-List local images
+#### Search & Download
+
+```bash
+docker search <image_name>
+docker pull <image_name>
+```
+
+#### List local images
 
 ```bash
 docker images
 docker image ls
 ```
 
-Building images
+#### Deleting images
 
 ```bash
-docker build -t <image_name>
+docker rmi <image_id>
+docker rmi $(docker images -q) # Delete all images
+docker image prune # Delete unused images
+```
+
+#### Building images
+
+```bash
+docker build -t <image_name> . # Build from a Dockerfile in the current directory
 ```
 
 ## Docker-compose
@@ -27,6 +42,7 @@ docker build -t <image_name>
 ```bash
 docker-compose build # Create images
 docker-compose up -d # Run the images and create containers
-docker compose down # Stop the containers
-docker compose down --rmi all # Stop containers and remove all images
+docker-compose down # Stop the containers
+docker-compose down --rmi all # Stop containers and remove all images
+docker-compose ps
 ```
