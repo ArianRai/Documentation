@@ -7,6 +7,7 @@ For docker-compose, see [Docker-compose](#https://github.com/ArianRai/Documentat
 -   [Images](#images)
 -   [Containers](#containers)
 -   [Networks](#networks)
+-   [Dockerfile](#dockerfile)
 
 ---
 
@@ -79,6 +80,22 @@ $ docker run
 		volume_name:/path/in/container # Mount a volume
 ```
 
+### Commands
+
+Execute a command in a running container
+
+```bash
+$ docker exec -it <container_id> bash
+```
+
+### Logs
+
+Show the logs of a container
+
+```bash
+$ docker logs <container_id>
+```
+
 ## Networks
 
 ```bash
@@ -88,18 +105,22 @@ $ docker network inspect <network_name>
 $ docker network connect | disconnect <network_name>
 ```
 
-## Commands
+## Dockerfile
 
-Execute a command in a running container
+Example of a Dockerfile
 
-```bash
-$ docker exec -it <container_id> bash
-```
-
-## Logs
-
-Show the logs of a container
-
-```bash
-$ docker logs <container_id>
-```
+> **FROM** node:10-slim
+>
+> **LABEL** author="Papi"
+>
+> **WORKDIR** /app
+>
+> **RUN** npm install -g nodemon
+>
+> **COPY** package\*.json ./
+>
+> **ENV** PORT 80
+>
+> **EXPOSE** 80
+>
+> **ENTRYPOINT** ["/tini", "--", "node", "server.js"]
