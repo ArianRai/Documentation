@@ -1,6 +1,6 @@
 # Docker
 
-For docker-compose, see [Docker-compose](https://github.com/ArianRai/Documentation/blob/main/Docker-compose.md)
+> For docker-compose, see [docker-compose.md](https://github.com/ArianRai/Documentation/blob/main/Docker-compose.md)
 
 ## Index
 
