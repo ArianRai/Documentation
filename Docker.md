@@ -16,7 +16,7 @@ docker search <image_name>
 docker pull <image_name>
 ```
 
-#### List local images
+#### Listing images
 
 ```bash
 docker images
@@ -35,6 +35,36 @@ docker image prune # Delete unused images
 
 ```bash
 docker build -t <image_name> . # Build from a Dockerfile in the current directory
+```
+
+## Containers
+
+#### Listing containers
+
+```bash
+docker ps
+docker ps -a
+```
+
+#### Deleting containers
+
+```bash
+docker rm <container_id>
+docker rm $(docker ps -aq) | docker prune # Delete all stopped containers
+```
+
+#### Running containers
+
+```bash
+docker run <image_name>
+docker run
+	-d # Detach
+	--env | -e MY_VARIABLE=value # ENV variables
+	-i # Interactive
+	--name # Assign a name
+	--network | --net # Connect container to a network
+	-p [host]:[container] # Publish a container's port to the host
+	-v # Bind to a volume
 ```
 
 ## Docker-compose
