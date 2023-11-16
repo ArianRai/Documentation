@@ -1,4 +1,4 @@
-# Docker - Commands
+# Docker
 
 For docker-compose, see [Docker-compose](https://github.com/ArianRai/Documentation/blob/main/Docker-compose.md)
 
