@@ -4,7 +4,10 @@
 
 -   [Images](#images)
 -   [Containers](#containers)
+-   [Networks](#networks)
 -   [Docker-compose](#docker-compose)
+
+---
 
 To run docker without sudo
 
@@ -70,7 +73,18 @@ docker run
 	--name # Assign a name
 	--network | --net # Connect container to a network
 	-p [host]:[container] # Publish a container's port to the host
-	-v # Bind to a volume
+	-v
+		/path/on/host:/path/in/container # Mount a directory from your machine
+		volume_name:/path/in/container # Mount a volume
+```
+
+## Networks
+
+```bash
+docker network create --driver bridge <network_name>
+docker network ls
+docker network inspect <network_name>
+docker network connect | disconnect <network_name>
 ```
 
 ## Docker-compose
