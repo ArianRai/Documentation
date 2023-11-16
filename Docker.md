@@ -5,7 +5,6 @@
 -   [Images](#images)
 -   [Containers](#containers)
 -   [Networks](#networks)
--   [Docker-compose](#docker-compose)
 
 ---
 
@@ -13,7 +12,7 @@ To run docker without sudo
 
 ```bash
 sudo usermod -aG docker $USER
-newgrp docker #Refresh the terminal
+newgrp docker
 ```
 
 ## Images
@@ -36,7 +35,7 @@ docker image ls
 
 ```bash
 docker rmi <image_id>
-docker rmi $(docker images -q) # Delete all images
+docker rmi $(docker images -q) # Delete all images (-q just gets only the ID)
 docker image prune # Delete unused images
 ```
 
@@ -51,8 +50,8 @@ docker build -t <image_name> . # Build from a Dockerfile in the current director
 #### Listing containers
 
 ```bash
-docker ps
-docker ps -a
+docker ps # running containers
+docker ps -a # all
 ```
 
 #### Deleting containers
@@ -85,14 +84,4 @@ docker network create --driver bridge <network_name>
 docker network ls
 docker network inspect <network_name>
 docker network connect | disconnect <network_name>
-```
-
-## Docker-compose
-
-```bash
-docker-compose build # Create images
-docker-compose up -d # Run the images and create containers
-docker-compose down # Stop the containers
-docker-compose down --rmi all # Stop containers and remove all images
-docker-compose ps
 ```
