@@ -81,7 +81,7 @@ docker run
 
 ```bash
 docker network create --driver bridge <network_name>
-docker network ls
+$ docker network ls
 docker network inspect <network_name>
 docker network connect | disconnect <network_name>
 ```
