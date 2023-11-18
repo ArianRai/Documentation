@@ -111,7 +111,7 @@ Example of a Dockerfile
 
 > **FROM** node:10-slim
 >
-> **LABEL** author="Papi"
+> **LABEL** author="Arian"
 >
 > **COPY** . ./app
 >
