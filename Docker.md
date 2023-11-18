@@ -76,7 +76,7 @@ $ docker run
 	--network | --net # Connect container to a network
 	-p [host]:[container] # Publish a container's port to the host
 	-v
-		/path/on/host:/path/in/container # Mount a directory from your machine
+		/path/on/host:/path/in/container # Sync a directory from your machine
 		volume_name:/path/in/container # Mount a volume
 ```
 
