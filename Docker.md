@@ -78,6 +78,7 @@ $ docker run
 	-v
 		/path/on/host:/path/in/container # Sync a directory from your machine
 		volume_name:/path/in/container # Mount a volume
+	<image_name>
 ```
 
 ### Commands
