@@ -5,7 +5,7 @@
 #### Creating images from `docker-compose.yml`
 
 ```bash
-$ docker-compose build -t .
+$ docker-compose build -t . # path of the docker-compose.yml
 ```
 
 #### Running containers from images
