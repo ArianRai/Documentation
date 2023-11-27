@@ -132,7 +132,7 @@ Operations with `Map`
 testScores.set('Alice', 96)
 testScores.set('Bob', 88)
 
-// remove pair based on key
+// remove a pair based on key
 testScores.delete('Bob')
 
 // empty the map
