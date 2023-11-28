@@ -4,16 +4,16 @@
 
 -   [Commands](#commands)
 -   [Blocks](#blocks)
--   [Networks](#networks)
--   [Dockerfile](#dockerfile)
 
 ---
 
 ## Comands
 
-#### Init
+### Init
 
--   `terraform init`
+Initializes a working directory containing Terraform configuration files.
+
+-   `$ terraform init`
 
 ## Blocks
 

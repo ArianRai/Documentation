@@ -5,3 +5,4 @@
 -   [GraphQL](https://github.com/ArianRai/Documentation/blob/main/GraphQL.md)
 -   [Docker](https://github.com/ArianRai/Documentation/blob/main/Docker.md)
 -   [Docker-compose](https://github.com/ArianRai/Documentation/blob/main/Docker-compose.md)
+-   [Terraform](https://github.com/ArianRai/Documentation/blob/main/Terraform.md)
