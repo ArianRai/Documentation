@@ -7,7 +7,7 @@
 
 ---
 
-## Comands
+## Commands
 
 Initialize a working directory containing Terraform configuration files.
 
