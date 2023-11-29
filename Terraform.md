@@ -4,6 +4,16 @@
 
 -   [Commands](#commands)
 -   [Blocks](#blocks)
+    -   [Providers](#providers)
+    -   [Variables](#Variables)
+    -   [Resource Group](#resource-group)
+    -   [Virtual Network](#virtual-network)
+    -   [Subnet](#subnet)
+    -   [Network Security Group](#network-security-group)
+    -   [Associating the NSG to the Subnet](#associating-the-nsg-to-the-subnet)
+    -   [Public IP](#public-ip)
+    -   [Network Interface](#network-interface)
+    -   [Virtual Machine](#virtual-machine)
 
 ---
 
@@ -109,16 +119,6 @@ resource "azurerm_resource_group" "rg" {
 }
 ```
 
-#### Resource Group
-
-```javascript
-resource "azurerm_resource_group" "rg" {
-  name     = "resource-group1"
-  location = "eastus"
-  tags     = {}
-}
-```
-
 #### Virtual Network
 
 ```javascript
@@ -141,13 +141,15 @@ resource "azurerm_subnet" "subnet1" {
 }
 ```
 
-#### Network Security Group + Security Rules
+#### Network Security Group
 
 ```javascript
 resource "azurerm_network_security_group" "nsg-arian" {
   name                = "arian-security-group"
   location            = var.location
   resource_group_name = var.resource_group_name
+
+// Security Rules
 
   security_rule {
     name                       = "test123"
@@ -163,7 +165,7 @@ resource "azurerm_network_security_group" "nsg-arian" {
 }
 ```
 
-#### Associationg the NSG to the Subnet
+#### Associating the NSG to the Subnet
 
 ```javascript
 resource "azurerm_subnet_network_security_group_association" "sub1" {
@@ -183,7 +185,7 @@ resource "azurerm_public_ip" "public_ip" {
 }
 ```
 
-#### Network Inteerface
+#### Network Interface
 
 ```javascript
 resource "azurerm_network_interface" "example" {
