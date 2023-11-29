@@ -118,3 +118,115 @@ resource "azurerm_resource_group" "rg" {
   tags     = {}
 }
 ```
+
+#### Virtual Network
+
+```javascript
+resource "azurerm_virtual_network" "virtual-network" {
+  name                = "example-network"
+  address_space       = ["10.0.0.0/16"]
+  location            = var.location
+  resource_group_name = var.resource_group_name
+}
+```
+
+#### Subnet
+
+```javascript
+resource "azurerm_subnet" "subnet1" {
+  name                 = "subnet1"
+  resource_group_name  = var.resource_group_name
+  virtual_network_name = azurerm_virtual_network.virtual-network.name # Append to a VN
+  address_prefixes     = ["10.0.2.0/24"]
+}
+```
+
+#### Network Security Group + Security Rules
+
+```javascript
+resource "azurerm_network_security_group" "nsg-arian" {
+  name                = "arian-security-group"
+  location            = var.location
+  resource_group_name = var.resource_group_name
+
+  security_rule {
+    name                       = "test123"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "22"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+}
+```
+
+#### Associationg the NSG to the Subnet
+
+```javascript
+resource "azurerm_subnet_network_security_group_association" "sub1" {
+  subnet_id                 = azurerm_subnet.subnet1.id
+  network_security_group_id = azurerm_network_security_group.nsg-arian.id
+}
+```
+
+#### Public IP
+
+```javascript
+resource "azurerm_public_ip" "public_ip" {
+  name                = "publicIP"
+  resource_group_name = var.resource_group_name
+  location            = var.location
+  allocation_method   = "Static"
+}
+```
+
+#### Network Inteerface
+
+```javascript
+resource "azurerm_network_interface" "example" {
+  name                = "example-nic"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+
+// Appendig the public ip to the NIC
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                     = azurerm_subnet.subnet1.id
+    private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.public_ip.id
+  }
+}
+```
+
+#### Virtual Machine
+
+```javascript
+resource "azurerm_linux_virtual_machine" "vm" {
+  resource_group_name             = azurerm_resource_group.rg.name
+  name                            = "arian-vm"
+  location                        = azurerm_resource_group.rg.location
+  size                            = "Standard_F2"
+  admin_username                  = "azureuser"
+  admin_password                  = "azureuser123!"
+  disable_password_authentication = false
+  network_interface_ids = [
+    azurerm_network_interface.example.id,
+  ]
+
+  os_disk {
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
+
+  source_image_reference {
+    publisher = "Canonical"
+    offer     = "0001-com-ubuntu-server-jammy"
+    sku       = "22_04-lts"
+    version   = "latest"
+  }
+}
+```
