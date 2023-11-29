@@ -92,11 +92,21 @@ variable "location" {
 }
 ```
 
-If you don't specify a default value, you can define them in a `terraform.tfvars` file, or in the `plan` step using the `-var` flag
+If you don't specify a default value, you can define them in a `terraform.tfvars` file, or in the `plan` step using the `-var "name=value"` flag
 
 ```javascript
 location = 'eastus'
 resource_group_name = 'rg-arian'
+```
+
+#### Resource Group
+
+```javascript
+resource "azurerm_resource_group" "rg" {
+  name     = "resource-group1"
+  location = "eastus"
+  tags     = {}
+}
 ```
 
 #### Resource Group
