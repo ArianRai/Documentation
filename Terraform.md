@@ -41,6 +41,13 @@ Display all the outputs or the outputs of the specified resource
 -   `$ terraform output`
 -   `$ terraform output <resource_name>`
 
+### Graph
+
+Produces a representation of the dependency graph between different objects in the current configuration and state. Utilised typically with GraphViz
+
+-   `$ terraform graph`
+-   `$ terraform graph | dot -Tsvg > graph.svg`
+
 ## Blocks
 
 #### Providers
@@ -53,7 +60,7 @@ terraform {
       version = "=3.0.0"
     }
   }
-	// A backend defines where Terraform stores its state data files.
+  // A backend defines where Terraform stores its state data files.
 
   backend "azurerm" {
     resource_group_name  = "rg-stg-acc"
