@@ -74,3 +74,37 @@ provider "azurerm" {
   features {}
 }
 ```
+
+#### Variables
+
+You can create variables to store values. You can define a default value. Then you can reference them using `var.variable_name`
+
+```javascript
+variable "resource_group_name" {
+  description = "The name of the resource group"
+  type        = string
+  default     = "rg-aiuda"
+}
+
+variable "location" {
+  description = "The location"
+  type        = string
+}
+```
+
+If you don't specify a default value, you can define them in a `terraform.tfvars` file, or in the `plan` step using the `-var` flag
+
+```javascript
+location = 'eastus'
+resource_group_name = 'rg-arian'
+```
+
+#### Resource Group
+
+```javascript
+resource "azurerm_resource_group" "rg" {
+  name     = "resource-group1"
+  location = "eastus"
+  tags     = {}
+}
+```
