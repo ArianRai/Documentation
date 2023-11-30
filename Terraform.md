@@ -1,5 +1,7 @@
 # Terraform
 
+For terraform files -> [Terraform files](https://github.com/ArianRai/Documentation/tree/main/terraform-module)
+
 ## Index
 
 -   [Commands](#commands)
@@ -235,6 +237,31 @@ resource "azurerm_linux_virtual_machine" "vm" {
     offer     = "0001-com-ubuntu-server-jammy"
     sku       = "22_04-lts"
     version   = "latest"
+  }
+}
+```
+
+## Modules
+
+For working with modules you should reference the source directory on the `main.tf` file and initialize the variables according to their type
+
+```javascript
+module "module_vm1" {
+
+  source = "../terraform-vm-module"
+
+  location            = "eastus"
+  resource_group_name = "rg-arian2"
+
+  subnets = {
+    private_subnet = {
+      name             = "private_subnet"
+      address_prefixes = ["10.0.1.0/24"]
+    }
+    public_subnet = {
+      name             = "private_subnet"
+      address_prefixes = ["10.0.2.0/24"]
+    }
   }
 }
 ```
