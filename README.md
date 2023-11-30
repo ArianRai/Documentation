@@ -6,3 +6,4 @@
 -   [Docker](https://github.com/ArianRai/Documentation/blob/main/Docker.md)
 -   [Docker-compose](https://github.com/ArianRai/Documentation/blob/main/Docker-compose.md)
 -   [Terraform](https://github.com/ArianRai/Documentation/blob/main/Terraform.md)
+-   [Terraform modules](https://github.com/ArianRai/Documentation/blob/main/Terraform%20modules.md)
