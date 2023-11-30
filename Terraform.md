@@ -17,6 +17,7 @@ For terraform modules -> [Terraform modules](https://github.com/ArianRai/Documen
     -   [Public IP](#public-ip)
     -   [Network Interface](#network-interface)
     -   [Virtual Machine](#virtual-machine)
+-   [Loops](#loops)
 
 ---
 
@@ -241,3 +242,5 @@ resource "azurerm_linux_virtual_machine" "vm" {
   }
 }
 ```
+
+## Loops
