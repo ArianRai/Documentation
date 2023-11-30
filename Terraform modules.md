@@ -3,7 +3,8 @@
 ## Index
 
 -   [File Structure](#file-structure)
--   [Main file](#blocks)
+-   [Main file](#the-maintf-file)
+-   [Instancing the resources](#instancing-the-resources)
 
 ---
 
@@ -33,6 +34,7 @@ module "module_vm1" {
   location            = "eastus"
   resource_group_name = "rg-arian"
 
+// We will create multiple subnets
   subnets = {
     private_subnet = {
       name             = "private_subnet"
@@ -61,10 +63,39 @@ variable "location" {
   type        = string
 }
 
+// We need to store all the data for the resources in a Map or Set
 variable "subnets" {
   type = map(object({
     name             = string
     address_prefixes = list(string)
   }))
+}
+```
+
+## Instancing the resources
+
+When you are creating the resources you need to indicate where to get the info from
+
+```javascript
+resource "azurerm_subnet" "subnet1" {
+
+  // To create multiple resources at once, you need to loop over the values defined for the variables
+  for_each = var.subnets
+
+  name                 = each.key
+  resource_group_name  = azurerm_resource_group.rg.name
+  virtual_network_name = azurerm_virtual_network.virtual-network.name
+  address_prefixes     = each.value.address_prefixes
+}
+```
+
+### Referencing one of the instances
+
+We have created multiple resources of the same type using data in a Map (key-value pair). To reference one of the instances we have to access the object using the name in bracket notation `element.["key"]`
+
+```javascript
+resource "azurerm_subnet_network_security_group_association" "sub1" {
+  subnet_id                 = azurerm_subnet.subnet1["public_subnet"].id
+  network_security_group_id = azurerm_network_security_group.nsg-arian.id
 }
 ```
