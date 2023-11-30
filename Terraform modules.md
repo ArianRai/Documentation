@@ -1,8 +1,29 @@
 # Terraform modules
 
-## Creating the module
+## Index
 
-For working with modules you should have all the resources and step within a directory andreference the source directory on the `main.tf` file and initialize the variables according to their type
+-   [File Structure](#file-structure)
+-   [Main file](#blocks)
+
+---
+
+For working with modules you should have all the resources and step within a directory and reference the source directory on the `main.tf` file.
+
+## File Structure
+
+    .
+    ├── ./ main-directory
+    		└── main.tf
+    ├── ./ vm-module
+    		├── resource-group.tf
+    		├── virtual-network.tf
+    		├── network-interface.tf
+    		├── virtual-machine.tf
+    		└── variables.tf
+
+## The `main.tf` file
+
+In this file you have to initialize the variables according to their type
 
 ```javascript
 module "module_vm1" {
@@ -10,7 +31,7 @@ module "module_vm1" {
   source = "../terraform-vm-module"
 
   location            = "eastus"
-  resource_group_name = "rg-arian2"
+  resource_group_name = "rg-arian"
 
   subnets = {
     private_subnet = {
@@ -23,28 +44,27 @@ module "module_vm1" {
     }
   }
 
-  traffic_rule = [{
-    name                       = "SSH"
-    priority                   = 100
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "22"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
-    },
-    {
-      name                       = "HTTP"
-      priority                   = 101
-      direction                  = "Inbound"
-      access                     = "Allow"
-      protocol                   = "Tcp"
-      source_port_range          = "*"
-      destination_port_range     = "80"
-      source_address_prefix      = "*"
-      destination_address_prefix = "*"
-    }
-  ]
+}
+```
+
+## Variables
+
+```javascript
+
+variable "resource_group_name" {
+  description = "value"
+  type        = string
+}
+
+variable "location" {
+  description = "value"
+  type        = string
+}
+
+variable "subnets" {
+  type = map(object({
+    name             = string
+    address_prefixes = list(string)
+  }))
 }
 ```
