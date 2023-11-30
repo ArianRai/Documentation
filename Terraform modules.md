@@ -14,13 +14,13 @@ For working with modules you should have all the resources and step within a dir
 
     .
     ├── ./ main-directory
-    		└── main.tf
+    	└── main.tf
     ├── ./ vm-module
-    		├── resource-group.tf
-    		├── virtual-network.tf
-    		├── network-interface.tf
-    		├── virtual-machine.tf
-    		└── variables.tf
+    	├── resource-group.tf
+    	├── virtual-network.tf
+    	├── network-interface.tf
+    	├── virtual-machine.tf
+    	└── variables.tf
 
 ## The `main.tf` file
 
