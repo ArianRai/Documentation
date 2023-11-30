@@ -51,6 +51,12 @@ Display all the outputs or the outputs of the specified resource
 -   `$ terraform output`
 -   `$ terraform output <resource_name>`
 
+Working with Workspaces
+
+-   `$ terraform workspace list` // List of every workspace
+-   `$ terraform workspace show` // Show current workspace
+-   `$ terraform workspace new | select | delete <workspace_name>`
+
 ### Graph
 
 Produces a representation of the dependency graph between different objects in the current configuration and state. Utilised typically with GraphViz
