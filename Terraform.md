@@ -98,7 +98,7 @@ You can create variables to store values. You can define a default value. Then y
 ```javascript
 variable "resource_group_name" {
   description = "The name of the resource group"
-  type        = string
+  type        = list(string)
   default     = "rg-aiuda"
 }
 
