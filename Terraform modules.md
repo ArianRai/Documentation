@@ -1,6 +1,8 @@
 # Terraform modules
 
-For working with modules you should reference the source directory on the `main.tf` file and initialize the variables according to their type
+## Creating the module
+
+For working with modules you should have all the resources and step within a directory andreference the source directory on the `main.tf` file and initialize the variables according to their type
 
 ```javascript
 module "module_vm1" {
