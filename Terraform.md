@@ -244,3 +244,5 @@ resource "azurerm_linux_virtual_machine" "vm" {
 ```
 
 ## Loops
+
+-   for_each | count | for
