@@ -23,7 +23,7 @@ For terraform modules -> [Terraform modules](https://github.com/ArianRai/Documen
 
 ## Commands
 
-Initialize a working directory containing Terraform configuration files.
+Initialize a working directory containing Terraform configuration files
 
 -   `$ terraform init`
 
