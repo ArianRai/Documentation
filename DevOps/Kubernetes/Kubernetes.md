@@ -1,5 +1,11 @@
 ## Kubernetes
 
+## Files
+
+-   [Pod](https://github.com/ArianRai/Documentation/blob/main/DevOps/Kubernetes/Kubernetes-files/1-sample-pod.yml)
+-   [Replica Set](https://github.com/ArianRai/Documentation/blob/main/DevOps/Kubernetes/Kubernetes-files/2-sample-replica-set.yml)
+-   [Deployment](https://github.com/ArianRai/Documentation/blob/main/DevOps/Kubernetes/Kubernetes-files/3-sample-deploy.yml)
+
 ### Commands
 
 -   $ `kubectl [command] [type] [name] [flags]`
