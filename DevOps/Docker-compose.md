@@ -11,9 +11,9 @@ $ docker-compose build -t . # path of the docker-compose.yml
 #### Running containers from images
 
 ```bash
-docker-compose up -d # Run the images and create containers
-docker-compose down # Stop the containers
-docker-compose down --rmi all # Stop containers and remove all images
+$ docker-compose up -d # Run the images and create containers
+$ docker-compose down # Stop the containers
+$ docker-compose down --rmi all # Stop containers and remove all images
 ```
 
 #### Listing running containers
