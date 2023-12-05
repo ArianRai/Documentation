@@ -246,3 +246,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
 ## Loops
 
 ### Count
+
+The count meta-argument is defined by the Terraform language and can be used to manage similar resources.
+
+count is a looping technique and can be used with modules and with every resource type.
