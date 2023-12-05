@@ -48,6 +48,27 @@ $ docker image prune # Delete unused images
 $ docker build -t <image_name> . # Build from a dockerfile in the current directory
 ```
 
+#### Pushing into Dockerhub
+
+You have to log in your DockerHub account
+
+```bash
+$ docker login # You have to give credentials
+```
+
+To push an image to Docker Hub, you must first name your local image using your Docker ID and the repository name that you created.
+
+```bash
+$ docker build -t <hub_user>/<repo_name>:<tag>
+$ docker tag <existing-image> <hub_user>/<repo_name>:<tag>
+```
+
+Then you push the image
+
+```bash
+$ docker push <hub_user>/<repo_name>:<tag>
+```
+
 ## Containers
 
 #### Listing containers
