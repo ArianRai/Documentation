@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: sample-node-app
+    labels:
+        app: sample-node-app
+spec:
+    containers:
+        - name: sample-node-app
+          image: saurabhd2106/sample-node-app
+          ports:
+              - containerPort: 3000
