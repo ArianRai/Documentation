@@ -48,7 +48,7 @@ $ docker image prune # Delete unused images
 $ docker build -t <image_name> . # Build from a dockerfile in the current directory
 ```
 
-#### Pushing into Dockerhub
+#### Pushing images into Dockerhub
 
 You have to log in your DockerHub account
 
