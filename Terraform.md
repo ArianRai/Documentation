@@ -23,7 +23,7 @@ For terraform modules -> [Terraform modules](https://github.com/ArianRai/Documen
 
 ## Commands
 
-Initialize a working directory containing Terraform configuration files.
+Initialize a working directory containing Terraform configuration files
 
 -   `$ terraform init`
 
@@ -63,7 +63,7 @@ Working with Workspaces
 
 ### Graph
 
-Produces a representation of the dependency graph between different objects in the current configuration and state. Utilised typically with GraphViz
+Produces a representation of the dependency graph between different objects in the current configuration and state. Utilised typically with GraphViz.
 
 -   `$ terraform graph`
 -   `$ terraform graph | dot -Tsvg > graph.svg`
