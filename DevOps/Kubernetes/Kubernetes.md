@@ -20,6 +20,7 @@
 #### Create and Delete
 
 -   $ `kubectl create | delete -f <path_and_name_of_file>` // Creates or deletes the k8s objects defined in the spec file
+-   $ `kubectl create | delete -f .` // Creates or deletes the k8s objects defined in all spec files in the current directory
 
 ---
 
