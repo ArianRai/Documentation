@@ -2,6 +2,6 @@
 
 ## Index
 
--   [Images](#images)
+-   [Images](#image)
 
 ---
