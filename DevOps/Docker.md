@@ -124,7 +124,7 @@ $ docker logs <container_id>
 $ docker network create --driver bridge <network_name> # bridge by deault
 $ docker network ls
 $ docker network inspect <network_name>
-$ docker network connect | disconnect <network_name>
+$ docker network connect | disconnect <network_name> <container_name>
 ```
 
 ## Dockerfile
