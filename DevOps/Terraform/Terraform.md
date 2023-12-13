@@ -1,6 +1,7 @@
 # Terraform
-
-For terraform files -> [Terraform files](https://github.com/ArianRai/Documentation/tree/main/terraform-module)  
+<!--
+For terraform files -> [Terraform files](https://github.com/ArianRai/Documentation/tree/main/terraform-module)
+-->
 For terraform modules -> [Terraform modules](https://github.com/ArianRai/Documentation/blob/main/Terraform%20modules.md)
 
 ## Index
