@@ -113,7 +113,7 @@ variable "location" {
 }
 ```
 
-If you don't specify a default value, you can define them in a `terraform.tfvars` file, or in the `plan` step using the `-var "name=value"` flag
+If you don't specify a default value, you can define it in a `terraform.tfvars` file, or in the `plan` step using the `-var "name=value"` flag
 
 ```javascript
 location = 'eastus'
