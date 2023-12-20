@@ -1,6 +1,7 @@
 # Terraform
-
-For terraform files -> [Terraform files](https://github.com/ArianRai/Documentation/tree/main/terraform-module)  
+<!--
+For terraform files -> [Terraform files](https://github.com/ArianRai/Documentation/tree/main/terraform-module)
+-->
 For terraform modules -> [Terraform modules](https://github.com/ArianRai/Documentation/blob/main/Terraform%20modules.md)
 
 ## Index
@@ -112,7 +113,7 @@ variable "location" {
 }
 ```
 
-If you don't specify a default value, you can define them in a `terraform.tfvars` file, or in the `plan` step using the `-var "name=value"` flag
+If you don't specify a default value, you can define it in a `terraform.tfvars` file, or in the `plan` step using the `-var "name=value"` flag
 
 ```javascript
 location = 'eastus'
