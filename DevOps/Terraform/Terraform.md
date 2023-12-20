@@ -248,5 +248,48 @@ resource "azurerm_linux_virtual_machine" "vm" {
 ### Count
 
 The count meta-argument is defined by the Terraform language and can be used to manage similar resources.
+Count is a looping technique and can be used with modules and with every resource type.
 
-count is a looping technique and can be used with modules and with every resource type.
+```javascript
+# creating multiple EC2 instances using count
+resource "aws_instance" "server" {
+  ami = "ami-06ec8443c2a35b0ba"
+  instance_type = "t2.micro"
+  count = 3  # creating 3 resources
+}
+```
+
+### For each
+
+`for_each` is another meta-argument used to duplicate resources that are similar but need to be configured differently.
+If your resources are almost identical, count is appropriate. If some of their arguments need distinct values that can't be directly derived from an integer, it's safer to use for_each.
+
+```javascript
+# declaring a variable
+variable "users" {
+  type = list(string)
+  default = ["demo-user", "admin1", "john"]
+}
+
+# creating IAM users
+resource "aws_iam_user" "test" {
+  for_each = toset(var.users) # converts a list to a set
+  name = each.key
+}
+```
+
+### For expressions
+
+A `for` expression creates a complex type value by transforming another complex type value.
+
+```javascript
+variable "names" {
+    type = list
+    default = ["daniel", "ada'", "john wick"]
+}
+
+output "show_names" {
+    # similar to Python's list comprehension
+    value = [for n in var.names : upper(n)]
+}
+```
