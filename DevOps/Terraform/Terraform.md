@@ -1,7 +1,9 @@
 # Terraform
+
 <!--
 For terraform files -> [Terraform files](https://github.com/ArianRai/Documentation/tree/main/terraform-module)
 -->
+
 For terraform modules -> [Terraform modules](https://github.com/ArianRai/Documentation/blob/main/Terraform%20modules.md)
 
 ## Index
@@ -248,7 +250,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
 
 ### Count
 
-The count meta-argument is defined by the Terraform language and can be used to manage similar resources.
+The `count` meta-argument is defined by the Terraform language and can be used to manage similar resources.
 Count is a looping technique and can be used with modules and with every resource type.
 
 ```javascript
