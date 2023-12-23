@@ -170,7 +170,7 @@ type Location = { x: number } & { y: number }
 
 ### keyof operator
 
-The keyof operator in TypeScript is used to get the union of keys from an object type.
+The keyof operator in TypeScript is used to get the union of keys from an object type
 
 ```typescript
 interface User {
