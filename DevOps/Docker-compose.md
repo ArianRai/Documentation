@@ -58,6 +58,6 @@ Example of a `docker-compose.yml` file
 >
 >     networks:
 >     	front-end:
->     		driver:bridge
+>     		driver: bridge
 >     	back-end:
->     		driver:bridge
+>     		driver: bridge
