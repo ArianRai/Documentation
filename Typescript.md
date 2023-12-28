@@ -111,7 +111,7 @@ In Typescript there is a shorthand to create and assign class properties directl
 class UserShort {
 	constructor(public name: string, private age: number) {}
 }
-//Typescript will automatically generate the properties
+//Typescript will automatically generate properties
 ```
 
 ## Maps
