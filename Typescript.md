@@ -125,7 +125,7 @@ type Score = number
 const testScores: Map<Name, Score> = new Map()
 ```
 
-Operations with `Map`
+Operations using `Map`
 
 ```typescript
 // insert new pair
