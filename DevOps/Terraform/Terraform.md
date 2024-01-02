@@ -283,7 +283,7 @@ resource "aws_iam_user" "test" {
 
 ### For expressions
 
-A `for` expression creates a complex type value by transforming another complex type value.
+A `for` expression creates a complex type value by transforming another complex type value
 
 ```javascript
 variable "names" {
