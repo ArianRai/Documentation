@@ -91,7 +91,7 @@ $ docker rm $(docker ps -aq) | docker prune # Delete all stopped containers
 $ docker run <image_name>
 $ docker run
 	-d # Detach
-	--env | -e MY_VARIABLE=value # ENV variables
+	--env | -e MY_VARIABLE=value # ENV variable
 	-i # Interactive
 	--name # Assign a name
 	--network | --net # Connect container to a network
