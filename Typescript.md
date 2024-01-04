@@ -143,7 +143,7 @@ testScores.clear()
 
 ### Unions
 
-Describes a type which is one of many options, for example a list of known strings
+Describes a type which is one of many options, for example a list of known strings.
 
 ```typescript
 // Defining a type from union of type literals
