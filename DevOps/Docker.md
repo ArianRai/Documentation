@@ -45,7 +45,7 @@ $ docker image prune # Delete unused images
 #### Building images
 
 ```bash
-$ docker build -t <image_name> . # Build from a dockerfile in the current directory
+$ docker build -t <image_name> . # Build from a Dockerfile in the current directory
 ```
 
 #### Pushing images into Dockerhub
