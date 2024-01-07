@@ -63,7 +63,7 @@ $ docker build -t <hub_user>/<repo_name>:<tag>
 $ docker tag <existing-image> <hub_user>/<repo_name>:<tag>
 ```
 
-Then you push the image
+Then you push the image to DockerHub
 
 ```bash
 $ docker push <hub_user>/<repo_name>:<tag>
