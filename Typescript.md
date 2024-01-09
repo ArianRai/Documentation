@@ -114,7 +114,7 @@ class UserShort {
 //Typescript will automatically generate properties
 ```
 
-## Maps
+## Map
 
 Declaring a new `Map`
 
