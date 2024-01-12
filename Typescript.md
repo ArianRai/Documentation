@@ -79,6 +79,7 @@ enum ERROR_TYPES {
 }
 
 // Numeric enum members are auto-incremented from the initial value
+
 enum Direction {
 	Up = 1,
 	Down,
