@@ -45,7 +45,7 @@ $ docker image prune # Delete unused images
 #### Building images
 
 ```bash
-$ docker build -t <image_name> . # Build from a dockerfile in the current directory
+$ docker build -t <image_name> . # Build from a Dockerfile in the current directory
 ```
 
 #### Pushing images into Dockerhub
@@ -63,7 +63,7 @@ $ docker build -t <hub_user>/<repo_name>:<tag>
 $ docker tag <existing-image> <hub_user>/<repo_name>:<tag>
 ```
 
-Then you push the image
+Then you push the image to DockerHub.
 
 ```bash
 $ docker push <hub_user>/<repo_name>:<tag>
@@ -91,7 +91,7 @@ $ docker rm $(docker ps -aq) | docker prune # Delete all stopped containers
 $ docker run <image_name>
 $ docker run
 	-d # Detach
-	--env | -e MY_VARIABLE=value # ENV variables
+	--env | -e MY_VARIABLE=value # ENV variable
 	-i # Interactive
 	--name # Assign a name
 	--network | --net # Connect container to a network

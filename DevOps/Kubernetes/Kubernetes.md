@@ -24,10 +24,10 @@
 
 ---
 
--   $ `kubectl describe <kind> <name>` // Gives detailed description about the element
+-   $ `kubectl describe <kind> <name>` Gives detailed description about the element
 
--   $ `kubectl logs <name_of_the_pod>` // Gives logs for the running pod
+-   $ `kubectl logs <name_of_the_pod>` Gives logs for the running pod
 
--   $ `kubectl exec -it <name_of_the_pod> -sh` // Execute commands on the pod (using interactive shell)
+-   $ `kubectl exec -it <name_of_the_pod> -sh` Execute commands on the pod (using interactive shell)
 
--   $ `kubectl scale deployment sample-node-app-deploy --replicas=5` // Scales up or down a deployment
+-   $ `kubectl scale deployment sample-node-app-deploy --replicas=5` Scales up or down a deployment

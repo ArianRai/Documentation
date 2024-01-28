@@ -79,6 +79,7 @@ enum ERROR_TYPES {
 }
 
 // Numeric enum members are auto-incremented from the initial value
+
 enum Direction {
 	Up = 1,
 	Down,
@@ -111,10 +112,10 @@ In Typescript there is a shorthand to create and assign class properties directl
 class UserShort {
 	constructor(public name: string, private age: number) {}
 }
-//Typescript will automatically generate the properties
+//Typescript will automatically generate properties
 ```
 
-## Maps
+## Map
 
 Declaring a new `Map`
 
@@ -125,7 +126,7 @@ type Score = number
 const testScores: Map<Name, Score> = new Map()
 ```
 
-Operations with `Map`
+Operations using `Map`
 
 ```typescript
 // insert new pair
@@ -217,7 +218,7 @@ const substract: (a: number, b: number) => number = (a, b) => {
 
 ## Any, void and never types
 
-If you don't specify nor initialize a variable, typescript will assign `any` as type meanning anything can be assigned
+If you don't specify nor initialize a variable, typescript will automatically assign `any` as type meanning anything can be assigned
 
 ```typescript
 let b // any

@@ -106,7 +106,7 @@ You can create variables to store values. You can define a default value. Then y
 variable "resource_group_name" {
   description = "The name of the resource group"
   type        = list(string)
-  default     = "rg-aiuda"
+  default     = "rg-uy"
 }
 
 variable "location" {
@@ -283,7 +283,7 @@ resource "aws_iam_user" "test" {
 
 ### For expressions
 
-A `for` expression creates a complex type value by transforming another complex type value.
+A `for` expression creates a complex type value by transforming another complex type value
 
 ```javascript
 variable "names" {
