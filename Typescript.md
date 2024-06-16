@@ -20,7 +20,7 @@
 -   [Type Aliases](#type-aliases)
 -   [Interfaces](#interfaces)
 -   [More About Types](#more-about-types)
--   [Type Guards / Narrowing](#type-guards--narrowing)
+-   [Narrowing](#type-guards--narrowing)
 -   [Generics](#genrics)
 
 ---
@@ -186,7 +186,7 @@ const key: UserKeys = 'name'
 
 ## Functions
 
-Typescript sometimes can infer the type of the parameters and return pf the function, but most of the time you should type those by yourself
+Typescript sometimes can infer the type of the parameters and return of the function, but most of the time you should type those by yourself
 
 Typing single parameters and the return
 
@@ -367,11 +367,13 @@ type Person = {
 type Address: Person['address']
 ```
 
-## Type guards / Narrowing
+## Narrowing
 
 ### _typeof_ and _instanceof_ operators
 
 `typeof` : returns a string value representing the type of the variable.
+
+-   In TypeScript, checking against the value returned by _typeof_ is a type guard.
 
 ```typescript
 const address = {
@@ -385,16 +387,27 @@ type Address = typeof address
 `instanceof` : checks if an object is an instance of a class.
 
 ```typescript
-class Bird {
-	fly() {
-		console.log('flying...')
+function logValue(x: Date | string) {
+	if (x instanceof Date) {
+		console.log(x.toUTCString())
+	} else {
+		console.log(x.toUpperCase())
 	}
 }
+```
 
-const pet = new Bird()
+The `in` operator
 
-if (pet instanceof Bird) {
-	pet.fly()
+```typescript
+type Fish = { swim: () => void }
+type Bird = { fly: () => void }
+
+function move(animal: Fish | Bird) {
+	if ('swim' in animal) {
+		return animal.swim()
+	}
+
+	return animal.fly()
 }
 ```
 
