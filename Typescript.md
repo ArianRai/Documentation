@@ -106,7 +106,7 @@ const dog = new Animal('Dog')
 dog.makeSound() // Output: Dog is making sounds
 ```
 
-In Typescript there is a shorthand to create and assign class properties directly from constructor params 
+In Typescript there is a shorthand to create and assign class properties directly from constructor params
 
 ```typescript
 class UserShort {
