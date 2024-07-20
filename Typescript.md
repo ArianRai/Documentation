@@ -21,7 +21,7 @@
 -   [Interfaces](#interfaces)
 -   [More About Types](#more-about-types)
 -   [Narrowing](#type-guards--narrowing)
--   [Generics](#genrics)
+-   [Generics](#generics)
 
 ---
 
