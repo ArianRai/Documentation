@@ -1,6 +1,12 @@
 # Hooks
 
+## Index
+
+-   [useState](#usestate)
+
 ## `useState`
+
+Components need to “remember” things: the current input value, the current image, the shopping cart. In React, this kind of component-specific memory is called _state_.
 
 ```js
 const [currentState, setFunction] = useState(initialState)
@@ -11,6 +17,19 @@ const [currentState, setFunction] = useState(initialState)
 `initialState`: The value you want the state to be initially
 
 > If you pass a function as `initialState`, it will be treated as an _initializer function_. It should be pure, should take no arguments, and should return a value of any type.
+
+```js
+function createInitialTodos() {
+  const initialTodos = [];
+   	// ...
+  return initialTodos;
+}
+
+function TodoList() {
+   ✅  const [todos, setTodos] = useState(createInitialTodos); // this is the initializer function, only runs during initialization.
+   ❌  const [todos, setTodos] = useState(createInitialTodos()); // Here you are passing the return of calling the function, this runs on every render.
+  //
+```
 
 ### Returns
 
@@ -23,15 +42,37 @@ const [currentState, setFunction] = useState(initialState)
 > If you pass a function as `nextState`, it will be treated as an _updater function_. It must be pure, should take the **pending state as its only argument**, and should return the next state.
 > The set function **only updates the state variable for the _next_ render**. If you read the state variable after calling the set function, you will still get the old value
 
-```js
-function createInitialTodos() {
-  const initialTodos = [];
-   	// ...
-  return initialTodos;
-}
+### Updating state based on the previous state
 
-function TodoList() {
-   ✅ const [todos, setTodos] = useState(createInitialTodos); // this is the initializer function, only runs during initialization.
-   ❌  const [todos, setTodos] = useState(createInitialTodos()); // Here you are passing the return of calling the function, this runs on every render.
-  //
+Suppose the `age` is `42`. This handler calls `setAge(age + 1)` three times:
+
+```js
+function handleClick() {
+	setAge(age + 1) // setAge(42 + 1)
+	setAge(age + 1) // setAge(42 + 1)
+	setAge(age + 1) // setAge(42 + 1)
+}
 ```
+
+However, after one click, `age` will only be 43 rather than 45! This is because calling the `set` function does not update the `age` state variable in the _already running code_.
+
+To solve this problem, you **may pass an _updater function_** to `setAge` instead of the next state:
+
+```js
+function handleClick() {
+	setAge(a => a + 1) // setAge(42 => 43)
+	setAge(a => a + 1) // setAge(43 => 44)
+	setAge(a => a + 1) // setAge(44 => 45)
+}
+```
+
+> The _updater function_ takes the **pending state** and calculates the **next state** from it.
+
+### Resetting state with a key
+
+You can **reset a component’s state by passing a different `key` to a component**. When the key changes, React re-creates the component (and all of its children) from scratch, so its state gets reset.
+
+### Caveats
+
+-   Calling the `set` function does not change state in the _running code_
+-   React will **ignore your update if the next state is equal to the previous state**, as determined by an `Object.is` comparison
