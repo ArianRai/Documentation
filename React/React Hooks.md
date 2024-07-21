@@ -3,8 +3,13 @@
 ## Index
 
 -   [useState](#usestate)
+-   [useReducer](#usereducer)
+
+---
 
 ## `useState`
+
+`useState` lets you add a `state variable` to your component.
 
 Components need to “remember” things: the current input value, the current image, the shopping cart. In React, this kind of component-specific memory is called _state_.
 
@@ -14,7 +19,7 @@ const [currentState, setFunction] = useState(initialState)
 
 ### Parameters
 
-`initialState`: The value you want the state to be initially
+-   `initialState`: The value you want the state to be initially
 
 > If you pass a function as `initialState`, it will be treated as an _initializer function_. It should be pure, should take no arguments, and should return a value of any type.
 
@@ -37,7 +42,7 @@ function TodoList() {
 
 -   `setFunction`: The function that lets you update the state to a different value and trigger a re-render
 
-`setFunction(nextState)`
+### `setFunction(nextState)`
 
 > If you pass a function as `nextState`, it will be treated as an _updater function_. It must be pure, should take the **pending state as its only argument**, and should return the next state.
 > The set function **only updates the state variable for the _next_ render**. If you read the state variable after calling the set function, you will still get the old value
@@ -76,3 +81,42 @@ You can **reset a component’s state by passing a different `key` to a componen
 
 -   Calling the `set` function does not change state in the _running code_
 -   React will **ignore your update if the next state is equal to the previous state**, as determined by an `Object.is` comparison
+
+## `useReducer`
+
+`useReducer` lets you add a `reducer` to your component.
+
+Components with many state updates spread across many event handlers can get overwhelming. For these cases, you can consolidate all the state update logic outside your component in a single function, called a _reducer_.
+
+```js
+const [state, dispatch] = useReducer(reducer, initialArg, init?)
+```
+
+### Parameters
+
+-   `reducer`: The reducer function that specifies how the state gets updated. It must be pure, should take the state and action as arguments, and should return the next state.
+
+-   `initialArg`: The value from which the initial state is calculated. It can be a value of any type. How the initial state is calculated from it depends on the next `init` argument.
+
+-   `init` (**optional**): The initializer function that should return the initial state. If it’s not specified, the initial state is set to `initialArg`. Otherwise, the initial state is set to the result of calling `init(initialArg)`.
+
+```js
+function reducer(state, action) {
+	// ...
+}
+
+function MyComponent() {
+	const [state, dispatch] = useReducer(reducer, { age: 42 })
+	// ...
+}
+```
+
+### Returns
+
+-   `state`: Current state. During the first render, it’s set to `init(initialArg)` or `initialArg` (if there’s no `init`).
+
+-   `dispatch`: The function that lets you update the state to a different value and trigger a re-render.
+
+### `dispatch` function
+
+The `dispatch` function returned by useReducer lets you update the state to a different value and trigger a re-render. You need to pass the action as the only argument to the dispatch function:
