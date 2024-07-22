@@ -44,10 +44,12 @@ function TodoList() {
 
 ### `setFunction(nextState)`
 
-> If you pass a function as `nextState`, it will be treated as an _updater function_. It must be pure, should take the **pending state as its only argument**, and should return the next state.
+> If you pass a function as `nextState`, it will be treated as an _updater function_. It must be pure, should take the **pending state as its only argument**, and should return the next state.  
 > The set function **only updates the state variable for the _next_ render**. If you read the state variable after calling the set function, you will still get the old value
 
-### Updating state based on the previous state
+### Usage
+
+#### Updating state based on the previous state
 
 Suppose the `age` is `42`. This handler calls `setAge(age + 1)` three times:
 
@@ -73,13 +75,13 @@ function handleClick() {
 
 > The _updater function_ takes the **pending state** and calculates the **next state** from it.
 
-### Resetting state with a key
+#### Resetting state with a key
 
 You can **reset a component’s state by passing a different `key` to a component**. When the key changes, React re-creates the component (and all of its children) from scratch, so its state gets reset.
 
 ### Caveats
 
--   Calling the `set` function does not change state in the _running code_
+-   Calling the `set` function does not change state in the _running code_, only for the **next render**
 -   React will **ignore your update if the next state is equal to the previous state**, as determined by an `Object.is` comparison
 
 ## `useReducer`
@@ -119,4 +121,19 @@ function MyComponent() {
 
 ### `dispatch` function
 
-The `dispatch` function returned by useReducer lets you update the state to a different value and trigger a re-render. You need to pass the action as the only argument to the dispatch function:
+The `dispatch` function returned by `useReducer` lets you update the state to a different value and trigger a re-render. You need to pass the _action_ as the only argument to the `dispatch` function:
+
+```js
+function handleClick() {
+  dispatch({ type: 'incremented_age' });
+  // ...
+```
+
+> React will set the next state to the result of calling the `reducer` function you’ve provided with the current state and the `action` you’ve passed to `dispatch`.
+
+-   Parameters:
+
+    -   `action`: The action performed by the user. By convention, an action is usually an object with a `type` property identifying it.
+
+-   Returns:
+    -   `dispatch` functions do not have a return value
