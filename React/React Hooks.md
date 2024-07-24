@@ -61,7 +61,7 @@ function handleClick() {
 }
 ```
 
-However, after one click, `age` will only be 43 rather than 45! This is because calling the `set` function does not update the `age` state variable in the _already running code_.
+However, after one click, `age` will only be 43 rather than 45. This is because calling the `set` function does not update the `age` state variable in the _already running code_.
 
 To solve this problem, you **may pass an _updater function_** to `setAge` instead of the next state:
 
