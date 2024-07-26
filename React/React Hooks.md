@@ -7,6 +7,20 @@
 
 ---
 
+## `useCallback`
+
+`useCallback` lets you cache a function definition between re-renders.
+
+```js
+const cachedFn = useCallback(fn, dependencies)
+```
+
+### Parameters
+
+-   `fn`: The value you want the state to be initially
+
+> If you pass a function as `initialState`, it will be treated as an _initializer function_. It should be pure, should take no arguments, and should return a value of any type.
+
 ## `useState`
 
 `useState` lets you add a `state variable` to your component.
