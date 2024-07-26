@@ -129,11 +129,51 @@ function handleClick() {
   // ...
 ```
 
-> React will set the next state to the result of calling the `reducer` function you’ve provided with the current state and the `action` you’ve passed to `dispatch`.
+> React will set the next state to the result of calling the `reducer` function you’ve provided with the `current state` and the `action` you’ve passed to `dispatch`.
 
 -   Parameters:
 
-    -   `action`: The action performed by the user. By convention, an action is usually an object with a `type` property identifying it.
+    -   `action`: The action performed by the user. By convention, an action is usually an object with a `type` property identifying it, and should include the necessary information that the reducer needs to compute the next state.
 
 -   Returns:
     -   `dispatch` functions do not have a return value
+
+### Usage
+
+```js
+const [state, dispatch] = useReducer(reducer, { age: 42 })
+
+function reducer(state, action) {
+	switch (action.type) {
+		case 'incremented_age': {
+			return {
+				name: state.name,
+				age: state.age + 1,
+			}
+		}
+		case 'changed_name': {
+			return {
+				name: action.nextName,
+				age: state.age,
+			}
+		}
+	}
+	throw Error('Unknown action: ' + action.type)
+}
+
+function handleButtonClick() {
+	dispatch({ type: 'incremented_age' })
+}
+
+function handleInputChange(e) {
+	dispatch({
+		type: 'changed_name',
+		nextName: e.target.value,
+	})
+}
+```
+
+### Caveats
+
+-   Calling the `dispatch` function does not change state in the _running code_, only for the **next render**
+-   React will **ignore your update if the next state is equal to the previous state**, as determined by an `Object.is` comparison
