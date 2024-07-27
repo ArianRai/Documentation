@@ -3,6 +3,7 @@
 ## Index
 
 -   [useCallback](#usecallback)
+-   [useContext](#usecontext)
 -   [useState](#usestate)
 -   [useReducer](#usereducer)
 
