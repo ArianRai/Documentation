@@ -2,6 +2,7 @@
 
 ## Index
 
+-   [useCallback](#usecallback)
 -   [useState](#usestate)
 -   [useReducer](#usereducer)
 
@@ -17,9 +18,34 @@ const cachedFn = useCallback(fn, dependencies)
 
 ### Parameters
 
--   `fn`: The value you want the state to be initially
+-   `fn`: The function value that you want to cache. React will **return** the function **without calling it**. On next renders, React will give you the same function again if the `dependencies` have not changed since the last render.
 
-> If you pass a function as `initialState`, it will be treated as an _initializer function_. It should be pure, should take no arguments, and should return a value of any type.
+-   `dependencies`: The list of reactive values referenced inside of the `fn` code. Reactive values include _props_, _state_, and all the _variables_ and _functions_ declared directly inside your component body.
+
+```js
+function ProductPage({ productId, referrer, theme }) {
+  const handleSubmit = useCallback((orderDetails) => {
+    post('/product/' + productId + '/buy', {
+      referrer,
+      orderDetails,
+    });
+  }, [productId, referrer]);
+```
+
+### Returns
+
+On the initial render, `useCallback` returns the `fn` function you have passed.
+
+During subsequent renders, it will either return an already stored `fn` function from the last render (if the `dependencies` haven’t changed), or return the `fn` function you have passed during this render.
+
+### Usage
+
+> You need to pass two things to useCallback:
+>
+> -   A `function definition` that you want to cache between re-renders.
+> -   A `list of dependencies` including every value within your component that’s used inside your function.
+
+#### Updating state from a memoized callback
 
 ## `useState`
 
