@@ -47,6 +47,34 @@ During subsequent renders, it will either return an already stored `fn` function
 
 #### Updating state from a memoized callback
 
+Sometimes, you might need to update state based on previous state from a memoized callback.
+
+This function specifies `todos` as a dependency because it computes the next todos from it:
+
+```js
+function TodoList() {
+  const [todos, setTodos] = useState([]);
+
+  const handleAddTodo = useCallback((text) => {
+    const newTodo = { id: nextId++, text };
+    setTodos([...todos, newTodo]);
+  }, [todos]);
+```
+
+> You’ll usually want memoized functions to have as few dependencies as possible. When you read some state only to calculate the next state, you can remove that dependency by passing an _updater function_ instead
+>
+> Instead of making `todos` a dependency and reading it inside, you pass an instruction about _how_ to update the state (todos => [...todos, newTodo]), so you don't need to pass the state as a `dependency`
+
+```js
+function TodoList() {
+  const [todos, setTodos] = useState([]);
+
+  const handleAddTodo = useCallback((text) => {
+    const newTodo = { id: nextId++, text };
+    setTodos(todos => [...todos, newTodo]);
+  }, []);
+```
+
 ## `useState`
 
 `useState` lets you add a `state variable` to your component.
