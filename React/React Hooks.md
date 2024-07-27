@@ -45,7 +45,7 @@ During subsequent renders, it will either return an already stored `fn` function
 > -   A `function definition` that you want to cache between re-renders.
 > -   A `list of dependencies` including every value within your component that’s used inside your function.
 
-#### Updating state from a memoized callback
+#### Updating state from a memoized callback `(useState + useCallback)`
 
 Sometimes, you might need to update state based on previous state from a memoized callback.
 
@@ -53,10 +53,10 @@ This function specifies `todos` as a dependency because it computes the next tod
 
 ```js
 function TodoList() {
-  const [todos, setTodos] = useState([]);
+	const [todos, setTodos] = useState([]);
 
   const handleAddTodo = useCallback((text) => {
-    const newTodo = { id: nextId++, text };
+	  const newTodo = { id: nextId++, text };
     setTodos([...todos, newTodo]);
   }, [todos]);
 ```
