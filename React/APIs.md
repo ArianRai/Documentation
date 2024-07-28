@@ -8,6 +8,8 @@
 
 ## `createContext`
 
+`createContext` lets you create a **context** that components can provide or read.
+
 ```js
 const SomeContext = createContext(defaultValue)
 ```
@@ -61,5 +63,78 @@ function App() {
 // any component above/inside Provider
 function Button() {
 	const theme = useContext(ThemeContext)
+}
+```
+
+## `forwardRef`
+
+`forwardRef` lets your component expose a DOM node to parent component with a **ref**.
+
+```js
+const SomeComponent = forwardRef(render)
+```
+
+### Parameters
+
+-   `render`: The render function for your component. React calls this function with the props and ref that your component received from its parent. The JSX you return will be the output of your component.
+
+### Returns
+
+`forwardRef` returns a **React component** that you can render in JSX. Unlike React components defined as plain functions, a component returned by `forwardRef` is also **able to receive a `ref` prop**.
+
+### `render` function
+
+> `forwardRef` accepts a render function as an argument. React calls this function with `props` and `ref`
+
+```js
+const MyInput = forwardRef(function MyInput(props, ref) {
+	return (
+		<label>
+			{props.label}
+			<input ref={ref} />
+		</label>
+	)
+})
+```
+
+#### Parameters
+
+-   `props`: The props passed by the parent component.
+-   `ref`: The `ref` attribute passed by the parent component. The `ref` can be an object or a function. If the parent component has not passed a `ref`, it will be null.
+
+### Usage
+
+#### Exposing a DOM node to the parent component
+
+```js
+import { forwardRef } from 'react'
+
+const MyInput = forwardRef(function MyInput(props, ref) {
+	const { label, ...otherProps } = props
+	return (
+		<label>
+			{label}
+			<input {...otherProps} ref={ref} />
+		</label>
+	)
+})
+```
+
+```js
+function Form() {
+	const ref = useRef(null)
+
+	function handleClick() {
+		ref.current.focus()
+	}
+
+	return (
+		<form>
+			<MyInput label='Enter your name:' ref={ref} />
+			<button type='button' onClick={handleClick}>
+				Edit
+			</button>
+		</form>
+	)
 }
 ```
