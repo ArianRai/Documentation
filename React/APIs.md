@@ -107,6 +107,9 @@ const MyInput = forwardRef(function MyInput(props, ref) {
 
 #### Exposing a DOM node to the parent component
 
+By default, each component’s DOM nodes are private. However, sometimes it’s useful to expose a DOM node to the parent. To odo so, wrap your component definition into `forwardRef()`.
+You will receive a `ref` as the second argument after props. Pass it to the DOM node that you want to **expose**:
+
 ```js
 import { forwardRef } from 'react'
 
@@ -120,6 +123,8 @@ const MyInput = forwardRef(function MyInput(props, ref) {
 	)
 })
 ```
+
+The `Form` component passes a ref to MyInput. The MyInput component forwards that ref to the `<input>`. As a result, the Form component can access that `<input>` DOM node and call **focus()** on it.
 
 ```js
 function Form() {
@@ -139,3 +144,34 @@ function Form() {
 	)
 }
 ```
+
+#### Exposing an imperative handle instead of a DOM node
+
+> Instead of exposing an entire DOM node, you can expose a custom object, called an _imperative handle_, with a more constrained set of methods.
+> To do this, you’d need to define a separate ref to hold the DOM node.
+> Then P the _ref_ you received to **useImperativeHandle** and specify the value you want to expose to the ref:
+
+```js
+import { forwardRef, useRef, useImperativeHandle } from 'react'
+
+const MyInput = forwardRef(function MyInput(props, ref) {
+	const inputRef = useRef(null)
+
+	useImperativeHandle(ref, () => {
+			return {
+				focus() {
+					inputRef.current.focus()
+				},
+				scrollIntoView() {
+					inputRef.current.scrollIntoView()
+				},
+			}
+		},
+		[]
+	)
+
+	return <input {...props} ref={inputRef} />
+})
+```
+
+If some component gets a ref to `MyInput`, it will only receive your `{ focus, scrollIntoView }` object instead of the DOM node.
