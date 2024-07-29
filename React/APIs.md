@@ -77,7 +77,7 @@ const SomeComponent = forwardRef(render)
 
 ### Parameters
 
--   `render`: The render function for your component. React calls this function with the props and ref that your component received from its parent. The JSX you return will be the output of your component.
+-   `render`: The render function for your component. React calls this function with the **props** and **ref** that your component received from its parent. The JSX you return will be the output of your component.
 
 ### Returns
 
@@ -85,7 +85,7 @@ const SomeComponent = forwardRef(render)
 
 ### `render` function
 
-> `forwardRef` accepts a render function as an argument. React calls this function with `props` and `ref`
+> **forwardRef** accepts a render function as an argument. React calls this function with **props** and **ref**
 
 ```js
 const MyInput = forwardRef(function MyInput(props, ref) {
