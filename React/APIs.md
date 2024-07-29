@@ -145,7 +145,7 @@ function Form() {
 }
 ```
 
-#### Exposing an imperative handle instead of a DOM node
+#### Exposing an imperative handle instead of a DOM node
 
 > Instead of exposing an entire DOM node, you can expose a custom object, called an _imperative handle_, with a more constrained set of methods.
 > To do this, you’d need to define a separate ref to hold the DOM node.
