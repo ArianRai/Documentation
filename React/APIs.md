@@ -178,3 +178,9 @@ const MyInput = forwardRef(function MyInput(props, ref) {
 If some component gets a ref to `MyInput`, it will only receive your `{ focus, scrollIntoView }` object instead of the DOM node.
 
 ## `lazy`
+
+`lazy` lets you defer loading component’s code until it is rendered for the first time.
+
+```js
+const SomeComponent = lazy(load)
+```
