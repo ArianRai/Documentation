@@ -4,6 +4,7 @@
 
 -   [createContext](#createcontext)
 -   [forwardRef](#forwardref)
+-   [lazy](#lazy)
 
 ---
 
@@ -175,3 +176,5 @@ const MyInput = forwardRef(function MyInput(props, ref) {
 ```
 
 If some component gets a ref to `MyInput`, it will only receive your `{ focus, scrollIntoView }` object instead of the DOM node.
+
+## `lazy`
