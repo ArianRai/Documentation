@@ -179,7 +179,7 @@ If some component gets a ref to `MyInput`, it will only receive your `{ focus, s
 
 ## `lazy`
 
-`lazy` lets you defer loading component’s code until it is rendered for the first time.
+`lazy` lets you defer the loading of a component’s code until it is rendered for the first time.
 
 ```js
 const SomeComponent = lazy(load)
