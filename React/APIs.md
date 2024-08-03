@@ -184,3 +184,38 @@ If some component gets a ref to `MyInput`, it will only receive your `{ focus, s
 ```js
 const SomeComponent = lazy(load)
 ```
+
+### Parameters
+
+-   `load`: A function that returns a **Promise** or another _thenable_. React will not call `load` until the first time you attempt to render the returned component. After React first calls `load`, and then render the resolved value as a React component. The Promise and the resolved value will be cached, so React will not call `load` more than once.
+
+### Returns
+
+`lazy` returns a component.
+
+### Usage
+
+#### Lazy-loading components with Suspense
+
+Instead of useinf the _static_ import declaration, we can defer loading the component’s code until it’s rendered for the first time. 
+
+```js
+import { lazy } from 'react';
+
+const MarkdownPreview = lazy(() => import('./MarkdownPreview.js'));
+```
+
+> This code relies on `dynamic import()`. Using this pattern requires that the lazy component you’re importing was exported as the `default` export.
+
+Now that your component’s code loads on demand, you also need to specify what should be displayed while it is loading. You can do this by wrapping the lazy component or any of its parents into a `<Suspense>` boundary:
+
+```js
+<Suspense fallback={<Loading />}>
+  <h2>Preview</h2>
+  <MarkdownPreview />
+</Suspense>
+```
+
+### Caveats
+
+- Do not declare `lazy` components _inside_ other components
