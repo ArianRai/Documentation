@@ -218,4 +218,4 @@ Now that your component’s code loads on demand, you also need to specify what 
 
 ### Caveats
 
-- Do not declare `lazy` components _inside_ other components
+- Do not declare `lazy` components _inside_ other components.
