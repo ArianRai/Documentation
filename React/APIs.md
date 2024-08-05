@@ -5,6 +5,7 @@
 -   [createContext](#createcontext)
 -   [forwardRef](#forwardref)
 -   [lazy](#lazy)
+-   [memo](#memo)
 
 ---
 
@@ -219,3 +220,7 @@ Now that your component’s code loads on demand, you also need to specify what 
 ### Caveats
 
 - Do not declare `lazy` components _inside_ other components.
+
+## `memo`
+
+`memo` lets you skip re-rendering a component when its props are unchanged.
