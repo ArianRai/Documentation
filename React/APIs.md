@@ -228,3 +228,27 @@ Now that your component’s code loads on demand, you also need to specify what 
 ```js
 const MemoizedComponent = memo(SomeComponent, arePropsEqual?)
 ```
+
+### Parameters
+
+-   `Component`: The component that you want to memoize. The `memo` does not modify this component, but returns a new, _memoized_ component instead.
+
+- **optional** `arePropsEqual`: A function that accepts two arguments: the component’s previous props, and its new props. It should return `true` if the old and new props are equal. Otherwise it should return false.
+
+### Returns
+
+`memo` returns a component.
+
+### Usage
+
+#### Skipping re-rendering when props are unchanged
+
+> With memo, you can create a component that React will not re-render when its parent re-renders so long as its new props are the same as the old props. Such a component is said to be memoized.
+
+```js
+const Greeting = memo(function Greeting({ name }) {
+  return <h1>Hello, {name}!</h1>
+})
+```
+
+> `Greeting` component will not re-render unless name change.
