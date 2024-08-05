@@ -224,3 +224,7 @@ Now that your component’s code loads on demand, you also need to specify what 
 ## `memo`
 
 `memo` lets you skip re-rendering a component when its props are unchanged.
+
+```js
+const MemoizedComponent = memo(SomeComponent, arePropsEqual?)
+```
