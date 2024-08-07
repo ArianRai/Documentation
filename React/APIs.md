@@ -249,7 +249,7 @@ const MemoizedComponent = memo(SomeComponent, arePropsEqual?)
 
 #### Skipping re-rendering when props are unchanged
 
-> With memo, you can create a component that React will not re-render when its parent re-renders so long as its new props are the same as the old props. Such a component is said to be memoized.
+With memo, you can create a component that React will not re-render when its parent re-renders so long as its `new props` are the same as the `old props`. Such a component is said to be _memoized_.
 
 ```js
 const Greeting = memo(function Greeting({ name }) {
