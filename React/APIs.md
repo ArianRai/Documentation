@@ -69,6 +69,8 @@ function Button() {
 }
 ```
 
+---
+
 ## `forwardRef`
 
 `forwardRef` lets your component expose a DOM node to parent component with a **ref**.
@@ -178,6 +180,8 @@ const MyInput = forwardRef(function MyInput(props, ref) {
 
 If some component gets a ref to `MyInput`, it will only receive your `{ focus, scrollIntoView }` object instead of the DOM node.
 
+---
+
 ## `lazy`
 
 `lazy` lets you defer the loading of a component’s code until it is rendered for the first time.
@@ -220,6 +224,8 @@ Now that your component’s code loads on demand, you also need to specify what 
 ### Caveats
 
 - Do not declare `lazy` components _inside_ other components.
+
+---
 
 ## `memo`
 
