@@ -20,7 +20,7 @@
 -   [Type Aliases](#type-aliases)
 -   [Interfaces](#interfaces)
 -   [More About Types](#more-about-types)
--   [Narrowing](#type-guards--narrowing)
+-   [Narrowing](#narrowing)
 -   [Generics](#generics)
 
 ---
@@ -369,11 +369,11 @@ type Address: Person['address']
 
 ## Narrowing
 
-### _typeof_ and _instanceof_ operators
+#### The _typeof_ and _instanceof_ operators
 
-`typeof` : returns a string value representing the type of the variable.
+In TypeScript, checking against the value returned by _typeof_ is a type guard.
 
--   In TypeScript, checking against the value returned by _typeof_ is a type guard.
+- `typeof` : returns a string value representing the type of the variable.
 
 ```typescript
 const address = {
@@ -384,7 +384,7 @@ const address = {
 type Address = typeof address
 ```
 
-`instanceof` : checks if an object is an instance of a class.
+- `instanceof` : checks if an object is an instance of a class.
 
 ```typescript
 function logValue(x: Date | string) {
@@ -396,7 +396,7 @@ function logValue(x: Date | string) {
 }
 ```
 
-The `in` operator
+#### The `in` operator
 
 ```typescript
 type Fish = { swim: () => void }
@@ -408,6 +408,60 @@ function move(animal: Fish | Bird) {
 	}
 
 	return animal.fly()
+}
+```
+
+#### The `satisfies` operator
+
+```typescript
+
+interface ICustomImage {
+  data: string;
+  width: number;
+  height: number;
+}
+
+type UserImage = string | ICustomImage;
+
+interface IUser {
+  id: number;
+  firstName: string;
+  lastName: string;
+  image: UserImage;
+}
+
+//Bad ❌
+const badUser: IUser = {
+  id: 1,
+  firstName: "Alex",
+  lastName: "Brooks",
+  image: "image-url",
+};
+
+//Good ✅
+const goodUser = {
+  id: 1,
+  firstName: "Alex",
+  lastName: "Brooks",
+  image: myCustomImage,
+} satisfies IUser;
+
+```
+
+
+### Type Predicates
+
+Type predicates are functions that return a boolean value. They are used to narrow the type of a variable. Type predicates are used in type guards.
+
+```typescript
+function isString(value: unknown): value is string {
+	return typeof value === 'string'
+}
+
+function example(x: unknown) {
+	if (isString(x)) {
+		x.toUpperCase() // We can now call any 'string' method on 'x'.
+	}
 }
 ```
 
@@ -438,22 +492,6 @@ function printAll(strs: string | string[] | null) {
 		}
 	} else if (typeof strs === 'string') {
 		console.log(strs)
-	}
-}
-```
-
-### Type Predicates
-
-Type predicates are functions that return a boolean value. They are used to narrow the type of a variable. Type predicates are used in type guards.
-
-```typescript
-function isString(value: unknown): value is string {
-	return typeof value === 'string'
-}
-
-function example(x: unknown) {
-	if (isString(x)) {
-		x.toUpperCase() // We can now call any 'string' method on 'x'.
 	}
 }
 ```
