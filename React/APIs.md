@@ -261,4 +261,4 @@ const Greeting = memo(function Greeting({ name }) {
 
 #### Updating a memoized component using state
 
-> Even when a component is memoized, it will still re-render when its own state changes. Memoization only has to do with props that are passed to the component from its parent.
+Even when a component is memoized, it will still re-render when its own state changes. Memoization only has to do with props that are passed to the component from its parent.
