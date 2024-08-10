@@ -249,7 +249,7 @@ const MemoizedComponent = memo(SomeComponent, arePropsEqual?)
 
 #### Skipping re-rendering when props are unchanged
 
-With memo, you can create a component that React will not re-render when its parent re-renders so long as its `new props` are the same as the `old props`. Such a component is said to be _memoized_.
+With memo, you can create a component that React will not re-render when its parent re-renders so long as its `new props` are the same as the `old props`. Such component is said to be _memoized_.
 
 ```js
 const Greeting = memo(function Greeting({ name }) {
@@ -259,6 +259,14 @@ const Greeting = memo(function Greeting({ name }) {
 
 > `Greeting` component will not re-render unless name change.
 
-#### Updating a memoized component using state
+- **Updating a _memoized_ component using state**: a component still re-render when its own **state** changes.
 
-Even when a component is _memoized_, it will still re-render when its own state changes. Memoization only has to do with props that are passed to the component from its parent.
+- **Updating a _memoized_ component using context**: a component still re-render when its own **context** changes.
+
+#### Minimizing props changes
+
+To get the most out of memo, minimize the times that the props change:
+
+- if the prop is an **object**, prevent the parent component from re-creating that object every time by using `useMemo`.
+- A better way to minimize props changes is to make sure the component accepts the minimum necessary information. For example, it could accept individual values instead of a whole object.
+- When you need to pass a function, either declare it outside your component so that it never changes, or `useCallback` to cache its definition between re-renders.
