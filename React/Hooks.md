@@ -6,6 +6,7 @@
 -   [useContext](#usecontext)
 -   [useState](#usestate)
 -   [useReducer](#usereducer)
+-   [useEffect](#useeffect)
 
 ---
 
@@ -30,7 +31,8 @@ function ProductPage({ productId, referrer, theme }) {
       referrer,
       orderDetails,
     });
-  }, [productId, referrer])}
+  }, [productId, referrer])
+}
 ```
 
 ### Returns
@@ -140,9 +142,9 @@ Suppose the `age` is `42`. This handler calls `setAge(age + 1)` three times:
 
 ```js
 function handleClick() {
-	setAge(age + 1) // setAge(42 + 1)
-	setAge(age + 1) // setAge(42 + 1)
-	setAge(age + 1) // setAge(42 + 1)
+    setAge(age + 1) // setAge(42 + 1)
+    setAge(age + 1) // setAge(42 + 1)
+    setAge(age + 1) // setAge(42 + 1)
 }
 ```
 
@@ -152,7 +154,7 @@ To solve this problem, you **may pass an _updater function_** to `setAge` instea
 
 ```js
 function handleClick() {
-	setAge(a => a + 1) // setAge(42 => 43)
+    setAge(a => a + 1) // setAge(42 => 43)
 	setAge(a => a + 1) // setAge(43 => 44)
 	setAge(a => a + 1) // setAge(44 => 45)
 }
@@ -263,3 +265,22 @@ function handleInputChange(e) {
 -   Calling the `dispatch` function does not change state in the _running code_, only for the **next render**
 -   React will **ignore your update if the next state is equal to the previous state**, as determined by an `Object.is` comparison
 
+## `useEffect`
+
+`useEffect` lets you synchronize a component with an external system.
+
+```js
+useEffect(setup, dependencies?)
+```
+
+### Parameters
+
+-   `setup`: The function with your Effect’s logic. It may also optionally return a _cleanup function_.
+
+> When your component is added to the DOM, React will run your _setup function_. After every re-render with changed dependencies, React will first run the _cleanup function_, and then run your _setup function_. After your component is removed from the DOM, React will run your _cleanup function_.
+
+-   `dependencies` (**optional**): The list of all reactive values referenced inside of the setup code. If you omit this argument, your Effect will re-run after every re-render of the component.
+
+### Returns
+
+-   `useEffect` returns **undefined**.
