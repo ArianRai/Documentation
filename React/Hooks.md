@@ -30,7 +30,7 @@ function ProductPage({ productId, referrer, theme }) {
       referrer,
       orderDetails,
     });
-  }, [productId, referrer]);
+  }, [productId, referrer])}
 ```
 
 ### Returns
@@ -262,3 +262,4 @@ function handleInputChange(e) {
 
 -   Calling the `dispatch` function does not change state in the _running code_, only for the **next render**
 -   React will **ignore your update if the next state is equal to the previous state**, as determined by an `Object.is` comparison
+
