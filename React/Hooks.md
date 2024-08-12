@@ -56,12 +56,13 @@ This function specifies `todos` as a dependency because it computes the next tod
 
 ```js
 function TodoList() {
-	const [todos, setTodos] = useState([]);
+    const [todos, setTodos] = useState([]);
 
-  const handleAddTodo = useCallback((text) => {
-	  const newTodo = { id: nextId++, text };
-    setTodos([...todos, newTodo]);
-  }, [todos]);
+    const handleAddTodo = useCallback((text) => {
+        const newTodo = { id: nextId++, text };
+        setTodos([...todos, newTodo]);
+    }, [todos])
+}
 ```
 
 > You’ll usually want memoized functions to have as few dependencies as possible. When you read some state only to calculate the next state, you can remove that dependency by passing an _updater function_ instead
@@ -113,7 +114,7 @@ const [currentState, setFunction] = useState(initialState)
 ```js
 function createInitialTodos() {
   const initialTodos = [];
-   	// ...
+    // ...
   return initialTodos;
 }
 
@@ -155,8 +156,8 @@ To solve this problem, you **may pass an _updater function_** to `setAge` instea
 ```js
 function handleClick() {
     setAge(a => a + 1) // setAge(42 => 43)
-	setAge(a => a + 1) // setAge(43 => 44)
-	setAge(a => a + 1) // setAge(44 => 45)
+    setAge(a => a + 1) // setAge(43 => 44)
+    setAge(a => a + 1) // setAge(44 => 45)
 }
 ```
 
@@ -191,12 +192,12 @@ const [state, dispatch] = useReducer(reducer, initialArg, init?)
 
 ```js
 function reducer(state, action) {
-	// ...
+    // ...
 }
 
 function MyComponent() {
-	const [state, dispatch] = useReducer(reducer, { age: 42 })
-	// ...
+    const [state, dispatch] = useReducer(reducer, { age: 42 })
+    // ...
 }
 ```
 
@@ -231,32 +232,32 @@ function handleClick() {
 const [state, dispatch] = useReducer(reducer, { age: 42 })
 
 function reducer(state, action) {
-	switch (action.type) {
-		case 'incremented_age': {
-			return {
-				name: state.name,
-				age: state.age + 1,
-			}
-		}
-		case 'changed_name': {
-			return {
-				name: action.nextName,
-				age: state.age,
-			}
-		}
-	}
-	throw Error('Unknown action: ' + action.type)
+    switch (action.type) {
+	case 'incremented_age': {
+	    return {
+            name: state.name,
+            age: state.age + 1,
+        }
+        }
+    case 'changed_name': {
+        return {
+            name: action.nextName,
+            age: state.age,
+        }
+        }
+    }
+    throw Error('Unknown action: ' + action.type)
 }
 
 function handleButtonClick() {
-	dispatch({ type: 'incremented_age' })
+    dispatch({ type: 'incremented_age' })
 }
 
 function handleInputChange(e) {
-	dispatch({
-		type: 'changed_name',
-		nextName: e.target.value,
-	})
+    dispatch({
+        type: 'changed_name',
+        nextName: e.target.value,
+    })
 }
 ```
 
@@ -284,3 +285,27 @@ useEffect(setup, dependencies?)
 ### Returns
 
 -   `useEffect` returns **undefined**.
+
+
+### Usage
+
+#### Connecting to an external system
+
+```js
+import { useEffect } from 'react';
+import { createConnection } from './chat.js';
+
+function ChatRoom({ roomId }) {
+  const [serverUrl, setServerUrl] = useState('https://localhost:1234');
+
+  useEffect(() => {
+  	const connection = createConnection(serverUrl, roomId);
+    connection.connect();
+  	return () => {
+      connection.disconnect();
+  	};
+  }, [serverUrl, roomId]);
+  // ...
+}
+```
+
