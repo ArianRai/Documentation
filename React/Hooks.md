@@ -305,7 +305,6 @@ function ChatRoom({ roomId }) {
       connection.disconnect();
   	};
   }, [serverUrl, roomId]);
-  // ...
 }
 ```
 
