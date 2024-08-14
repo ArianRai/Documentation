@@ -265,7 +265,7 @@ const Greeting = memo(function Greeting({ name }) {
 
 #### Minimizing props changes
 
-To get the most out of memo, minimize the times that the props change:
+To get the most out of `memo`, minimize the times that the props change:
 
 - if the prop is an **object**, prevent the parent component from re-creating that object every time by using `useMemo`.
 - A better way to minimize props changes is to make sure the component accepts the minimum necessary information. For example, it could accept individual values instead of a whole object.
