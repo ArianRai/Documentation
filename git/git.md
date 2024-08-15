@@ -19,6 +19,7 @@
 | `gstaa`                    | `git stash apply`                 |
 | `gstd`                     | `git stash drop`                  |
 | `gstp`                     | `git stash pop`                   |
+| `gsts`                     | `git stash show --patch`          |
 | `gstc`                     | `git stash clear`                 |
 | `gsb`                      | `git status --short -b`           |
 | `grs`                      | `git restore`                     |
