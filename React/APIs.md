@@ -19,7 +19,7 @@ const SomeContext = createContext(defaultValue)
 
 ### Parameters
 
--   `defaultValue`: The value that you want the context to have when there is no matching context provider. If you don’t have any default value, specify `null`. The default value is meant as a “last resort” fallback. It is static.
+-   `defaultValue`: The value that you want the context to have when there is no matching context provider. If you don’t have any default value, specify `null`. The default value is meant as a “last resort” fallback.
 
 ### Returns
 
