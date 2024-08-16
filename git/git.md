@@ -14,7 +14,6 @@
 | `gp`                       | `git push`                        |
 | `ggp`                      | `git push origin current_branch`  |
 | `gstall`                   | `git stash --all`                 |
-| `gstu`                     | `git stash --include-untracked`   |
 | `gstl`                     | `git stash list`                  |
 | `gstaa`                    | `git stash apply`                 |
 | `gstd`                     | `git stash drop`                  |
