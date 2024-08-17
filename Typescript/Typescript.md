@@ -556,7 +556,7 @@ const student: Student = {
 }
 ```
 
-- To make sure you only access **existing** properties
+- To make sure you only access **existing** properties:
 
 ```js
 for (const key in student) {
@@ -574,7 +574,7 @@ Generics in TypeScript are a way to write code that can work with multiple data 
 
 ```typescript
 function identity<T>(arg: T): T {
-	return arg
+    return arg
 }
 
 let output = identity<string>('Hello')
