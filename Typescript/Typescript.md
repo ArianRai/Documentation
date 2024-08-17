@@ -21,6 +21,7 @@
 -   [Interfaces](#interfaces)
 -   [More About Types](#more-about-types)
 -   [Narrowing](#narrowing)
+-   [Index Signatures](#index-signatures)
 -   [Generics](#generics)
 
 ---
@@ -448,7 +449,6 @@ const goodUser = {
 
 ```
 
-
 ### Type Predicates
 
 Type predicates are functions that return a boolean value. They are used to narrow the type of a variable. Type predicates are used in type guards.
@@ -494,6 +494,78 @@ function printAll(strs: string | string[] | null) {
 		console.log(strs)
 	}
 }
+```
+
+## Index Signatures
+
+> If you don’t know the names of a type’s properties, but you do know the shape of the values, you can use an __index signature__ to describe the types.
+> That way you can access properties _dinamically_.
+
+```js
+interface TransactionObj {
+    [index: string]: number
+    Pizza: number,
+    Books: number,
+    Job: number
+}
+```
+
+```js
+const todaysTransactions: TransactionObj = {
+    Pizza: -10,
+    Books: -5,
+    Job: 50,
+}
+```
+
+- Now you can access props dinamically: 
+
+```js
+let prop: string = 'Pizza'
+console.log(todaysTransactions[prop])
+ 
+const todaysNet = (transactions: TransactionObj): number => {
+    let total = 0
+    for (const transaction in transactions) {
+        total += transactions[transaction]
+    }
+    return total
+}
+console.log(todaysNet(todaysTransactions))
+```
+
+> BUT you can access properties that don't exist: 
+
+> ```js
+> console.log(todaysTransactions['Dave']) // undefined
+> ```
+
+#### *keyof* and *typeof* method
+
+```js
+interface Student {
+    name: string,
+    GPA: number,
+    classes?: number[]
+}
+
+const student: Student = {
+    name: "Doug",
+    GPA: 3.5,
+    classes: [100, 200]
+}
+```
+
+- To make sure you only access **existing** properties
+
+```js
+for (const key in student) {
+    console.log(`${key}: ${student[key as keyof Student]}`)
+}
+
+Object.keys(student).map(key => {
+    console.log(student[key as keyof typeof student])
+})
 ```
 
 ## Generics
