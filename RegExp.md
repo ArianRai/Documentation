@@ -17,8 +17,8 @@
 | `\D`                       | `NON-digit`             	         |
 | `\w`                       | `Alphanumeric`             	     |
 | `\W`                       | `NON-Alphanumeric`             	 |
-| `\s`                       | `Whitespaces`             	     |
-| `\S`                       | `NON-Whitespaces`             	 |
+| `\s`                       | `Whitespaces`             	       |
+| `\S`                       | `NON-Whitespaces`               	 |
 
 ## Boundaries
 
@@ -71,10 +71,10 @@
 
 > Lookaround lets you **match a group** before (lookbehind) or after (lookahead) your main pattern **without including it in the result**.
 
-| Expression  | Matches                 | Example      						    |
+| Expression  | Matches                 | Example      						              |
 | :---------- | :---------------------- | :------------------------------------ |
 | `(?=ABC)`   | `Lookahead`             | `\d(?=px)` -> 1pt **2**px 3em **4**px |
 | `(?!ABC)`   | `Negative Lookahead`    | `\d(?!px)` -> **1**pt 2px **3**em 4px |
-| `(?<=ABC)`  | `Lookbehind`            | 									    |
-| `(?<!ABC)`  | `Negative Lookbehind`   |  									    |
+| `(?<=ABC)`  | `Lookbehind`            | 									                    |
+| `(?<!ABC)`  | `Negative Lookbehind`   |  									                    |
 
