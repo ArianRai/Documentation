@@ -1,6 +1,6 @@
 # GraphQL
 
-## Index qk
+## Index
 
 -    [Basics](#basics)
 ---
