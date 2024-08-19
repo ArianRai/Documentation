@@ -3,10 +3,12 @@
 ## Index
 
 -   [useCallback](#usecallback)
+-   [useMemo](#usememo)
 -   [useContext](#usecontext)
 -   [useState](#usestate)
 -   [useReducer](#usereducer)
 -   [useEffect](#useeffect)
+-   [useRef](#useref)
 
 ---
 
