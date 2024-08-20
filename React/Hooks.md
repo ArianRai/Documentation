@@ -3,11 +3,11 @@
 ## Index
 
 -   [useCallback](#usecallback)
--   [useMemo](#usememo)
 -   [useContext](#usecontext)
 -   [useState](#usestate)
 -   [useReducer](#usereducer)
 -   [useEffect](#useeffect)
+-   [useMemo](#usememo)
 -   [useRef](#useref)
 
 ---
@@ -288,7 +288,6 @@ useEffect(setup, dependencies?)
 
 -   `useEffect` returns **undefined**.
 
-
 ### Usage
 
 #### Connecting to an external system
@@ -309,4 +308,13 @@ function ChatRoom({ roomId }) {
   }, [serverUrl, roomId]);
 }
 ```
+
+React calls your **setup** and **cleanup** functions whenever it’s necessary, which may happen multiple times:
+
+1. Your **setup** code runs when your component is added to the page (_mounts_).
+1. After every re-render of your component where the **dependencies** have changed:
+	- First, your **cleanup** code runs with the **old** props and state.
+	- Then, your **setup** code runs with the **new** props and state.
+3. Your **cleanup** code runs one final time after your component is removed from the page (_unmounts_).
+
 
