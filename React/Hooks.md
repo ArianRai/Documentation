@@ -282,7 +282,11 @@ useEffect(setup, dependencies?)
 
 > When your component is added to the DOM, React will run your _setup function_. After every re-render with changed dependencies, React will first run the _cleanup function_, and then run your _setup function_. After your component is removed from the DOM, React will run your _cleanup function_.
 
--   `dependencies` (**optional**): The list of all reactive values referenced inside of the setup code. If you omit this argument, your Effect will re-run after every re-render of the component.
+-   `dependencies` (**optional**): The list of all reactive values referenced inside of the setup code.
+
+	-   _Reactive values_ should be inside the `dependencies` array
+	-	Empty `dependencies` array `[]` will run effect only once.
+	-	No dependency array will run effect on every re-render.
 
 ### Returns
 
@@ -300,11 +304,11 @@ function ChatRoom({ roomId }) {
   const [serverUrl, setServerUrl] = useState('https://localhost:1234');
 
   useEffect(() => {
-  	const connection = createConnection(serverUrl, roomId);
+    const connection = createConnection(serverUrl, roomId);
     connection.connect();
-  	return () => {
+    return () => {
       connection.disconnect();
-  	};
+    };
   }, [serverUrl, roomId]);
 }
 ```
@@ -316,5 +320,33 @@ React calls your **setup** and **cleanup** functions whenever it’s necessary, 
 	- First, your **cleanup** code runs with the **old** props and state.
 	- Then, your **setup** code runs with the **new** props and state.
 3. Your **cleanup** code runs one final time after your component is removed from the page (_unmounts_).
+
+### Updating state based on previous state from an Effect 
+
+When you want to update state based on previous state from an Effect:
+
+```js
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCount(count + 1); // You want to increment the counter every second...
+    }, 1000)
+    return () => clearInterval(intervalId);
+  }, [count]); // 🚩 ... but specifying `count` as a dependency always resets the interval.
+}
+```
+
+Since `count` is a _reactive value_, it must be specified in the list of `dependencies`. However, that causes the Effect to cleanup and setup again every time the `count` changes.
+
+> To fix that, instead of passing the _next state_ to the **setCount**, we can pass an _updater function_ `c => c + 1`
+> And you no longer need **count** as a dependency.
+
+### Caveats
+
+-	Avoid using an **object** created during rendering as a dependency. Instead, create the object inside the Effect.
+-	Avoid using a **function** created during rendering as a dependency. Instead, declare it inside the Effect.
+
 
 
