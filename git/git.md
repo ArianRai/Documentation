@@ -26,3 +26,9 @@
 | `glols`                    | `git log bien chulaso`            |
 | `glgp <commit>`            | `git log --patch <commit>`        |
 | `glod --author="arian-mq"` | `git log oneline`                 |
+
+### Set git aliases
+
+```bash
+git config --global alias.st status // git st === git status
+```
