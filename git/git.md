@@ -17,3 +17,5 @@ Edit the previous commit (not creating a new one)
 -	Modifying the commit message
 
 ### Diff
+
+> Diffing is a function that takes two input data sets (_commits, branches, files..._) and outputs the changes between them.
