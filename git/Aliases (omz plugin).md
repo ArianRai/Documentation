@@ -24,8 +24,10 @@
 | `gl`                       | `git pull`                        |
 | `ggl`                      | `git pull current_branch`         |
 | `gp`                       | `git push`                        |
-| `gsh`                      | `git show`                        |
 | `ggp`                      | `git push origin current_branch`  |
+| `gsh`                      | `git show`                        |
+| `gd`                       | `git diff`                        |
+| `gds`                      | `git diff --staged`               |
 | `glols`                    | `git log bien chulaso`            |
 | `glgp <commit>`            | `git log --patch <commit>`        |
 | `glod --author="arian-mq"` | `git log oneline`                 |
