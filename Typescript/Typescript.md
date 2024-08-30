@@ -540,7 +540,7 @@ console.log(todaysNet(todaysTransactions))
 > console.log(todaysTransactions['Dave']) // undefined
 > ```
 
-#### *keyof* and *typeof* method
+#### *keyof* and *typeof*
 
 ```js
 interface Student {
