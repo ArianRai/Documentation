@@ -267,6 +267,6 @@ const Greeting = memo(function Greeting({ name }) {
 
 To get the most out of `memo`, minimize the times that the props change:
 
-- if the prop is an **object**, prevent the parent component from re-creating that object every time by using `useMemo`.
+- if the prop variable is an **object**, prevent the parent component from re-creating that object every time by using `useMemo`.
 - A better way to minimize props changes is to make sure the component accepts the minimum necessary information. For example, it could accept individual values instead of a whole object.
 - When you need to pass a function, either declare it outside your component so that it never changes, or `useCallback` to cache its definition between re-renders.
