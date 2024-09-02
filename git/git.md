@@ -23,3 +23,14 @@ git diff
 ```
 
 > _Diff_ is a function that takes two input data sets (_commits, branches, files..._) and outputs the changes between them.
+
+Example of a diff
+```bash
+diff --git a/diff_test.txt b/diff_test.txt
+index 6b0c6cf..b37e70a 100644
+--- a/diff_test.txt
++++ b/diff_test.txt
+@@ -1 +1 @@
+-this is a git diff test example
++this is a diff example
+```
