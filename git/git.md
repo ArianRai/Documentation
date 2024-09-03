@@ -26,10 +26,10 @@ git diff
 
 Example of a diff
 ```bash
-diff --git a/diff_test.txt b/diff_test.txt
-index 6b0c6cf..b37e70a 100644
---- a/diff_test.txt
-+++ b/diff_test.txt
+diff --git a/diff_test.txt b/diff_test.txt - //sources
+index 6b0c6cf..b37e70a 100644 - //Metadata 
+--- a/diff_test.txt  // Markers for changes
++++ b/diff_test.txt  // Markers for changes
 @@ -1 +1 @@
 -this is a git diff test example
 +this is a diff example
