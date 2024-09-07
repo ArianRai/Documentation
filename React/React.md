@@ -3,12 +3,9 @@
 ## Index
 ---
 
--   [Fragment](#fragment)
--   [Suspense](#suspense)
+-   [Importing and Exporting](#importing-and-exporting)
 
-## Components
-
-### Importing and Exporting
+## Importing and Exporting
 
 | Syntax           | Command                               |         			                	|
 | :--------------- | :------------------------------------ | :------------------------------------- |
