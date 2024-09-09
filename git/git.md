@@ -6,15 +6,16 @@
 git config --global alias.st status // git st === git status
 ```
 
-### Amend a commit 
+### Amend a commit
 
 ```bash
 git commit --amend
 ```
 
 Edit the previous commit (not creating a new one)
--	Adding staged changes
--	Modifying the commit message
+
+-   Adding staged changes
+-   Modifying the commit message
 
 ### Diff
 
@@ -25,9 +26,10 @@ git diff
 > _Diff_ is a function that takes two input data sets (_commits, branches, files..._) and outputs the changes between them.
 
 Example of a diff
+
 ```bash
 diff --git a/diff_test.txt b/diff_test.txt	-> //sources
-index 6b0c6cf..b37e70a 100644 			-> //Metadata 
+index 6b0c6cf..b37e70a 100644 			-> //Metadata
 --- a/diff_test.txt 				-> // Markers for changes
 +++ b/diff_test.txt				-> // Markers for changes
 @@ -1 +1 @@  					-> // Chunks
@@ -37,13 +39,16 @@ index 6b0c6cf..b37e70a 100644 			-> //Metadata
 
 Chunk example:
 
-	@@ -34,6 +34,8 @@
- 6 lines have been **extracted** starting _from_ line number 34. Additionally, 8 lines have been **added** _starting at_ line number 34.
+    @@ -34,6 +34,8 @@
 
- #### Comparing commits
+6 lines have been **extracted** starting _from_ line number 34. Additionally, 8 lines have been **added** _starting at_ line number 34.
 
-	git diff <commitID_1> <commitID_2>
+#### Comparing commits
+
+    git diff <commitID_1> <commitID_2>
 
 #### Comparing branches
 
-	git diff <branch_1> <branch_2>
+    git diff <branch_1> <branch_2>
+
+### Stash
