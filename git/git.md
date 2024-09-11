@@ -41,7 +41,7 @@ Chunk example:
 
     @@ -34,6 +34,8 @@
 
-6 lines have been **extracted** starting _from_ line number 34. Additionally, 8 lines have been **added** _starting at_ line number 34.
+6 lines have been **extracted** starting from line number 34. Additionally, 8 lines have been **added** starting at line number 34.
 
 #### Comparing commits
 
