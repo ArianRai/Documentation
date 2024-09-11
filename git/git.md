@@ -52,3 +52,15 @@ Chunk example:
     git diff <branch_1> <branch_2>
 
 ### Stash
+
+The `git stash` command takes all uncommitted changes (staged and unstaged), saves them away, and reverts them.
+
+#### Re-applying stashed changes
+
+Apply last stashed changes **keeping** the stash
+
+    git stash apply
+
+Apply last stashed changes **removing** the stash
+
+    git stash pop
