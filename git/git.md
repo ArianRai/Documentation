@@ -64,3 +64,7 @@ Apply last stashed changes **keeping** the stash
 Apply last stashed changes **removing** the stash
 
     git stash pop
+
+#### Listing all stashes
+
+    git stash show
