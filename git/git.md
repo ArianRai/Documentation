@@ -128,12 +128,13 @@ git stash pop stash@{2}
 
 #### Viewing stash diffs
 
+Display a **summary** of the changes.
+
 ```bash
 git stash show
 ```
 
-> Will display a **summary** of the changes.
-> Pass -p or --patch to view the full diff of a stash
+Adding -p or --patch to view the full diff of a stash
 
 ```bash
 git stash show -p
