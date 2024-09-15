@@ -45,11 +45,15 @@ Chunk example:
 
 #### Comparing commits
 
-    git diff <commitID_1> <commitID_2>
+```bash
+git diff <commitID_1> <commitID_2>
+```
 
 #### Comparing branches
 
-    git diff <branch_1> <branch_2>
+```bash
+git diff <branch_1> <branch_2>
+```
 
 ### Stash
 
@@ -66,18 +70,86 @@ But it will **not** stash:
 Adding the `-u` option (`--include-untracked`) will also stash **untracked** files
 git stash -u
 
+```bash
+git stash -u
+```
+
 Adding the `-a` option (`--all`) will also stash **ignored** files
+
+```bash
+git stash -a
+```
+
+![](https://wac-cdn.atlassian.com/dam/jcr:d6fec41a-dc66-4af6-8b0f-c23d271eaf8e/01.svg?cdnVersion=2221)
+
+#### Listing all stashes
+
+```bash
+git stash show
+```
+
+Will diplay stash info:
+
+```bash
+stash@{0}: WIP on main: 5002d47 our new homepage
+```
+
+    stash@{STASH_INDEX}: WIP on <BRANCH> <COMMIT_HASH> <COMMIT_MESSAGE>
+
+We can provide more context passing a message for the stash
+
+```bash
+git stash save "adding styling of main page"
+```
+
+```bash
+stash@{0}: On main: adding styling of main page
+```
 
 #### Re-applying stashed changes
 
 Apply last stashed changes **keeping** the stash
 
-    git stash apply
+```bash
+git stash apply
+```
 
-Apply last stashed changes **removing** the stash
+Apply _last_ stashed changes **removing** the stash
 
-    git stash pop
+```bash
+git stash pop
+```
 
-#### Listing all stashes
+Chosse which stash to apply
 
-    git stash show
+```bash
+git stash pop stash@{2}
+```
+
+#### Viewing stash diffs
+
+```bash
+git stash show
+```
+
+> Will display a **summary** of the changes.
+> Pass -p or --patch to view the full diff of a stash
+
+```bash
+git stash show -p
+```
+
+#### Partial stashes
+
+You can also choose to stash just a single file, a collection of files, or individual changes from within files. If you pass the `-p` option (or `--patch`) to `git stash`, it will iterate through each changed "hunk" and ask whether you wish to stash it or not.
+
+Useful commands when iterating hunks:
+
+| Command | Description                              |
+| :-----: | :--------------------------------------- |
+|   `/`   | `search for a hunk by regex`             |
+|   `?`   | `help`                                   |
+|   `n`   | `don't stash this hunk`                  |
+|   `y`   | `stash this hunk`                        |
+|   `q`   | `quit (stashing already selected hunks)` |
+|   `s`   | `split this hunk into smaller hunks`     |
