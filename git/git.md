@@ -53,7 +53,20 @@ Chunk example:
 
 ### Stash
 
-The `git stash` command takes all uncommitted changes (staged and unstaged), saves them away, and reverts them.
+The `git stash` command will stash:
+
+-   Changes that have been added to your index (**staged**)
+-   Changes made to files that are currently tracked by Git (**unstaged**)
+
+But it will **not** stash:
+
+-   New files that have not yet been staged (**untracked**)
+-   Files that have been **ignored**
+
+Adding the `-u` option (`--include-untracked`) will also stash **untracked** files
+git stash -u
+
+Adding the `-a` option (`--all`) will also stash **ignored** files
 
 #### Re-applying stashed changes
 
