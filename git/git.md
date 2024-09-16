@@ -154,3 +154,23 @@ Useful commands when iterating hunks:
 |   `y`   | `stash this hunk`                        |
 |   `q`   | `quit (stashing already selected hunks)` |
 |   `s`   | `split this hunk into smaller hunks`     |
+
+#### Cleaning up stashes
+
+You can delete the last stash using git stash drop:
+
+```bash
+git stash drop
+```
+
+Or choose which stash to delete by ID:
+
+```bash
+git stash drop stash@{1}
+```
+
+You can also delete **all** stashes:
+
+```bash
+git stash clear
+```
