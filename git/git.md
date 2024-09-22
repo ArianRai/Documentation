@@ -176,3 +176,20 @@ git stash clear
 ```
 
 ### Undoing Commits & Changes
+
+#### Revert
+
+We can _undo_ changes with `git revert`. That would create a new commit with the **inverted** changes of the commit we want to undo.
+
+```bash
+872fa7e Try something crazy
+a1e8fb5 Make some important changes to hello.txt
+435b61d Create hello.txt
+9773e52 Initial import
+```
+
+If we want to **undo** the `872fa7e` commit we can run:
+
+```bash
+git revert 872fa7e
+```
