@@ -174,3 +174,5 @@ You can also delete **all** stashes:
 ```bash
 git stash clear
 ```
+
+### Undoing Commits & Changes
