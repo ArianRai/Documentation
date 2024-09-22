@@ -189,7 +189,3 @@ a1e8fb5 Make some important changes to hello.txt
 ```
 
 If we want to **undo** the `872fa7e` commit we can run:
-
-```bash
-git revert 872fa7e
-```
