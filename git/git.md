@@ -6,12 +6,6 @@
 git config --global alias.st status // git st === git status
 ```
 
-### Amend a commit
-
-```bash
-git commit --amend
-```
-
 Edit the previous commit (not creating a new one)
 
 -   Adding staged changes
@@ -208,4 +202,22 @@ If we want to revert the **last** commit, we can just run:
 
 ```bash
 git revert HEAD
+```
+
+#### Reset
+
+We can also _undo_ changes with `git reset`. With `git reset a1e8fb5` we will reset the commit history to that specified commit.
+
+```bash
+a1e8fb5 Make some important changes to hello.txt
+435b61d Create hello.txt
+9773e52 Initial import
+```
+
+#### Modifying the last commit
+
+`git commit --amend` lets you edit the message of the last commit and commit the new changes you have on **stage**.
+
+```bash
+git commit --amend
 ```
