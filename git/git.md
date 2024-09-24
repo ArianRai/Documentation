@@ -222,7 +222,7 @@ a1e8fb5 Make some important changes to hello.txt
 git commit --amend
 ```
 
-If you just want to add new changes without changing the commit message:
+To just add new changes without changing the commit message:
 
 ```bash
 git commit --amend --no-edit
