@@ -227,3 +227,5 @@ To just add new changes without changing the commit message:
 ```bash
 git commit --amend --no-edit
 ```
+
+#### Changing older or multiple commits
