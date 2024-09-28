@@ -4,6 +4,7 @@
 	-	[APIs](https://github.com/ArianRai/Documentation/blob/main/React/APIs.md)
 	-	[Components](https://github.com/ArianRai/Documentation/blob/main/React/Components.md)
 	-	[Hooks](https://github.com/ArianRai/Documentation/blob/main/React/Hooks.md)
+    -   [React Query](https://github.com/ArianRai/Documentation/blob/main/React/Hooks.md)
 -   [TypeScript](https://github.com/ArianRai/Documentation/blob/main/Typescript)
 	-   [TypeScript](https://github.com/ArianRai/Documentation/blob/main/Typescript/Typescript.md)
 	-   [React + Typescript](https://github.com/ArianRai/Documentation/blob/main/Typescript/React%20%2B%20Typescript.md)
