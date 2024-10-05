@@ -214,7 +214,7 @@ a1e8fb5 Make some important changes to hello.txt
 9773e52 Initial import
 ```
 
-#### Modifying the last commit
+### Modifying the last commit (ammend)
 
 `git commit --amend` lets you edit the message of the last commit and commit the new changes you have on **stage**.
 
@@ -229,4 +229,4 @@ To just add new changes without changing the commit message:
 git commit --amend --no-edit
 ```
 
-#### Changing older or multiple commits
+### Rebase
