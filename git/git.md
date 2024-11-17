@@ -216,7 +216,7 @@ a1e8fb5 Make some important changes to hello.txt
 
 ### Modifying the last commit (ammend)
 
-### Modifying the last commit (ammend)
+#### Amend
 
 `git commit --amend` lets you edit the message of the last commit and commit the new changes you have on **stage**.
 
@@ -231,6 +231,22 @@ To just add new changes without changing the commit message:
 git commit --amend --no-edit
 ```
 
-### Changing older or multiple commits
+### Changing older or multiple commits (rebase)
+
+> Rebasing is the process of moving or combining a sequence of commits to a new base commit.
+
+`git rebase` allows you to literally rewrite history — automatically applying commits in your current working branch to the passed branch head.
+
+![](https://wac-cdn.atlassian.com/dam/jcr:4e576671-1b7f-43db-afb5-cf8db8df8e4a/01%20What%20is%20git%20rebase.svg?cdnVersion=2430)
 
 #### Rebase
+
+From a content perspective, rebasing is changing the base of your branch from one commit to another making it appear as if you'd created your branch from a different commit. Internally, Git accomplishes this by creating new commits and applying them to the specified base.
+
+`git rebase` in standard mode will automatically take the commits in your current working branch and apply them to the head of the passed branch
+
+```bash
+git rebae <base>
+```
+
+This automatically rebases the current branch onto `＜base＞`
