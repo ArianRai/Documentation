@@ -233,7 +233,7 @@ git commit --amend --no-edit
 
 ### Changing older or multiple commits (rebase)
 
-> Rebasing is the process of moving or combining a sequence of commits to a new base commit.
+Rebasing is the process of moving or combining a sequence of commits to a new base commit.
 
 `git rebase` allows you to literally rewrite history — automatically applying commits in your current working branch to the passed branch head.
 
@@ -246,7 +246,7 @@ From a content perspective, rebasing is changing the base of your branch from on
 `git rebase` in standard mode will automatically take the commits in your current working branch and apply them to the head of the passed branch
 
 ```bash
-git rebae <base>
+git rebase <base>
 ```
 
 This automatically rebases the current branch onto `＜base＞`
