@@ -231,15 +231,25 @@ To just add new changes without changing the commit message:
 git commit --amend --no-edit
 ```
 
-### Changing older or multiple commits (rebase)
+### Changing older or multiple commits
+
+#### Merge
+
+```bash
+git merge feature main
+```
+
+This creates a new “merge commit” in the _feature_ branch that ties together the histories of both branches
+
+![](https://wac-cdn.atlassian.com/dam/jcr:4639eeb8-e417-434a-a3f8-a972277fc66a/02%20Merging%20main%20into%20the%20feature%20branh.svg?cdnVersion=2449)
+
+#### Rebase
 
 Rebasing is the process of moving or combining a sequence of commits to a new base commit.
 
 `git rebase` allows you to literally rewrite history — automatically applying commits in your current working branch to the passed branch head.
 
 ![](https://wac-cdn.atlassian.com/dam/jcr:4e576671-1b7f-43db-afb5-cf8db8df8e4a/01%20What%20is%20git%20rebase.svg?cdnVersion=2430)
-
-#### Rebase
 
 From a content perspective, rebasing is changing the base of your branch from one commit to another making it appear as if you'd created your branch from a different commit. Internally, Git accomplishes this by creating new commits and applying them to the specified base.
 
