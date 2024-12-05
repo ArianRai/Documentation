@@ -374,7 +374,7 @@ type Address: Person['address']
 
 In TypeScript, checking against the value returned by _typeof_ is a type guard.
 
-- `typeof` : returns a string value representing the type of the variable.
+-   `typeof` : returns a string value representing the type of the variable.
 
 ```typescript
 const address = {
@@ -385,7 +385,7 @@ const address = {
 type Address = typeof address
 ```
 
-- `instanceof` : checks if an object is an instance of a class.
+-   `instanceof` : checks if an object is an instance of a class.
 
 ```typescript
 function logValue(x: Date | string) {
@@ -415,38 +415,36 @@ function move(animal: Fish | Bird) {
 #### The `satisfies` operator
 
 ```typescript
-
 interface ICustomImage {
-  data: string;
-  width: number;
-  height: number;
+	data: string
+	width: number
+	height: number
 }
 
-type UserImage = string | ICustomImage;
+type UserImage = string | ICustomImage
 
 interface IUser {
-  id: number;
-  firstName: string;
-  lastName: string;
-  image: UserImage;
+	id: number
+	firstName: string
+	lastName: string
+	image: UserImage
 }
 
 //Bad ❌
 const badUser: IUser = {
-  id: 1,
-  firstName: "Alex",
-  lastName: "Brooks",
-  image: "image-url",
-};
+	id: 1,
+	firstName: 'Alex',
+	lastName: 'Brooks',
+	image: 'image-url',
+}
 
 //Good ✅
 const goodUser = {
-  id: 1,
-  firstName: "Alex",
-  lastName: "Brooks",
-  image: myCustomImage,
-} satisfies IUser;
-
+	id: 1,
+	firstName: 'Alex',
+	lastName: 'Brooks',
+	image: myCustomImage,
+} satisfies IUser
 ```
 
 ### Type Predicates
@@ -463,6 +461,54 @@ function example(x: unknown) {
 		x.toUpperCase() // We can now call any 'string' method on 'x'.
 	}
 }
+```
+
+### Discriminated Unions
+
+We can have the `State` type, with **optional** properties that only apply for specific values of `status`
+
+```typescript
+type State = {
+	status: 'loading' | 'success' | 'error'
+	error?: string
+	data?: string
+}
+```
+
+We've made it so the **error** and **data** properties are _not related to the statuses where they occur_. We need to tighten it up so that **error** can only happen on **error**, and **data** can only happen on **success**.
+
+```typescript
+type State =
+  | {
+    status: 'loading'
+    }
+  | {
+    status: 'error'
+    error: string
+    }
+  | {
+    status: 'success'
+    data: string
+    }
+```
+
+```typescript
+type State =
+type LoadingState = {
+  status: 'loading'
+}
+
+type ErrorState = {
+  status: 'error'
+  error: string
+}
+
+type SuccessState = {
+  status: 'success'
+  data: string
+}
+
+type State = LoadingState | ErrorState | SuccessState
 ```
 
 ### Equality
@@ -498,7 +544,7 @@ function printAll(strs: string | string[] | null) {
 
 ## Index Signatures
 
-> If you don’t know the names of a type’s properties, but you do know the shape of the values, you can use an __index signature__ to describe the types.
+> If you don’t know the names of a type’s properties, but you do know the shape of the values, you can use an **index signature** to describe the types.
 > That way you can access properties _dinamically_.
 
 ```js
@@ -512,51 +558,51 @@ interface TransactionObj {
 
 ```js
 const todaysTransactions: TransactionObj = {
-    Pizza: -10,
-    Books: -5,
-    Job: 50,
+	Pizza: -10,
+	Books: -5,
+	Job: 50,
 }
 ```
 
-- Now you can access props dinamically: 
+-   Now you can access props dinamically:
 
 ```js
 let prop: string = 'Pizza'
 console.log(todaysTransactions[prop])
- 
+
 const todaysNet = (transactions: TransactionObj): number => {
-    let total = 0
-    for (const transaction in transactions) {
-        total += transactions[transaction]
-    }
-    return total
+	let total = 0
+	for (const transaction in transactions) {
+		total += transactions[transaction]
+	}
+	return total
 }
 console.log(todaysNet(todaysTransactions))
 ```
 
-> BUT you can access properties that don't exist: 
+> BUT you can access properties that don't exist:
 
 > ```js
 > console.log(todaysTransactions['Dave']) // undefined
 > ```
 
-#### *keyof* and *typeof*
+#### _keyof_ and _typeof_
 
 ```js
 interface Student {
-    name: string,
-    GPA: number,
-    classes?: number[]
+	name: string;
+	GPA: number;
+	classes?: number[];
 }
 
 const student: Student = {
-    name: "Doug",
-    GPA: 3.5,
-    classes: [100, 200]
+	name: 'Doug',
+	GPA: 3.5,
+	classes: [100, 200],
 }
 ```
 
-- To make sure you only access **existing** properties:
+-   To make sure you only access **existing** properties:
 
 ```js
 for (const key in student) {
@@ -574,7 +620,7 @@ Generics in TypeScript are a way to write code that can work with multiple data 
 
 ```typescript
 function identity<T>(arg: T): T {
-    return arg
+	return arg
 }
 
 let output = identity<string>('Hello')
