@@ -23,6 +23,8 @@
 -   [Narrowing](#narrowing)
 -   [Index Signatures](#index-signatures)
 -   [Generics](#generics)
+-   [Utility Types](#utility-types)
+-   [Advanced Types](#advanced-types)
 
 ---
 
@@ -625,3 +627,21 @@ function identity<T>(arg: T): T {
 
 let output = identity<string>('Hello')
 ```
+
+## Utility Types
+
+## Advanced Types
+
+```typescript
+type ReadOnlyProps<T> = {
+    readonly [P in keyof T]: T[P]
+}
+
+interface Props {
+   title: string
+   content: string
+}
+
+type ReadOnlyComponentProps = ReadOnlyProps<Props>
+```
+
