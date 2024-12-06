@@ -629,19 +629,3 @@ let output = identity<string>('Hello')
 ```
 
 ## Utility Types
-
-## Advanced Types
-
-```typescript
-type ReadOnlyProps<T> = {
-    readonly [P in keyof T]: T[P]
-}
-
-interface Props {
-   title: string
-   content: string
-}
-
-type ReadOnlyComponentProps = ReadOnlyProps<Props>
-```
-
