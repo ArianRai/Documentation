@@ -8,6 +8,7 @@
 -   [TypeScript](https://github.com/ArianRai/Documentation/blob/main/Typescript)
 	-   [TypeScript](https://github.com/ArianRai/Documentation/blob/main/Typescript/Typescript.md)
 	-   [React + Typescript](https://github.com/ArianRai/Documentation/blob/main/Typescript/React%20%2B%20Typescript.md)
+	-   [TypeScript Things](https://github.com/ArianRai/Documentation/blob/main/Typescript/Typescript%20Things.md)
 -   [GraphQL](https://github.com/ArianRai/Documentation/blob/main/GraphQL.md)
 -	[DevOps](https://github.com/ArianRai/Documentation/blob/main/DevOps)
 	-   [Docker](https://github.com/ArianRai/Documentation/blob/main/DevOps/Docker.md)
