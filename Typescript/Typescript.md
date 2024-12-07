@@ -24,7 +24,6 @@
 -   [Index Signatures](#index-signatures)
 -   [Generics](#generics)
 -   [Utility Types](#utility-types)
--   [Advanced Types](#advanced-types)
 
 ---
 
