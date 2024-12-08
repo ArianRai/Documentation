@@ -619,12 +619,17 @@ Object.keys(student).map(key => {
 
 Generics in TypeScript are a way to write code that can work with multiple data types, instead of being limited to a single data type.
 
+#### Generic Functions
+
+With Generic functions, we have a way of **capturing the type** of the _argument_ in such a way that we can also use it to denote what is being _returned_.
+
 ```typescript
 function identity<T>(arg: T): T {
-	return arg
+    return arg
 }
 
-let output = identity<string>('Hello')
+let output = identity<string>('Hello') // Explicitly set T to be string
+let output = identity('Hello') // Type argument inference
 ```
 
 ## Utility Types
