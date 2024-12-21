@@ -619,6 +619,10 @@ Object.keys(student).map(key => {
 
 Generics in TypeScript are a way to write code that can work with multiple data types, instead of being limited to a single data type.
 
+#### Generic Types
+
+A generic type is defined using angle brackets `<T>` and can be used as a placeholder for a specific data type.
+
 #### Generic Functions
 
 With Generic functions, we have a way of **capturing the type** of the _argument_ in such a way that we can also use it to denote what is being _returned_.
