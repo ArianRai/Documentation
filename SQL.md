@@ -107,10 +107,20 @@ FROM table
 WHERE column1 BETWEEN 10 AND 20;
 ```
 
--   **BETWEEN**: Filters a range of values.
--   **IN**: Filters with multiple values.
--   **LIKE**: Filters with a pattern, used for string matching.
--   **IS NULL**: Filters null values.
+| **Operator**  | **Description**                             | **Example**                                           |
+| ------------- | ------------------------------------------- | ----------------------------------------------------- |
+| `=`           | Equal to                                    | `SELECT * FROM table WHERE column = 10;`              |
+| `!=` or `<>`  | Not equal to                                | `SELECT * FROM table WHERE column != 10;`             |
+| `>`           | Greater than                                | `SELECT * FROM table WHERE column > 10;`              |
+| `<`           | Less than                                   | `SELECT * FROM table WHERE column < 10;`              |
+| `>=`          | Greater than or equal to                    | `SELECT * FROM table WHERE column >= 10;`             |
+| `<=`          | Less than or equal to                       | `SELECT * FROM table WHERE column <= 10;`             |
+| `BETWEEN`     | Within a range (inclusive)                  | `SELECT * FROM table WHERE column BETWEEN 10 AND 20;` |
+| `IN`          | Matches any value in a list or subquery     | `SELECT * FROM table WHERE column IN (10, 20, 30);`   |
+| `LIKE`        | Matches a pattern (used for strings)        | `SELECT * FROM table WHERE column LIKE 'A%';`         |
+| `NOT LIKE`    | Does not match a pattern (used for strings) | `SELECT * FROM table WHERE column NOT LIKE 'A%';`     |
+| `IS NULL`     | Checks if the value is NULL                 | `SELECT * FROM table WHERE column IS NULL;`           |
+| `IS NOT NULL` | Checks if the value is not NULL             | `SELECT * FROM table WHERE column IS NOT NULL;`       |
 
 ### 10. **Subqueries**
 
@@ -226,20 +236,3 @@ SELECT * FROM example;
 ```
 
 -   **WITH**: Used to create recursive queries or complex subqueries.
-
-## Comparision Operators
-
-| **Operator**  | **Description**                             | **Example**                                           |
-| ------------- | ------------------------------------------- | ----------------------------------------------------- |
-| `=`           | Equal to                                    | `SELECT * FROM table WHERE column = 10;`              |
-| `!=` or `<>`  | Not equal to                                | `SELECT * FROM table WHERE column != 10;`             |
-| `>`           | Greater than                                | `SELECT * FROM table WHERE column > 10;`              |
-| `<`           | Less than                                   | `SELECT * FROM table WHERE column < 10;`              |
-| `>=`          | Greater than or equal to                    | `SELECT * FROM table WHERE column >= 10;`             |
-| `<=`          | Less than or equal to                       | `SELECT * FROM table WHERE column <= 10;`             |
-| `BETWEEN`     | Within a range (inclusive)                  | `SELECT * FROM table WHERE column BETWEEN 10 AND 20;` |
-| `IN`          | Matches any value in a list or subquery     | `SELECT * FROM table WHERE column IN (10, 20, 30);`   |
-| `LIKE`        | Matches a pattern (used for strings)        | `SELECT * FROM table WHERE column LIKE 'A%';`         |
-| `NOT LIKE`    | Does not match a pattern (used for strings) | `SELECT * FROM table WHERE column NOT LIKE 'A%';`     |
-| `IS NULL`     | Checks if the value is NULL                 | `SELECT * FROM table WHERE column IS NULL;`           |
-| `IS NOT NULL` | Checks if the value is not NULL             | `SELECT * FROM table WHERE column IS NOT NULL;`       |
