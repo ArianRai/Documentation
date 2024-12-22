@@ -122,6 +122,8 @@ WHERE column1 BETWEEN 10 AND 20;
 | `IS NULL`     | Checks if the value is NULL                 | `SELECT * FROM table WHERE column IS NULL;`           |
 | `IS NOT NULL` | Checks if the value is not NULL             | `SELECT * FROM table WHERE column IS NOT NULL;`       |
 
+> `LIKE` can be used with wildcards _%_ for multiple characters or \_ for a single character to match
+
 ### 10. **Subqueries**
 
 ```sql
