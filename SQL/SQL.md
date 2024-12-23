@@ -1,4 +1,4 @@
-# SQL SELECTING
+# SQL SELECT
 
 ```sql
 SELECT
