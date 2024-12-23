@@ -1,10 +1,13 @@
-# SQL Database Management: Create, Update, and Delete Databases
+# SQL Database and Tables Management: Create, Update, and Delete Databases
 
 ## Table of Contents
 
-1. [Creating a Database](#creating-a-database)
-2. [Updating a Database](#updating-a-database)
-3. [Deleting a Database](#deleting-a-database)
+1. [Creating a Database](#1-creating-a-database)
+2. [Creating a Table](#2-creating-a-table)
+3. [Updating a Database](#3-updating-a-database)
+4. [Updating a Table](#4-updating-a-table)
+5. [Deleting a Database](#5-deleting-a-database)
+6. [Deleting a Table](#6-deleting-a-table)
 
 ---
 
@@ -24,24 +27,44 @@ CREATE DATABASE database_name;
 CREATE DATABASE CompanyDB;
 ```
 
-This creates a database named `CompanyDB`.
+---
 
-### Optional Parameters:
+## 2. Creating a Table
 
--   **CHARACTER SET**: Specifies the character set for the database (e.g., `utf8`).
--   **COLLATE**: Defines the collation (sorting rules) for string comparisons (e.g., `utf8_general_ci`).
+The `CREATE TABLE` statement is used to create a new table in the database. The basic syntax includes specifying the table name and defining the columns with their data types.
 
-#### Example with Character Set and Collation:
+### Syntax:
 
 ```sql
-CREATE DATABASE CompanyDB
-CHARACTER SET utf8
-COLLATE utf8_general_ci;
+CREATE TABLE table_name (
+    column1 datatype [constraints],
+    column2 datatype [constraints],
+    ...
+);
 ```
+
+### Example:
+
+```sql
+CREATE TABLE Employees (
+    EmployeeID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    DateOfBirth DATE,
+    HireDate DATE,
+    Salary DECIMAL(10, 2)
+);
+```
+
+### Constraints:
+
+-   `PRIMARY KEY`: Ensures that the column has unique, non-null values.
+-   `NOT NULL`: Ensures the column cannot have null values.
+-   `UNIQUE`: Ensures all values in the column are unique.
 
 ---
 
-## 2. Updating a Database
+## 3. Updating a Database
 
 Although you cannot modify a database's structure in the same way as a table (like adding columns or changing data types), you can perform certain operations to alter a database's properties, such as renaming or changing the character set.
 
@@ -83,7 +106,55 @@ This changes the character set and collation of the `CompanyDB` database to `utf
 
 ---
 
-## 3. Deleting a Database
+## 4. Updating a Table
+
+You can modify the structure of an existing table using the `ALTER TABLE` statement. This allows you to add, modify, or delete columns.
+
+### a. Adding a New Column:
+
+```sql
+ALTER TABLE table_name
+ADD column_name datatype;
+```
+
+#### Example:
+
+```sql
+ALTER TABLE Employees
+ADD Email VARCHAR(100);
+```
+
+### b. Modifying an Existing Column:
+
+```sql
+ALTER TABLE table_name
+MODIFY COLUMN column_name new_datatype;
+```
+
+#### Example:
+
+```sql
+ALTER TABLE Employees
+MODIFY COLUMN Salary DECIMAL(15, 2);
+```
+
+### c. Dropping a Column:
+
+```sql
+ALTER TABLE table_name
+DROP COLUMN column_name;
+```
+
+#### Example:
+
+```sql
+ALTER TABLE Employees
+DROP COLUMN DateOfBirth;
+```
+
+---
+
+## 5. Deleting a Database
 
 To remove a database entirely, you use the `DROP DATABASE` statement. This deletes the database and all of its tables and data permanently.
 
@@ -99,8 +170,18 @@ DROP DATABASE database_name;
 DROP DATABASE CompanyDB;
 ```
 
-This deletes the `CompanyDB` database and all its contents.
+## 6. Deleting a Table
 
-### Caution:
+To completely remove a table from the database, use the `DROP TABLE` statement. This will permanently delete the table and all of its data.
 
--   **`DROP DATABASE` is permanent**. Once executed, all data in the database is lost, and the operation cannot be undone.
+### Syntax:
+
+```sql
+DROP TABLE table_name;
+```
+
+#### Example:
+
+```sql
+DROP TABLE Employees;
+```
