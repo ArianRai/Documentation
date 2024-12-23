@@ -22,12 +22,6 @@
 |                   | `TIMESTAMP`        | Stores date and time as Unix timestamp (seconds since `1970-01-01`).                | `1629454800` (represents `2021-08-21 14:00:00`)            |
 |                   | `TIME`             | Stores time values in `HH:MM:SS` format.                                            | `14:30:00`, `00:00:00`                                     |
 |                   | `YEAR`             | Stores a year value in `YYYY` format.                                               | `2024`, `1999`                                             |
-| **Binary**        | `BINARY(n)`        | Stores fixed-length binary data of `n` bytes.                                       | `0x1234567890AB`, `0x00FF`                                 |
-|                   | `VARBINARY(n)`     | Stores variable-length binary data with a maximum length of `n` bytes.              | `0x1234`, `0xABCDE`                                        |
-|                   | `BLOB`             | Stores large binary data (up to 65,535 bytes).                                      | `0xD34D57A1`, `0xA1B2C3D4`                                 |
-|                   | `TINYBLOB`         | Stores small binary data (up to 255 bytes).                                         | `0x5F4E3D2C1B0A`                                           |
-|                   | `MEDIUMBLOB`       | Stores medium-sized binary data (up to 16,777,215 bytes).                           | `0x123456789ABCDEF`                                        |
-|                   | `LONGBLOB`         | Stores very large binary data (up to 4,294,967,295 bytes).                          | `0xABCDEF1234567890`                                       |
 | **Boolean**       | `BOOLEAN`          | Stores a boolean value (`TRUE` or `FALSE`).                                         | `TRUE`, `FALSE`                                            |
 |                   | `BOOL`             | Alias for `BOOLEAN`.                                                                | `TRUE`, `FALSE`                                            |
 | **Miscellaneous** | `ENUM`             | Stores a predefined set of values. Useful for fixed lists (e.g., "small", "large"). | `small`, `medium`, `large`                                 |
