@@ -1,36 +1,36 @@
 # SQL Data Types Table
 
-| **Category**      | **Data Type**      | **Description**                                                                     |
-| ----------------- | ------------------ | ----------------------------------------------------------------------------------- |
-| **Numeric**       | `INT` or `INTEGER` | Stores standard integers.                                                           |
-|                   | `TINYINT`          | Stores very small integers.                                                         |
-|                   | `SMALLINT`         | Stores small integers.                                                              |
-|                   | `MEDIUMINT`        | Stores medium-sized integers.                                                       |
-|                   | `BIGINT`           | Stores large integers.                                                              |
-|                   | `DECIMAL(p, s)`    | Stores exact numeric values with precision `p` and scale `s` (fixed-point).         |
-|                   | `NUMERIC(p, s)`    | Same as `DECIMAL`, used for exact numeric values.                                   |
-|                   | `FLOAT`            | Stores floating-point numbers (approximate).                                        |
-|                   | `DOUBLE`           | Stores double-precision floating-point numbers.                                     |
-| **String**        | `CHAR(n)`          | Stores fixed-length strings with `n` characters.                                    |
-|                   | `VARCHAR(n)`       | Stores variable-length strings with a maximum of `n` characters.                    |
-|                   | `TEXT`             | Stores long text data (up to 65,535 characters).                                    |
-|                   | `TINYTEXT`         | Stores very short text data (up to 255 characters).                                 |
-|                   | `MEDIUMTEXT`       | Stores medium-sized text data (up to 16,777,215 characters).                        |
-|                   | `LONGTEXT`         | Stores large text data (up to 4,294,967,295 characters).                            |
-| **Date/Time**     | `DATE`             | Stores date values in `YYYY-MM-DD` format.                                          |
-|                   | `DATETIME`         | Stores both date and time values in `YYYY-MM-DD HH:MM:SS` format.                   |
-|                   | `TIMESTAMP`        | Stores date and time as Unix timestamp (seconds since `1970-01-01`).                |
-|                   | `TIME`             | Stores time values in `HH:MM:SS` format.                                            |
-|                   | `YEAR`             | Stores a year value in `YYYY` format.                                               |
-| **Binary**        | `BINARY(n)`        | Stores fixed-length binary data of `n` bytes.                                       |
-|                   | `VARBINARY(n)`     | Stores variable-length binary data with a maximum length of `n` bytes.              |
-|                   | `BLOB`             | Stores large binary data (up to 65,535 bytes).                                      |
-|                   | `TINYBLOB`         | Stores small binary data (up to 255 bytes).                                         |
-|                   | `MEDIUMBLOB`       | Stores medium-sized binary data (up to 16,777,215 bytes).                           |
-|                   | `LONGBLOB`         | Stores very large binary data (up to 4,294,967,295 bytes).                          |
-| **Boolean**       | `BOOLEAN`          | Stores a boolean value (`TRUE` or `FALSE`).                                         |
-|                   | `BOOL`             | Alias for `BOOLEAN`.                                                                |
-| **Miscellaneous** | `ENUM`             | Stores a predefined set of values. Useful for fixed lists (e.g., "small", "large"). |
-|                   | `SET`              | Stores multiple values from a predefined set.                                       |
-|                   | `JSON`             | Stores JSON (JavaScript Object Notation) data. Useful for structured data.          |
-|                   | `UUID`             | Stores a universally unique identifier (GUID).                                      |
+| **Category**      | **Data Type**      | **Description**                                                                     | **Example Data**                                           |
+| ----------------- | ------------------ | ----------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| **Numeric**       | `INT` or `INTEGER` | Stores standard integers.                                                           | `123`, `-456`, `100000`                                    |
+|                   | `TINYINT`          | Stores very small integers.                                                         | `127`, `-128`, `0`                                         |
+|                   | `SMALLINT`         | Stores small integers.                                                              | `32767`, `-30000`, `0`                                     |
+|                   | `MEDIUMINT`        | Stores medium-sized integers.                                                       | `8388607`, `-5000000`, `0`                                 |
+|                   | `BIGINT`           | Stores large integers.                                                              | `9223372036854775807`, `-9223372036854775807`              |
+|                   | `DECIMAL(p, s)`    | Stores exact numeric values with precision `p` and scale `s` (fixed-point).         | `123.45`, `-67.89`, `1000.00`                              |
+|                   | `NUMERIC(p, s)`    | Same as `DECIMAL`, used for exact numeric values.                                   | `25.75`, `-300.12`, `0.01`                                 |
+|                   | `FLOAT`            | Stores floating-point numbers (approximate).                                        | `3.14159`, `-0.98765`, `2.71828`                           |
+|                   | `DOUBLE`           | Stores double-precision floating-point numbers.                                     | `3.1415926535`, `-1.6180339887`, `0.0000045678`            |
+| **String**        | `CHAR(n)`          | Stores fixed-length strings with `n` characters.                                    | `Hello`, `A`, `1234567890`                                 |
+|                   | `VARCHAR(n)`       | Stores variable-length strings with a maximum of `n` characters.                    | `John Doe`, `apple`, `123ABC`                              |
+|                   | `TEXT`             | Stores long text data (up to 65,535 characters).                                    | `Lorem ipsum dolor sit amet, consectetur adipiscing elit.` |
+|                   | `TINYTEXT`         | Stores very short text data (up to 255 characters).                                 | `Short text`, `Hello world!`                               |
+|                   | `MEDIUMTEXT`       | Stores medium-sized text data (up to 16,777,215 characters).                        | `Medium length paragraph.`                                 |
+|                   | `LONGTEXT`         | Stores large text data (up to 4,294,967,295 characters).                            | `Very long text...`                                        |
+| **Date/Time**     | `DATE`             | Stores date values in `YYYY-MM-DD` format.                                          | `2024-12-25`, `1999-01-01`                                 |
+|                   | `DATETIME`         | Stores both date and time values in `YYYY-MM-DD HH:MM:SS` format.                   | `2024-12-25 14:30:00`, `2000-01-01 00:00:00`               |
+|                   | `TIMESTAMP`        | Stores date and time as Unix timestamp (seconds since `1970-01-01`).                | `1629454800` (represents `2021-08-21 14:00:00`)            |
+|                   | `TIME`             | Stores time values in `HH:MM:SS` format.                                            | `14:30:00`, `00:00:00`                                     |
+|                   | `YEAR`             | Stores a year value in `YYYY` format.                                               | `2024`, `1999`                                             |
+| **Binary**        | `BINARY(n)`        | Stores fixed-length binary data of `n` bytes.                                       | `0x1234567890AB`, `0x00FF`                                 |
+|                   | `VARBINARY(n)`     | Stores variable-length binary data with a maximum length of `n` bytes.              | `0x1234`, `0xABCDE`                                        |
+|                   | `BLOB`             | Stores large binary data (up to 65,535 bytes).                                      | `0xD34D57A1`, `0xA1B2C3D4`                                 |
+|                   | `TINYBLOB`         | Stores small binary data (up to 255 bytes).                                         | `0x5F4E3D2C1B0A`                                           |
+|                   | `MEDIUMBLOB`       | Stores medium-sized binary data (up to 16,777,215 bytes).                           | `0x123456789ABCDEF`                                        |
+|                   | `LONGBLOB`         | Stores very large binary data (up to 4,294,967,295 bytes).                          | `0xABCDEF1234567890`                                       |
+| **Boolean**       | `BOOLEAN`          | Stores a boolean value (`TRUE` or `FALSE`).                                         | `TRUE`, `FALSE`                                            |
+|                   | `BOOL`             | Alias for `BOOLEAN`.                                                                | `TRUE`, `FALSE`                                            |
+| **Miscellaneous** | `ENUM`             | Stores a predefined set of values. Useful for fixed lists (e.g., "small", "large"). | `small`, `medium`, `large`                                 |
+|                   | `SET`              | Stores multiple values from a predefined set.                                       | `red`, `green`, `blue`                                     |
+|                   | `JSON`             | Stores JSON (JavaScript Object Notation) data. Useful for structured data.          | `{"name": "John", "age": 30}`                              |
+|                   | `UUID`             | Stores a universally unique identifier (GUID).                                      | `123e4567-e89b-12d3-a456-426614174000`                     |
