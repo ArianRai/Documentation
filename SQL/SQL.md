@@ -172,7 +172,8 @@ SELECT COUNT(*), AVG(column), SUM(column)
 FROM table;
 ```
 
--   **COUNT()**: Counts the number of rows.
+-   **COUNT(\*)**: Counts the number of rows.
+-   **COUNT()**: Counts the total number of values in a given column.
 -   **AVG()**: Calculates the average.
 -   **SUM()**: Sums the values in a column.
 -   **MIN()**: Returns the minimum value.
