@@ -5,17 +5,8 @@ In SQL, you perform data manipulation operations to insert, update, or delete re
 ## Table of Contents
 
 1. [Inserting Records](#1-inserting-records)
-    - [Syntax](#syntax)
-    - [Example](#example)
-    - [Inserting Multiple Rows](#inserting-multiple-rows)
 2. [Updating Records](#2-updating-records)
-    - [Syntax](#syntax-1)
-    - [Example](#example-1)
-    - [Updating Specific Rows](#updating-specific-rows)
 3. [Deleting Records](#3-deleting-records)
-    - [Syntax](#syntax-2)
-    - [Example](#example-2)
-    - [Deleting Specific Rows](#deleting-specific-rows)
 
 ---
 
