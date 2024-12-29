@@ -49,8 +49,6 @@ ORDER BY column1 [ASC|DESC];
 ```
 
 -   **ORDER BY**: Orders the results by one or more columns.
--   **ASC**: Ascending order (default).
--   **DESC**: Descending order.
 
 ### 5. **Grouping Results** `GROUP BY`
 
@@ -61,7 +59,7 @@ GROUP BY column;
 ```
 
 -   **GROUP BY**: Groups the results by one or more columns.
--   It is used with aggregate functions like `COUNT()`, `SUM()`, `AVG()`, `MIN()`, `MAX()`.
+-   It is used with **aggregate functions** like `COUNT()`, `SUM()`, `AVG()`, `MIN()`, `MAX()`.
 
 ### 6. **Filtering Groups** `HAVING`
 
@@ -122,7 +120,7 @@ WHERE column1 BETWEEN 10 AND 20;
 | `IS NULL`     | Checks if the value is NULL                 | `SELECT * FROM table WHERE column IS NULL;`           |
 | `IS NOT NULL` | Checks if the value is not NULL             | `SELECT * FROM table WHERE column IS NOT NULL;`       |
 
-> `LIKE` can be used with wildcards _%_ for multiple characters or \_ for a single character to match
+> `LIKE` can be used with wildcards _%_ for multiple characters or underscores \_ for a single character to match
 
 ### 10. **Subqueries**
 
