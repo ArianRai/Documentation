@@ -30,7 +30,7 @@ SELECT * FROM table;
 
 -   The asterisk `*` selects all columns from the table.
 
-### 3. **Filtering with Conditions** `WHERE`
+### 3. **Filtering with Conditions** `WHERE` | `CASE`
 
 ```sql
 SELECT column1, column2
@@ -39,6 +39,16 @@ WHERE condition;
 ```
 
 -   **WHERE**: Filters the results based on a specified condition e.g., `WHERE age > 18`.
+
+```sql
+SELECT column1, column2
+FROM table
+CASE
+    WHEN condition1 THEN value1
+    WHEN condition2 THEN value2
+    ELSE NULL
+END AS alias_name
+```
 
 ### 4. **Sorting Results** `ORDER BY`
 
@@ -145,6 +155,32 @@ JOIN table2 t2 ON t1.id = t2.id;
 -   **RIGHT JOIN**: Returns all records from the right table, and the matching records from the left table.
 -   **FULL JOIN**: Returns all records when there is a match in one of the tables.
 
+#### Filtering joins `AND`, `WHERE`
+
+Using `AND`
+
+-   The conditional statement AND... is evaluated **before** the join occurs (only applies to one table).
+
+```sql
+SELECT t1.column1, t2.column2
+FROM table1 t1
+JOIN table2 t2
+ON t1.id = t2.id
+AND t1.column1 > 100;
+```
+
+Using `WHERE`
+
+-   The conditional statement WHERE... is evaluated **after** the join occurs.
+
+```sql
+SELECT t1.column1, t2.column2
+FROM table1 t1
+JOIN table2 t2
+ON t1.id = t2.id
+WHERE t1.column1 > 100;
+```
+
 ### 12. **Distinct Values** `DISTINCT`
 
 ```sql
@@ -171,11 +207,11 @@ FROM table;
 ```
 
 -   **COUNT(\*)**: Counts the number of rows.
--   **COUNT()**: Counts the total number of values in a given column.
--   **AVG()**: Calculates the average.
--   **SUM()**: Sums the values in a column.
--   **MIN()**: Returns the minimum value.
--   **MAX()**: Returns the maximum value.
+-   **COUNT(column_name)**: Counts the **non-NULL** values in the specified column.
+-   **AVG(column_name)**: Calculates the average.
+-   **SUM(column_name)**: Sums the values in a column.
+-   **MIN(column_name)**: Returns the minimum value.
+-   **MAX(column_name)**: Returns the maximum value.
 
 ### 15. **Set Operators** `UNION`, `INTERSECT`, `EXCEPT`
 

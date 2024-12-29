@@ -65,16 +65,6 @@ SET Salary = 75000
 WHERE EmployeeID = 1;
 ```
 
-### Updating Specific Rows
-
-If you need to update multiple rows at once, ensure you use the `WHERE` clause to target the correct rows.
-
-```sql
-UPDATE Employees
-SET Salary = Salary + 5000
-WHERE HireDate < '2021-01-01';
-```
-
 ---
 
 ## 3. Deleting Records
