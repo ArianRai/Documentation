@@ -253,7 +253,7 @@ Rebasing is the process of moving or combining a sequence of commits to a new ba
 
 From a content perspective, rebasing is changing the base of your branch from one commit to another making it appear as if you'd created your branch from a different commit. Internally, Git accomplishes this by creating new commits and applying them to the specified base.
 
-`git rebase` in standard mode will automatically take the commits in your current working branch and apply them to the head of the passed branch
+`git rebase` in standard mode will automatically take the commits in your current working branch and apply them to the head of the passed branch.
 
 ```bash
 git rebase <base>
