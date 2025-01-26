@@ -288,7 +288,7 @@ interface Point {
 
 Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an interface are available in type, the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable.
 
-#### Extending an interface using _extends_
+#### Extending an interface using *extends*
 
 ```typescript
 interface Animal {
@@ -300,7 +300,7 @@ interface Bear extends Animal {
 }
 ```
 
-#### Extending a type using _intersections_
+#### Extending a type using *intersections*
 
 ```typescript
 type Animal = {
@@ -637,3 +637,89 @@ let output = identity('Hello') // Type argument inference
 ```
 
 ## Utility Types
+
+TypeScript provides several utility types that can be used to manipulate and transform existing types.
+
+### Partial, Pick, Omit
+
+- `Partial`: makes all properties of a type optional. 
+- `Pick`: allows you to **pick** specific properties from a type.
+- `Omit`: allows you to **omit** specific properties from a type.
+
+```typescript
+interface User {
+	name: string;
+  age: number;
+  email: string;
+}
+type partialUser : Partial<User>
+type partialUser : Pick<User, name | age>
+type partialUser : Omit<User, email>
+```
+
+### Record
+
+- `Record`: Record constructs an object type whose property keys are **Keys** and whose property values are **Type**. This utility can be used to map the properties of a type to another type.
+
+```typescript
+
+Record<Keys, Properties>
+interface CatInfo {
+	age: number;
+  breed: string;
+}
+
+type CatName = 'miffy' | 'boris' | 'mordred';
+
+const cats: Record<CatName, CatInfo> = {
+	miffy: { age: 10, breed: 'Persian' },
+  boris: { age: 5, breed: 'Maine Coon' },
+  mordred: { age: 16, breed: 'British Shorthair' },
+};
+```
+
+### Exclude, Extract
+
+- `Exclude`: Exclude constructs a type by **excluding** from UnionType all union members that are assignable to ExcludedMembers.
+
+```typescript
+type T0 = Exclude<'a' | 'b' | 'c', 'a'> // "b" | "c"
+type T1 = Exclude<'a' | 'b' | 'c', 'a' | 'b'> // "c"
+```
+
+`Extract`: Extract constructs a type by **extracting** from Type all union members that are assignable to Union.
+
+```typescript
+type T0 = Extract<'a' | 'b' | 'c', 'a' | 'f'> // type T0 = "a"
+```
+
+`Parameters`: Parameters **constructs a tuple type** from the types used in the parameters of a function type Type.
+
+```typescript
+type T1 = Parameters<(s: string) => void>;
+// type T1 = [s: string]
+
+declare function f1(arg: { a: number; b: string }): void;
+type T2 = Parameters<typeof f1>;
+// type T2 = [arg: {
+//     a: number;
+//     b: string;
+// }]
+```
+
+- `ReturnType`: Return type constructs a type **consisting of the return type of function** Type.
+
+```typescript
+type T0 = ReturnType<() => string>;
+// type T0 = string
+
+type T1 = ReturnType<(s: string) => void>;
+// type T1 = void
+
+declare function f1(): { a: number; b: string };
+type T2 = ReturnType<typeof f1>;
+// type T2 = {
+//     a: number;
+//     b: string;
+// }
+```
