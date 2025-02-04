@@ -37,3 +37,19 @@ age = 30
   is_tall = True
   is_short = False
 ```
+
+### F-Strings
+
+Strings that interpolate variables, like js `template strings`.
+Start with `f`
+
+```python
+num_bananas = 10
+f_string = f"You have {num_bananas} bananas"
+print(f_string)
+# You have 10 bananas
+```
+
+### `NoneType` variables
+
+`None` is a special value that represents the _absence_ of a value.
