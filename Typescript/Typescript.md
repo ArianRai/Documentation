@@ -369,6 +369,19 @@ type Person = {
 type Address: Person['address']
 ```
 
+### Mapped Types
+
+Mapped types in TypeScript are a way to create a new type based on an existing type. Mapped types are declared using a combination of the `keyof` operator and a type that maps each property of the existing type to a new property type.
+
+```typescript
+type Readonly<T> = {
+  readonly [P in keyof T]: T[P];
+};
+
+let obj = { x: 10, y: 20 };
+let readonlyObj: Readonly<typeof obj> = obj;
+```
+
 ## Narrowing
 
 #### The _typeof_ and _instanceof_ operators
