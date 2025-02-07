@@ -16,7 +16,7 @@ Multi-line Comment
 """
 ```
 
-### Variables
+### Variable declaration
 
 ```python
 my_name = 'Arian'
@@ -38,6 +38,10 @@ age = 30
   is_short = False
 ```
 
+### `NoneType` variables
+
+`None` is a special value that represents the _absence_ of a value.
+
 ### F-Strings
 
 Strings that interpolate variables, like js `template strings`.
@@ -50,9 +54,17 @@ print(f_string)
 # You have 10 bananas
 ```
 
-### `NoneType` variables
+## Functions
 
-`None` is a special value that represents the _absence_ of a value.
+Function declaration using `def`
+Function body determined by `indentation`
+
+```py
+def my_function (a, b):
+	return a + b
+
+my_function(1,2)
+```
 
 These functions return `None`
 
@@ -67,13 +79,4 @@ def my_func():
 
 def my_func():
     print("I do nothing")
-```
-
-## Functions
-
-```py
-def my_function (a, b):
-	return a + b
-
-my_function(1,2)
 ```
