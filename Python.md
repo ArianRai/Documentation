@@ -53,3 +53,27 @@ print(f_string)
 ### `NoneType` variables
 
 `None` is a special value that represents the _absence_ of a value.
+
+These functions return `None`
+
+```py
+def my_func():
+    print("I do nothing")
+    return None
+
+def my_func():
+    print("I do nothing")
+    return
+
+def my_func():
+    print("I do nothing")
+```
+
+## Functions
+
+```py
+def my_function (a, b):
+	return a + b
+
+my_function(1,2)
+```
