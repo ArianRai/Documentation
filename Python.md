@@ -186,6 +186,233 @@ while count < 5:
 ```python
 for i in range(5):
     if i == 3:
-        break
+        break  // skips interaction 3
     print(i)
+```
+
+### F-Strings
+
+Strings that interpolate variables, like js `template strings`.
+Start with `f`
+
+```python
+num_bananas = 10
+f_string = f"You have {num_bananas} bananas"
+print(f_string)
+# You have 10 bananas
+```
+
+## 5. Functions
+
+### Defining Functions
+
+Function declaration using `def`
+Function body determined by `indentation`
+
+```py
+def my_function (a, b):
+	return a + b
+
+my_function(1,2)
+```
+
+```python
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("John"))
+```
+
+### Default Arguments
+
+```python
+def greet(name="Guest"):
+    return f"Hello, {name}!"
+
+print(greet())      # Uses default value
+print(greet("John")) # Uses passed argument
+```
+
+### Keyword Arguments
+
+```python
+def greet(name, message="Hello"):
+    return f"{message}, {name}!"
+
+print(greet("John", message="Good morning"))
+```
+
+### Variable-Length Arguments
+
+```python
+def print_numbers(*args):
+    for number in args:
+        print(number)
+
+print_numbers(1, 2, 3, 4, 5)
+```
+
+### Lambda Functions
+
+Anonymous functions defined using `lambda`.
+
+```python
+add = lambda a, b: a + b
+print(add(5, 10))
+```
+
+### `NoneType` variables
+
+`None` is a special value that represents the _absence_ of a value.
+
+These functions return `None`
+
+```py
+def my_func():
+    print("I do nothing")
+    return None
+
+def my_func():
+    print("I do nothing")
+    return
+
+def my_func():
+    print("I do nothing")
+```
+
+## 6. Modules and Packages
+
+### Importing Modules
+
+```python
+import math
+import math as m # alias import
+
+print(math.sqrt(16))  # 4.0
+```
+
+### Importing Specific Functions
+
+```python
+from math import sqrt
+
+print(sqrt(16))  # 4.0
+```
+
+## 7. File I/O
+
+### Opening and Reading Files
+
+```python
+# Opening a file and reading its content
+with open('file.txt', 'r') as file:
+    content = file.read()
+    print(content)
+```
+
+### Writing to Files
+
+```python
+# Writing to a file
+with open('file.txt', 'w') as file:
+    file.write("Hello, World!")
+```
+
+### Appending to Files
+
+```python
+# Appending to a file
+with open('file.txt', 'a') as file:
+    file.write("\nThis is appended text.")
+```
+
+## 8. Exception Handling
+
+### `try` and `except`
+
+```python
+try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+```
+
+### `finally`
+
+```python
+try:
+    result = 10 / 2
+finally:
+    print("Execution completed")
+```
+
+## 9. Object-Oriented Programming (OOP)
+
+### Classes and Objects
+
+```python
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def greet(self):
+        return f"Hello, my name is {self.name} and I am {self.age} years old."
+
+p = Person("Alice", 30)
+print(p.greet())
+```
+
+### Inheritance
+
+```python
+class Animal:
+    def speak(self):
+        return "Animal speaks"
+
+class Dog(Animal):
+    def speak(self):
+        return "Woof"
+
+d = Dog()
+print(d.speak())  # Woof
+```
+
+### Encapsulation
+
+```python
+class BankAccount:
+    def __init__(self, balance):
+        self.__balance = balance  # Private attribute
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+    def get_balance(self):
+        return self.__balance
+
+account = BankAccount(1000)
+account.deposit(500)
+print(account.get_balance())  # 1500
+```
+
+### Polymorphism
+
+```python
+class Bird:
+    def sound(self):
+        return "Chirp"
+
+class Dog:
+    def sound(self):
+        return "Bark"
+
+def make_sound(animal):
+    print(animal.sound())
+
+bird = Bird()
+dog = Dog()
+
+make_sound(bird)  # Chirp
+make_sound(dog)   # Bark
 ```
