@@ -1,20 +1,25 @@
 # Python
 
+## 1. Syntax
+
 ### Comments
 
-##### Single Line Comments
+-   Single Line Comments
 
 ```python
 # This is a single line comment
 ```
 
-##### Multi-Line Comments (_docstrings_)
+-   Multi-Line Comments (_docstrings_) are enclosed in triple quotes (`'''` or `"""`).
 
 ```python
-"""
-Multi-line Comment
-"""
+'''
+This is a multi-line comment
+spanning multiple lines.
+'''
 ```
+
+## 2. Variables and Data Types
 
 ### Variable declaration
 
@@ -25,58 +30,162 @@ age = 30
 
 ### Data Types
 
-```python
-# Strings
-  name = 'Gino'
-# Numbers
-  # Integer
-    x = 5
-  # Float
-    x = 5.2
-# Boolean
-  is_tall = True
-  is_short = False
-```
-
-### `NoneType` variables
-
-`None` is a special value that represents the _absence_ of a value.
-
-### F-Strings
-
-Strings that interpolate variables, like js `template strings`.
-Start with `f`
+-   **Numbers**
+    -   `int` (integer)
+    -   `float` (floating-point)
 
 ```python
-num_bananas = 10
-f_string = f"You have {num_bananas} bananas"
-print(f_string)
-# You have 10 bananas
+age = 25          # int
+height = 5.9      # float
 ```
 
-## Functions
+-   **String**
+    -   Text enclosed in single, double, or triple quotes.
 
-Function declaration using `def`
-Function body determined by `indentation`
-
-```py
-def my_function (a, b):
-	return a + b
-
-my_function(1,2)
+```python
+greeting = "Hello, World!"
 ```
 
-These functions return `None`
+-   **Boolean**
+    -   Represents either `True` or `False`.
 
-```py
-def my_func():
-    print("I do nothing")
-    return None
+```python
+is_sunny = True
+```
 
-def my_func():
-    print("I do nothing")
-    return
+-   **List**
+    -   Ordered, mutable collection of items.
 
-def my_func():
-    print("I do nothing")
+```python
+fruits = ["apple", "banana", "cherry"]
+```
+
+-   **Tuple**
+    -   Ordered, immutable collection of items.
+
+```python
+coordinates = (10, 20, 30)
+```
+
+-   **Dictionary**
+    -   Unordered collection of key-value pairs.
+
+```python
+person = {
+    "name": "Alice",
+    "age": 30
+}
+```
+
+-   **Set**
+    -   Unordered collection of unique elements.
+
+```python
+unique_numbers = {1, 2, 3, 4, 5}
+```
+
+### Type Conversion
+
+```python
+x = 5
+y = float(x)  # Convert int to float
+z = str(x)    # Convert int to string
+```
+
+## 3. Operators
+
+### Arithmetic Operators
+
+-   `+` (Addition)
+-   `-` (Subtraction)
+-   `*` (Multiplication)
+-   `/` (Division)
+-   `//` (Floor Division)
+-   `%` (Modulo)
+-   `**` (Exponentiation)
+
+### Comparison Operators
+
+-   `==` (Equal to)
+-   `!=` (Not equal to)
+-   `>` (Greater than)
+-   `<` (Less than)
+-   `>=` (Greater than or equal to)
+-   `<=` (Less than or equal to)
+
+### Logical Operators
+
+-   `and`
+-   `or`
+-   `not`
+
+```python
+x = True
+y = False
+
+print(x and y)   # False
+print(x or y)    # True
+print(not x)     # False
+```
+
+### Assignment Operators
+
+-   `=` (Simple assignment)
+-   `+=` (Add and assign)
+-   `-=` (Subtract and assign)
+-   `*=` (Multiply and assign)
+-   `/=` (Divide and assign)
+
+```python
+x = 10
+x += 5  # x = x + 5 -> 15
+```
+
+## 4. Control Flow
+
+### Conditional Statements
+
+```python
+x = 10
+
+if x > 5:
+    print("x is greater than 5")
+elif x == 5:
+    print("x is equal to 5")
+else:
+    print("x is less than 5")
+```
+
+### Loops
+
+#### `for` loop
+
+```python
+fruits = ["apple", "banana", "cherry"]
+
+for fruit in fruits:
+    print(fruit)
+```
+
+#### `while` loop
+
+```python
+count = 0
+
+while count < 5:
+    print(count)
+    count += 1
+```
+
+### `break`, `continue`, and `pass`
+
+-   `break`: Exit the loop.
+-   `continue`: Skip the current iteration and proceed to the next iteration.
+-   `pass`: Do nothing, a placeholder.
+
+```python
+for i in range(5):
+    if i == 3:
+        break
+    print(i)
 ```
