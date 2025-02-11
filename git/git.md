@@ -114,7 +114,7 @@ Apply _last_ stashed changes **removing** the stash
 git stash pop
 ```
 
-Chosse which stash to apply
+Choose which stash to apply
 
 ```bash
 git stash pop stash@{2}
@@ -260,3 +260,15 @@ git rebase <base>
 ```
 
 This automatically rebases the current branch onto `＜base＞`
+
+## Things
+
+#### .gitkeep
+
+> By default git igonres empty folder. In order to _force_ git to track an empty folder you can create a **.gitkeep** file inside the folder to make git track the folder.
+
+#### Create a branch from a specific commit
+
+```bash
+git checkout -b <BRANCH_NAME> <COMMIT_HASH>
+```

@@ -165,6 +165,11 @@ fruits = ["apple", "banana", "cherry"]
 
 for fruit in fruits:
     print(fruit)
+
+for i in range(0, 10): # 0 included, 10 excluded
+	print(i)
+
+for i in range(start, end, [step]):
 ```
 
 #### `while` loop
