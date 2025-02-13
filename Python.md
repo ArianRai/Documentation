@@ -60,6 +60,63 @@ is_sunny = True
 fruits = ["apple", "banana", "cherry"]
 ```
 
+### Unpacking (Destructuring)
+
+```python
+first, second, third = fruits # => "apple", "banana", "cherry"
+```
+
+#### Slicing Lists
+
+```python
+my_list[ start : stop : step ]
+
+scores = [50, 70, 30, 20, 90, 10, 50]
+print(scores[1:5:2]) # => [70, 20]
+```
+
+**Omitting Sections**
+
+```python
+numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# Omiting start and step.
+numbers[:3] # Gives [0, 1, 2]
+
+# Omiting end and step.
+numbers[3:] # Gives [3, 4, 5, 6, 7, 8, 9]
+
+# Omiting start and end.
+numbers[::2] # Gives [0, 2, 4, 6, 8]
+
+# Negative indices
+numbers[-3:] # Gives [7, 8, 9]
+```
+
+### Concatenating Lists
+
+```python
+total = [1, 2, 3] + [4, 5, 6] # => [1, 2, 3, 4, 5, 6]
+```
+
+### Checking if an element exists
+
+```python
+fruits = ["apple", "orange", "banana"]
+print("banana" in fruits) # => True
+```
+
+### Deleting elements from a list
+
+```python
+fruits = ["apple", "orange", "banana"]
+del fruits[1] # => ["apple", "banana"]
+
+# Deleting all elements
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+del nums[:] # => []
+```
+
 -   **Tuple**
     -   Ordered, immutable collection of items.
 
@@ -166,10 +223,11 @@ fruits = ["apple", "banana", "cherry"]
 for fruit in fruits:
     print(fruit)
 
+for i in range(start, end, [step]):
+
 for i in range(0, 10): # 0 included, 10 excluded
 	print(i)
 
-for i in range(start, end, [step]):
 ```
 
 #### `while` loop
@@ -266,7 +324,7 @@ add = lambda a, b: a + b
 print(add(5, 10))
 ```
 
-### `NoneType` variables
+### NoneType variables
 
 `None` is a special value that represents the _absence_ of a value.
 
