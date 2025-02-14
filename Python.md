@@ -99,7 +99,7 @@ numbers[-3:] # Gives [7, 8, 9]
 total = [1, 2, 3] + [4, 5, 6] # => [1, 2, 3, 4, 5, 6]
 ```
 
-### Checking if an element exists
+### Checking if an element exists in the list
 
 ```python
 fruits = ["apple", "orange", "banana"]
@@ -138,6 +138,30 @@ person = {
 
 ```python
 print(person["name"]) # "Alice"
+```
+
+### Checking if an element exists in the dictionary
+
+```python
+print("name" in person) # True
+```
+
+## Iterating over dictionaries
+
+```python
+fruit_sizes = {
+    "apple": "small",
+    "banana": "large",
+    "grape": "tiny"
+}
+
+for name in fruit_sizes:
+    size = fruit_sizes[name]
+    print(f"name: {name}, size: {size}")
+
+# name: apple, size: small
+# name: banana, size: large
+# name: grape, size: tiny
 ```
 
 -   **Set**
@@ -484,4 +508,14 @@ dog = Dog()
 
 make_sound(bird)  # Chirp
 make_sound(dog)   # Bark
+```
+
+# Tips
+
+## Negative Infinity
+
+When trying to find a "max" value, it helps to keep track of the "max so far" in a variable and to start that variable at the **lowest** possible number, negative infinity.
+
+```python
+max_so_far = float("-inf")
 ```
