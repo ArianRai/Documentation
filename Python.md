@@ -134,6 +134,12 @@ person = {
 }
 ```
 
+### Accessing values on a dictionary
+
+```python
+print(person["name"]) # "Alice"
+```
+
 -   **Set**
     -   Unordered collection of unique elements.
 
