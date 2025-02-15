@@ -171,11 +171,31 @@ for name in fruit_sizes:
 fruits = {"apple", "banana", "grape"}
 ```
 
-### Adding elements to a set
+### Create an empty Set
+
+```python
+fruits = set()
+fruist = {} # => This creates an empty dictionary
+```
+
+### Adding elements to a Set
+
+```python
+fruits.add("pear")
+```
+
+### Removing elements from a Set
+
+```python
+fruits.remove("apple")
+```
+
+### Iterating over items in a Set (Order is not guaranteed)
 
 ```python
 fruits = {"apple", "banana", "grape"}
-fruits.add("pear")
+for fruit in fruits:
+    print(fruit)
 ```
 
 ### Type Conversion
