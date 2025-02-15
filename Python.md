@@ -47,7 +47,7 @@ greeting = "Hello, World!"
 ```
 
 -   **Boolean**
-    -   Represents either `True` or `False`.
+    -   Represents either `True` or `False`
 
 ```python
 is_sunny = True
@@ -146,7 +146,7 @@ print(person["name"]) # "Alice"
 print("name" in person) # True
 ```
 
-## Iterating over dictionaries
+### Iterating over dictionaries
 
 ```python
 fruit_sizes = {
@@ -168,7 +168,14 @@ for name in fruit_sizes:
     -   Unordered collection of unique elements.
 
 ```python
-unique_numbers = {1, 2, 3, 4, 5}
+fruits = {"apple", "banana", "grape"}
+```
+
+### Adding elements to a set
+
+```python
+fruits = {"apple", "banana", "grape"}
+fruits.add("pear")
 ```
 
 ### Type Conversion
