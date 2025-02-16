@@ -457,7 +457,23 @@ except ZeroDivisionError:
     print("Cannot divide by zero")
 ```
 
+The `Exception` is raised inside of the funcion.
+The try **wraps the function call** and handles possible exception raised inside the function.
+
+```python
+def my_func(args):
+    # function logic
+    raise Exception("Error message")
+
+try:
+    my_func(value)
+except Exception as e:
+    print(e)
+```
+
 ### `finally`
+
+Code inside the `finally` block executes always after either the **try** or **except**
 
 ```python
 try:
