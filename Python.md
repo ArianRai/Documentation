@@ -1,5 +1,58 @@
 # Python
 
+---
+
+1. [Syntax](#1-syntax)
+    - [Comments](#comments)
+2. [Variables and Data Types](#2-variables-and-data-types)
+    - [Variable Declaration](#variable-declaration)
+    - [Data Types](#data-types)
+        - [Numbers](#numbers)
+        - [String](#string)
+        - [F-Strings](#f-strings)
+        - [Boolean](#boolean)
+        - [List](#list)
+        - [Tuple](#tuple)
+        - [Dictionary](#dictionary)
+        - [Set](#set)
+        - [Type Conversion](#type-conversion)
+3. [Operators](#3-operators)
+    - [Arithmetic Operators](#arithmetic-operators)
+    - [Comparison Operators](#comparison-operators)
+    - [Logical Operators](#logical-operators)
+    - [Assignment Operators](#assignment-operators)
+4. [Control Flow](#4-control-flow)
+    - [Conditional Statements](#conditional-statements)
+    - [Loops](#loops)
+    - [`break`, `continue`, and `pass`](#break-continue-and-pass)
+    - [F-Strings](#f-strings)
+5. [Functions](#5-functions)
+    - [Defining Functions](#defining-functions)
+    - [Default Arguments](#default-arguments)
+    - [Keyword Arguments](#keyword-arguments)
+    - [Variable-Length Arguments](#variable-length-arguments)
+    - [Lambda Functions](#lambda-functions)
+    - [NoneType variables](#nonetype-variables)
+6. [Modules and Packages](#6-modules-and-packages)
+    - [Importing Modules](#importing-modules)
+    - [Importing Specific Functions](#importing-specific-functions)
+7. [File I/O](#7-file-io)
+    - [Opening and Reading Files](#opening-and-reading-files)
+    - [Writing to Files](#writing-to-files)
+    - [Appending to Files](#appending-to-files)
+8. [Exception Handling](#8-exception-handling)
+    - [`try` and `except`](#try-and-except)
+    - [`finally`](#finally)
+9. [Object-Oriented Programming (OOP)](#9-object-oriented-programming-oop)
+    - [Classes and Objects](#classes-and-objects)
+    - [Inheritance](#inheritance)
+    - [Encapsulation](#encapsulation)
+    - [Polymorphism](#polymorphism)
+10. [Tips](#tips)
+    - [Negative Infinity](#negative-infinity)
+
+---
+
 ## 1. Syntax
 
 ### Comments
@@ -21,46 +74,71 @@ spanning multiple lines.
 
 ## 2. Variables and Data Types
 
-### Variable declaration
+#### Variable declaration
 
 ```python
 my_name = 'Arian'
 age = 30
 ```
 
-### Data Types
+## Data Types
 
--   **Numbers**
-    -   `int` (integer)
-    -   `float` (floating-point)
+### Numbers
+
+`int` (integer)
+`float` (floating-point)
 
 ```python
 age = 25          # int
 height = 5.9      # float
 ```
 
--   **String**
-    -   Text enclosed in single, double, or triple quotes.
+### String
+
+Text enclosed in single, double, or triple quotes.
 
 ```python
 greeting = "Hello, World!"
 ```
 
--   **Boolean**
-    -   Represents either `True` or `False`
+#### F-Strings
+
+Strings that interpolate variables, like js `template strings`.
+Start with `f`
+
+```python
+num_bananas = 10
+f_string = f"You have {num_bananas} bananas"
+print(f_string)
+# You have 10 bananas
+```
+
+### Boolean
+
+Represents either `True` or `False`
 
 ```python
 is_sunny = True
 ```
 
--   **List**
-    -   Ordered, mutable collection of items.
+#### Falsy values
+
+```python
+[], {}, () # Empty sequences
+0 # Numeric 0
+False
+None
+```
+
+### List
+
+Ordered, mutable collection of items.
 
 ```python
 fruits = ["apple", "banana", "cherry"]
 ```
 
-### Unpacking (Destructuring)
+#### Unpacking (Destructuring)
 
 ```python
 first, second, third = fruits # => "apple", "banana", "cherry"
@@ -75,7 +153,7 @@ scores = [50, 70, 30, 20, 90, 10, 50]
 print(scores[1:5:2]) # => [70, 20]
 ```
 
-**Omitting Sections**
+#### Omitting Sections
 
 ```python
 numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -93,20 +171,20 @@ numbers[::2] # Gives [0, 2, 4, 6, 8]
 numbers[-3:] # Gives [7, 8, 9]
 ```
 
-### Concatenating Lists
+#### Concatenating Lists
 
 ```python
 total = [1, 2, 3] + [4, 5, 6] # => [1, 2, 3, 4, 5, 6]
 ```
 
-### Checking if an element exists in the list
+#### Checking if an element exists in the list
 
 ```python
 fruits = ["apple", "orange", "banana"]
 print("banana" in fruits) # => True
 ```
 
-### Deleting elements from a list
+#### Deleting elements from a list
 
 ```python
 fruits = ["apple", "orange", "banana"]
@@ -117,15 +195,17 @@ nums = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 del nums[:] # => []
 ```
 
--   **Tuple**
-    -   Ordered, immutable collection of items.
+### Tuple
+
+Ordered, immutable collection of items.
 
 ```python
 coordinates = (10, 20, 30)
 ```
 
--   **Dictionary**
-    -   Unordered collection of key-value pairs.
+### Dictionary
+
+Unordered collection of key-value pairs.
 
 ```python
 person = {
@@ -140,13 +220,13 @@ person = {
 print(person["name"]) # "Alice"
 ```
 
-### Checking if an element exists in the dictionary
+#### Checking if an element exists in the dictionary
 
 ```python
 print("name" in person) # True
 ```
 
-### Iterating over dictionaries
+#### Iterating over dictionaries
 
 ```python
 fruit_sizes = {
@@ -164,33 +244,34 @@ for name in fruit_sizes:
 # name: grape, size: tiny
 ```
 
--   **Set**
-    -   Unordered collection of unique elements.
+### Set
+
+Unordered collection of unique elements.
 
 ```python
 fruits = {"apple", "banana", "grape"}
 ```
 
-### Create an empty Set
+#### Create an empty Set
 
 ```python
 fruits = set()
 fruist = {} # => This creates an empty dictionary
 ```
 
-### Adding elements to a Set
+#### Adding elements to a Set
 
 ```python
 fruits.add("pear")
 ```
 
-### Removing elements from a Set
+#### Removing elements from a Set
 
 ```python
 fruits.remove("apple")
 ```
 
-### Iterating over items in a Set (Order is not guaranteed)
+#### Iterating over items in a Set (Order is not guaranteed)
 
 ```python
 fruits = {"apple", "banana", "grape"}
@@ -308,18 +389,6 @@ for i in range(5):
     if i == 3:
         break  // skips interaction 3
     print(i)
-```
-
-### F-Strings
-
-Strings that interpolate variables, like js `template strings`.
-Start with `f`
-
-```python
-num_bananas = 10
-f_string = f"You have {num_bananas} bananas"
-print(f_string)
-# You have 10 bananas
 ```
 
 ## 5. Functions
@@ -557,7 +626,7 @@ make_sound(dog)   # Bark
 
 ## Negative Infinity
 
-When trying to find a "max" value, it helps to keep track of the "max so far" in a variable and to start that variable at the **lowest** possible number, negative infinity.
+When trying to find a "max" value, it helps to keep track of the "max so far" in a variable and to start that variable at the **lowest** possible number, _negative infinity_. The same with _positive infinity_.
 
 ```python
 max_so_far = float("-inf")
