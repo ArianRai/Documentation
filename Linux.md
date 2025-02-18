@@ -38,6 +38,8 @@
 
 ### File Permissions
 
+![](./imgs/filepermissions.jpg)
+
 -   `chmod` – Change file permissions.
     -   `chmod 755 file.txt` – Set read, write, and execute for the owner, and read/execute for others.
 -   `chown` – Change file ownership.
