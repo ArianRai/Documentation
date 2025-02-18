@@ -38,7 +38,8 @@
 
 ### File Permissions
 
-![](./imgs/filepermissions.jpg)
+![](./imgs/permissions.jpg)
+![](./imgs/permissions-numeric.png)
 
 -   `chmod` – Change file permissions.
     -   `chmod 755 file.txt` – Set read, write, and execute for the owner, and read/execute for others.
