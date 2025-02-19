@@ -144,6 +144,14 @@ fruits = ["apple", "banana", "cherry"]
 first, second, third = fruits # => "apple", "banana", "cherry"
 ```
 
+#### Reversing a list
+
+```python
+scores = [ 1, 2, 3, 4 ]
+scores.reverse() #Modifies the original list
+print(scores) # => [ 4, 3, 2, 1 ]
+```
+
 #### Slicing Lists
 
 ```python
