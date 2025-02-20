@@ -138,7 +138,7 @@ Ordered, mutable collection of items.
 fruits = ["apple", "banana", "cherry"]
 ```
 
-#### Unpacking (Destructuring)
+#### Unpacking -> (Destructuring)
 
 ```python
 first, second, third = fruits # => "apple", "banana", "cherry"
