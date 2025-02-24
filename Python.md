@@ -576,6 +576,28 @@ p = Person("Alice", 30)
 print(p.greet())
 ```
 
+#### Class Variables vs. Instance Variables
+
+```python
+class Wall:
+    def __init__(self):
+        self.height = 10
+
+south_wall = Wall()
+south_wall.height = 20 # only updates this instance of a wall
+print(south_wall.height)
+# prints "20"
+
+north_wall = Wall()
+print(north_wall.height)
+# prints "10"
+
+Wall.height = 20 # updates all instances of a Wall
+
+print(south_wall.height)
+# prints "20"
+```
+
 ### Inheritance
 
 ```python
