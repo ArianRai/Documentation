@@ -161,6 +161,17 @@ scores = [50, 70, 30, 20, 90, 10, 50]
 print(scores[1:5:2]) # => [70, 20]
 ```
 
+> [!TIP]
+> When iterating over a list, if we want to have all elements of the list except for the one we are iterating over
+
+```python
+fruits = ["apple", "orange", "banana"]
+
+for i, fruit in enumerate(fruits):
+    other_fruits = fruits[:i] + fruits[i+1:]
+    print(f"Iteración {i+1}: {other_fruits}")
+```
+
 #### Omitting Sections
 
 ```python
@@ -373,6 +384,8 @@ for i in range(start, end, [step]):
 
 for i in range(0, 10): # 0 included, 10 excluded
 	print(i)
+
+for i, fruit in enumerate(fruits): # obtain the index and the element itself
 
 ```
 
@@ -601,16 +614,39 @@ print(south_wall.height)
 ### Inheritance
 
 ```python
-class Animal:
-    def speak(self):
-        return "Animal speaks"
+class Human:
+    def __init__(self, name):
+        self.__name = name
 
-class Dog(Animal):
-    def speak(self):
-        return "Woof"
+    def get_name(self):
+        return self.__name
 
-d = Dog()
-print(d.speak())  # Woof
+class Archer(Human):
+    def __init__(self, name, num_arrows):
+        super().__init__(name)
+        self.__num_arrows = num_arrows
+
+    def get_num_arrows(self):
+        return self.__num_arrows
+```
+
+A child class cannot simply access a private property of its parent class. It has to use a getter. For example:
+
+```python
+class Wall:
+    def __init__(self, height):
+        self.__height = height
+
+    def get_height(self):
+        return self.__height
+
+class Castle(Wall):
+    def __init__(self, height, towers):
+        super().__init__(height)
+        self.towers = towers
+
+    def get_tower_height(self):
+        return self.get_height() * 2
 ```
 
 ### Encapsulation
