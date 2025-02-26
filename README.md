@@ -19,4 +19,6 @@
 	-   [Kubernetes](https://github.com/ArianRai/Documentation/blob/main/DevOps/Kubernetes/Kubernetes.md)
 -	[RegExp](https://github.com/ArianRai/Documentation/blob/main/RegExp.md)
 -	[SQL](https://github.com/ArianRai/Documentation/blob/main/SQL.md)
+-	[Linux](https://github.com/ArianRai/Documentation/blob/main/Linux.md)
+-	[Python](https://github.com/ArianRai/Documentation/blob/main/Python.md)
 
