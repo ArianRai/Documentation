@@ -48,6 +48,7 @@
     - [Inheritance](#inheritance)
     - [Encapsulation](#encapsulation)
     - [Polymorphism](#polymorphism)
+    - [Operator Overloading](#operator-overloading)
 10. [Tips](#tips)
     - [Negative Infinity](#negative-infinity)
 
