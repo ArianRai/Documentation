@@ -688,6 +688,32 @@ make_sound(bird)  # Chirp
 make_sound(dog)   # Bark
 ```
 
+### Operator Overloading
+
+| Description                   | Operator | Method Name                       |
+| ----------------------------- | -------- | --------------------------------- |
+| Addition                      | `+`      | `__add__(self, other)`            |
+| Subtraction                   | `-`      | `__sub__(self, other)`            |
+| Multiplication                | `*`      | `__mul__(self, other)`            |
+| True division (returns float) | `/`      | `__truediv__(self, other)`        |
+| Floor division                | `//`     | `__floordiv__(self, other)`       |
+| Modulo (remainder)            | `%`      | `__mod__(self, other)`            |
+| Exponentiation                | `**`     | `__pow__(self, other)`            |
+| Equality                      | `==`     | `__eq__(self, other)`             |
+| Not equal                     | `!=`     | `__ne__(self, other)`             |
+| Greater than                  | `>`      | `__gt__(self, other)`             |
+| Less than                     | `<`      | `__lt__(self, other)`             |
+| Greater than or equal         | `>=`     | `__ge__(self, other)`             |
+| Less than or equal            | `<=`     | `__le__(self, other)`             |
+| Get item from container       | `[]`     | `__getitem__(self, index)`        |
+| Set item in container         | `[]=`    | `__setitem__(self, index, value)` |
+| Delete item from container    | `del []` | `__delitem__(self, index)`        |
+| Logical AND                   | `and`    | `__and__(self, other)`            |
+| Logical OR                    | `or`     | `__or__(self, other)`             |
+| Logical NOT                   | `not`    | `__not__(self)`                   |
+| Membership test               | `in`     | `__contains__(self, item)`        |
+| Identity comparison           | `is`     | `__is__(self, other)`             |
+
 # Tips
 
 ## Negative Infinity
