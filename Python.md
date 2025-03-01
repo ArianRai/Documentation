@@ -139,6 +139,13 @@ Ordered, mutable collection of items.
 fruits = ["apple", "banana", "cherry"]
 ```
 
+#### Getting the index of an element
+
+```python
+fruits = ["apple", "banana", "cherry"]
+index = fruits.index('banana') # -> 1
+```
+
 #### Unpacking -> (Destructuring)
 
 ```python
@@ -723,4 +730,20 @@ When trying to find a "max" value, it helps to keep track of the "max so far" in
 
 ```python
 max_so_far = float("-inf")
+```
+
+## Printing a Class
+
+```python
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return f"({self.x},{self.y})"
+
+p1 = Point(4, 5)
+print(p1)
+# prints "(4,5)"
 ```
