@@ -241,10 +241,16 @@ person = {
 }
 ```
 
-### Accessing values on a dictionary
+#### Accessing values on a dictionary
 
 ```python
 print(person["name"]) # "Alice"
+```
+
+#### Adding values on a dictionary
+
+```python
+person["email"] =  email@example.com
 ```
 
 #### Checking if an element exists in the dictionary
@@ -735,6 +741,77 @@ The difference is:
 > **Classes** encourage you to think about the world as a hierarchical collection of objects. Objects bundle behavior, data, and state together in a way that draws boundaries between instances of things, like chess pieces on a board.
 
 > **Functions** encourage you to think about the world as a series of data transformations. Functions take data as input and return a transformed output. For example, a function might take the entire state of a chess board and a move as inputs, and return the new state of the board as output.
+
+## 10. High Order Functions
+
+### Map
+
+The built-in **map** function takes a function and an iterable (like a list) as inputs. It returns an iterator that applies the function to every item, yielding the results.
+
+```python
+def square(x):
+    return x * x
+
+nums = [1, 2, 3, 4, 5]
+squared_nums = map(square, nums)
+print(list(squared_nums)) # [1, 4, 9, 16, 25]
+```
+
+-> `list()` converts the map object back into a standard list.
+
+### Filter
+
+The built-in **filter** function takes a function and an iterable and returns a new iterable that only contains elements from the original iterable where the result of the function on that item returned **True**.
+
+```python
+def is_even(x):
+    return x % 2 == 0
+
+numbers = [1, 2, 3, 4, 5, 6]
+evens = list(filter(is_even, numbers))
+print(evens) # [2, 4, 6]
+```
+
+-> `list()` converts the iterable object back into a standard list.
+
+### Reduce
+
+The built-in **functools.reduce()** function takes a function and a list of values, and applies the function to each value in the list, accumulating a single result as it goes.
+
+```python
+# import functools from the standard library
+import functools
+
+def add(sum_so_far, x):
+    print(f"sum_so_far: {sum_so_far}, x: {x}")
+    return sum_so_far + x
+
+numbers = [1, 2, 3, 4]
+sum = functools.reduce(add, numbers)
+# sum_so_far: 1, x: 2
+# sum_so_far: 3, x: 3
+# sum_so_far: 6, x: 4
+# 10 doesn't print, it's just the final result
+print(sum)
+# 10
+```
+
+-> `list()` converts the iterable object back into a standard list.
+
+### Zip
+
+The **zip** function takes two iterables, and returns a new iterable where each element is a tuple containing one element from each of the original iterables.
+
+```python
+a = [1, 2, 3]
+b = [4, 5, 6]
+
+c = list(zip(a, b))
+print(c)
+# [(1, 4), (2, 5), (3, 6)]
+```
+
+-> `list()` converts the iterable object back into a standard list.
 
 # Tips
 
