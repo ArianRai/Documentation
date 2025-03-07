@@ -815,6 +815,20 @@ print(c)
 
 # Tips
 
+## Comparison Chaining
+
+```python
+x = 2
+y = 5
+z = 10
+
+x < y < z # True
+
+x < y > z # False
+
+x > y < z # False
+```
+
 ## Negative Infinity
 
 When trying to find a "max" value, it helps to keep track of the "max so far" in a variable and to start that variable at the **lowest** possible number, _negative infinity_. The same with _positive infinity_.
