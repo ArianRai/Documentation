@@ -49,7 +49,9 @@
     - [Encapsulation](#encapsulation)
     - [Polymorphism](#polymorphism)
     - [Operator Overloading](#operator-overloading)
-10. [Tips](#tips)
+10. [Recursion](#recursion)
+11. [Function Transformations](#function-transformations)
+12. [Tips](#tips)
     - [Negative Infinity](#negative-infinity)
 
 ---
@@ -239,6 +241,13 @@ person = {
     "name": "Alice",
     "age": 30
 }
+```
+
+#### Getting keys and values
+
+```python
+list(person.keys()) # -> ["name", "age"]
+list(person.values()) # -> ["Alice", 30]
 ```
 
 #### Accessing values on a dictionary
@@ -812,6 +821,83 @@ print(c)
 ```
 
 -> `list()` converts the iterable object back into a standard list.
+
+# Recursion
+
+Recursion is the process of defining something in terms of itself.
+
+## Examples
+
+### Sum of n numbers in a list
+
+```python
+def sum_nums(nums):
+    if len(nums) == 0:
+        return 0
+    return nums[0] + sum_nums(nums[1:])
+
+print(sum_nums([1, 2, 3, 4, 5])) # -> 15
+```
+
+### Nested Sum
+
+```python
+
+def sum_nested_list(lst):
+    total_size = 0
+    for item in lst:
+        if not isinstance(item, list):
+            total_size += item
+        else:
+            total_size += sum_nested_list(item)
+    return total_size
+
+root = [
+    5,
+    [6, 7],
+    [[8, 9], 10]
+]
+print(sum_nested_list(root)) # -> 45
+```
+
+### Factorial of a number
+
+```python
+def factorial_r(x):
+    current = x
+    if x <= 1:
+        return 1
+    return current * factorial_r(x-1)
+```
+
+# Function Transformations
+
+It's when a function takes a function (or functions) as input and returns a new function.
+
+```python
+def multiply(x, y):
+    return x * y
+
+def add(x, y):
+    return x + y
+
+def self_math(math_func):
+    # inner_func is defined inside self_math.
+    # It can only be referenced directly
+    # inside self_math's scope. However, it is then
+    # returned and can be captured into a new variable
+    # like square_func or double_func, and called that way
+    def inner_func(x):
+        return math_func(x, x)
+    return inner_func
+
+square_func = self_math(multiply)
+double_func = self_math(add)
+
+print(square_func(5)) # -> 25
+
+print(double_func(5)) # -> 10
+```
 
 # Tips
 
