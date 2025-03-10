@@ -51,7 +51,9 @@
     - [Operator Overloading](#operator-overloading)
 10. [Recursion](#recursion)
 11. [Function Transformations](#function-transformations)
-12. [Tips](#tips)
+12. [Closures](#closures)
+13. [Currying](#currying)
+14. [Tips](#tips)
     - [Negative Infinity](#negative-infinity)
 
 ---
@@ -898,6 +900,72 @@ print(square_func(5)) # -> 25
 
 print(double_func(5)) # -> 10
 ```
+
+# Closures
+
+A **closure** is a function that references variables from outside its own function body. The function definition and its environment are bundled together into a single entity.
+
+Put simply, a closure is just a function that keeps track of some values from the place where it was defined, no matter where it is executed later on.
+A closure occurs when a function is defined inside another function, and the inner function references variables from the outer function.
+
+To understand closures, let's break down the components:
+
+1. **Nested Functions**: A function defined inside another function.
+2. **Free Variables**: A variable from the outer function that is used in the inner function.
+3. **Closure**: The inner function that "remembers" and retains access to the free variables, even after the outer function has finished execution.
+
+### Example 1: Simple Closure
+
+```python
+def outer_function(x):
+    def inner_function(y):
+        return x + y
+    return inner_function
+
+closure = outer_function(10)
+result = closure(5)
+print(result) # 15
+```
+
+### Explanation:
+
+-   The `outer_function(x)` defines a variable `x` and an inner function `inner_function(y)`.
+-   When `outer_function(10)` is called, it returns the `inner_function`, but the returned function retains access to the `x` variable from the outer function, even after the outer function has finished executing.
+-   When `closure(5)` is called, the inner function still has access to the `x` value from the original call (`x = 10`), so the result is `10 + 5 = 15`.
+
+### Key Points About Closures:
+
+1. A closure occurs when a function returns another function that uses variables from the outer function's scope.
+2. The inner function "remembers" the environment (the values of the variables) from the outer function, even after the outer function has finished execution.
+3. Closures are commonly used in Python for things like decorators, function factories, and maintaining state between function calls.
+
+### Using Closures with State (Function Factory)
+
+```python
+def counter():
+    count = 0
+
+    def increment():
+        nonlocal count
+        count += 1
+        return count
+
+    return increment
+
+counter1 = counter()
+print(counter1())  # Output: 1
+print(counter1())  # Output: 2
+print(counter1())  # Output: 3
+
+counter2 = counter()
+print(counter2())  # Output: 1
+```
+
+### Explanation:
+
+-   The `counter` function creates a closure that maintains the state of `count` across multiple calls to the inner function `increment`.
+-   The `nonlocal` keyword is used to modify the `count` variable from the outer function's scope.
+-   Each closure (`counter1`, `counter2`) maintains its own separate state for `count`.
 
 # Tips
 
