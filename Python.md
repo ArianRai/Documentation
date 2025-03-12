@@ -967,6 +967,10 @@ print(counter2())  # Output: 1
 -   The `nonlocal` keyword is used to modify the `count` variable from the outer function's scope.
 -   Each closure (`counter1`, `counter2`) maintains its own separate state for `count`.
 
+# Currying
+
+Function **currying** is a specific kind of _function transformation_ where we translate a single function that accepts multiple arguments into multiple functions that each accept a single argument and are executed consecutively.
+
 # Tips
 
 ## Comparison Chaining
