@@ -969,7 +969,20 @@ print(counter2())  # Output: 1
 
 # Currying
 
-Function **currying** is a specific kind of _function transformation_ where we translate a single function that accepts multiple arguments into multiple functions that each accept a single argument and are executed consecutively.
+**Currying** is a technique in _functional programming_ where a function that takes multiple arguments is transformed into a sequence of functions, each taking a single argument. The idea is that the function returns another function that accepts the next argument, and so on, until all arguments have been provided.
+
+In Python, **currying** is not built into the language, but we can implement it manually using **closures**.
+
+```python
+def curried_sum(x):
+    def add_y(y):
+        return x + y
+    return add_y
+
+add_5 = curried_sum(5)
+
+print(add_5(3))  # -> 8 (5 + 3)
+```
 
 # Tips
 
