@@ -248,8 +248,9 @@ person = {
 #### Getting keys and values
 
 ```python
-list(person.keys()) # -> ["name", "age"]
-list(person.values()) # -> ["Alice", 30]
+list(person.keys()) # -> ["name", "age"] LIST
+list(person.values()) # -> ["Alice", 30] LIST
+list(person.items()) # -> [("name", "Alice"), ("age", 30)] LIST OF TUPLES
 ```
 
 #### Accessing values on a dictionary
@@ -479,12 +480,44 @@ print(greet("John", message="Good morning"))
 
 ### Variable-Length Arguments
 
+-   **\*args** collects positional arguments into a **tuple**
+-   \***\*kwargs** collects keyword (named) arguments into a **dictionary**
+
 ```python
 def print_numbers(*args):
     for number in args:
         print(number)
 
 print_numbers(1, 2, 3, 4, 5)
+```
+
+### Variable-Length Keyworded Arguments
+
+```python
+def print_arguments(**kwargs):
+    print(f"Keyword arguments: {kwargs}")
+
+print_arguments(a=1, b=2)
+# Keyword arguments: {'a': 1, 'b': 2}
+```
+
+    You can mix positional arguments with keyworded arguments but positional arguments must be passed first
+
+### Splat/unpack Operator \*
+
+```python
+def spread(title, body, conclusion):
+    print(title)
+	print(body)
+	print(conclusion)
+
+my_dict = {
+    "title": "Why Python is Great",
+    "body": "Maybe it isn't",
+    "conclusion": "That's why Python is great!",
+}
+
+spread(**my_dict)
 ```
 
 ### Lambda Functions
